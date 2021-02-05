@@ -1,20 +1,22 @@
 from nltk.tokenize import sent_tokenize, word_tokenize
 import pyhmeter
-import api
+import methods
+import re
 
 EXAMPLE_TEXT = "@everytime i hear friends or pals talk about their weed habits, i'm starting to think that weed is actually fucking awful"
-tokens = word_tokenize(EXAMPLE_TEXT)
+pattern = re.compile('@\w*')
+removedAt = pattern.sub('', EXAMPLE_TEXT)
+tokens = word_tokenize(removedAt)
 
 print(tokens)
 
 file = pyhmeter.load_scores("Hedonometer.csv")
 
-
-""" h = pyhmeter.HMeter(tokens, file, 1.5)
+h = pyhmeter.HMeter(tokens, file, 1.5)
 print(h.matchlist)
-print(h.happiness_score()) """
+print(h.happiness_score()) 
 
-""" allTweets = api.getMostRecentTweets("washingtonpost")
+""" allTweets = methods.getTweets("washingtonpost")
 
 avgscore = 0
 count = 0
