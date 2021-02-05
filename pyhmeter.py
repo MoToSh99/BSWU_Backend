@@ -7,11 +7,11 @@ def load_scores(filename):
     by the Dodd paper. For other sets of word scores, a dict can be
     passed directly to HMeter."""
     
-    doddfile = csv.reader(open(filename, "r"), delimiter='\t')
-    for x in xrange(4):  # strip header info
-        doddfile.next()
+    doddfile = csv.reader(open(filename, "r"), delimiter=',')
+    for x in range(4):  # strip header info
+        next(doddfile)
 
-    return {row[0]: float(row[2]) for row in doddfile}
+    return {row[1]: float(row[3]) for row in doddfile}
 
 class HMeter(object):
     """HMeter is the main class to prepare a text sample for scores. It

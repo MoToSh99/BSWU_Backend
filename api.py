@@ -16,13 +16,19 @@ api = config.setupTwitterAuth()
 
 @app.route('/newesttweet')
 @cross_origin()
-def getMostRecentTweets():
+def getMostRecentTweetsAPI():
     username = request.args.get('username')
-    allTweets = tw.Cursor(api.user_timeline, screen_name='STANN_co', tweet_mode="extended", exclude_replies=False, include_rts=False).items(10)
+    tweetList = getMostRecentTweets(username)
+    return jsonify(tweetList)
+
+
+def getMostRecentTweets(username):
+    # STANN_co
+    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items()
     tweetList = []
     for status in allTweets:
         tweetList.append(status.full_text)
-    return jsonify(tweetList)
+    return tweetList
 
 # Run application
 if __name__ == '__main__':

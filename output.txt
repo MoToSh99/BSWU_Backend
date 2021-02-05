@@ -1,0 +1,5584 @@
+[]
+None
+[]
+None
+[]
+None
+['draw', 'good']
+6.82
+[]
+None
+['me']
+6.58
+[]
+None
+['good']
+7.2
+[]
+None
+['wife', 'flavor']
+6.75
+['fixing', 'complained', 'first', 'like', 'not', 'bug', 'shitty']
+4.702857142857143
+['real', 'found', 'fix', 'not', 'making', 'up']
+5.973333333333334
+['kids', 'kids']
+7.38
+['wonder', 'without', 'breaking']
+4.866666666666667
+['song']
+7.58
+['no', 'idea']
+5.27
+['very']
+6.12
+['always', 'never', 'gives', 'religion', 'better', 'better', 'youth', 'sucks', 'baby', 'forever']
+5.982
+['neon', 'hair', 'you']
+6.166666666666667
+[]
+None
+['know']
+6.1
+['make', 'make', 'girls', 'start']
+6.26
+['started', 'played']
+6.1899999999999995
+['not', 'everyone', 'found']
+5.506666666666667
+['play', 'last']
+5.5
+[]
+None
+['dear', 'my', 'music', 'talk', 'read', 'ridiculous', 'cozy', 'noise', 'well']
+6.117777777777778
+['okay']
+6.56
+['my', 'goal', 'life', 'my', 'art', 'first', 'people', 'score']
+6.5775
+['you', 'think', 'war']
+4.746666666666667
+['goal', 'smart', 'profits']
+7.326666666666667
+['last', 'bought', 'wrong', 'ughh']
+4.275
+['you', 'force', 'me']
+5.6066666666666665
+['crying', 'like', 'bitch', 'fell', 'lonely']
+3.696
+['friends', 'talk', 'starting', 'think', 'awful']
+5.92
+[]
+None
+['make', 'original']
+6.18
+['proud', 'myself', 'pretty', 'playing', 'acoustic', 'guitar', 'my', 'weak', 'more']
+6.335555555555556
+['mom', 'play', 'guitar', 'guitar']
+7.334999999999999
+[]
+None
+['yes', 'yes', 'yes', 'better']
+6.805
+['know']
+6.1
+['we', 'lol', 'people', 'dumb', 'hell']
+4.9319999999999995
+['start', 'artists', 'start', 'dark', 'female', 'eyes']
+5.993333333333333
+['you', 'afford', 'essential']
+6.140000000000001
+[]
+None
+['yourself']
+6.24
+['waiting']
+3.68
+['scared']
+2.58
+['people']
+6.16
+['real', 'talk', 'new', 'low']
+5.83
+['dim', 'white', 'shit']
+4.226666666666667
+['glad', 'alone', 'everyone']
+5.640000000000001
+['think', 'gave', 'me', 'shoot', 'angry', 'lady', 'very', 'more', 'classic']
+5.595555555555555
+['first', 'market', 'all', 'not', 'info', 'make', 'think']
+5.925714285714286
+['will', 'top', 'dollar', 'women', 'me', 'will', 'down', 'my']
+6.167499999999999
+['like', 'failing', 'loose', 'my', 'loss', 'bad', 'boys', 'retarded']
+4.2299999999999995
+['shit', 'luck', 'pal', 'bad']
+4.91
+[]
+None
+['pretty', 'annoying', 'care']
+5.593333333333334
+['you', 'think', 'greatest', 'most', 'all', 'right', 'scary', 'like', 'million', 'chance', 'impossible']
+5.927272727272728
+['play', 'bitches']
+5.01
+['buying', 'more', 'stop', 'me', 'moon']
+6.08
+['very', 'epic']
+6.21
+['big']
+6.22
+['making', 'sharing', 'shitty', 'jokes', 'sorry', 'funny', 'care', 'draw', 'share', 'progress', 'my', 'game', 'shit']
+6.010769230769231
+[]
+None
+[]
+None
+['know', 'market', 'determined', 'find', 'will', 'raise', 'know']
+6.248571428571429
+['greed', 'ruins']
+3.52
+['will', 'all', 'no', 'trading', 'trading']
+5.624
+['hope', 'best', 'fighting', 'freedom']
+6.305
+['idea', 'drive', 'try']
+6.386666666666667
+[]
+None
+['all', 'most', 'worried', 'like', 'more', 'info', 'right', 'selected', 'like', 'making']
+6.074
+['design', 'plan', 'first', 'not', 'easy']
+5.9799999999999995
+['started', 'thought', 'asshole']
+4.926666666666667
+['good', 'drawing']
+6.890000000000001
+['gone']
+3.42
+['me', 'without']
+5.0600000000000005
+['hey']
+6.06
+['my', 'drawings']
+6.28
+[]
+None
+['my', 'own']
+6.16
+['not', 'alone']
+3.59
+['child']
+7.24
+[]
+None
+['stories', 'know', 'god', 'heaven', 'kill', 'children', 'paint', 'blood', 'protection']
+5.913333333333333
+['us']
+6.26
+[]
+None
+[]
+None
+['rat', 'car', 'cook']
+5.466666666666666
+[]
+None
+['song', 'summer']
+6.99
+['you', 'not']
+5.05
+['unite']
+6.64
+['yourself']
+6.24
+['wonder', 'pink', 'color', 'coin', 'coin', 'fancy', 'pink', 'color', 'shining']
+6.7555555555555555
+['sorry', 'cool', 'drawing']
+5.813333333333333
+['you', 'voted']
+6.18
+['hey', 'nothing', 'check', 'cool', 'starlight']
+6.14
+[]
+None
+['my', 'youtube', 'all', 'worth', 'extra', 'people', 'will', 'enjoy', 'day', 'hopefully']
+6.552
+['great', 'know', 'you', 'hire', 'team', 'cut', 'costs', 'like', 'classic']
+5.999999999999999
+['up', 'starring', 'my']
+6.12
+[]
+None
+['established']
+6.18
+['opened', 'today', 'lady', 'care', 'like', 'clear', 'she', 'likes', 'people', 'up']
+6.473999999999999
+['fun']
+7.96
+['cousin']
+6.42
+['big', 'brain', 'people', 'very', 'ideas', 'not', 'sure']
+6.051428571428572
+['sad', 'face']
+4.25
+['you', 'share', 'bunny', 'pillow']
+6.694999999999999
+['play', 'music', 'top']
+7.346666666666667
+['fair', 'all', 'neat', 'bad', 'score', 'not', 'huge', 'recommended']
+5.6725
+['people', 'hated', 'you', 'bomb', 'game', 'game']
+5.0566666666666675
+['art', 'up', 'not', 'right', 'people']
+5.859999999999999
+['all', 'dumb', 'idea', 'idea', 'fun']
+6.272
+['buy', 'we']
+6.33
+['romantic', 'comedy']
+7.85
+[]
+None
+['wait']
+3.74
+['hey', 'we']
+6.22
+['you', 'insane']
+4.640000000000001
+['universe', 'kingdom']
+6.52
+['you', 'me', 'my', 'promised', 'me', 'wealthy', 'mate', 'will', 'shower', 'riches', 'laugh', 'people', 'earning', 'dollars', 'eat', 'alive']
+6.801874999999999
+['hating', 'people', 'success', 'very', 'nice', 'care', 'interests', 'not', 'me']
+5.94
+['not', 'success', 'you', 'sharing', 'thoughts']
+6.247999999999999
+['like', 'illegal']
+5.04
+['imagine', 'pissed', 'me']
+5.433333333333333
+['no']
+3.48
+[]
+None
+[]
+None
+['bought', 'open']
+6.199999999999999
+['epic']
+6.3
+['cute']
+7.52
+[]
+None
+[]
+None
+[]
+None
+['my', 'think', 'able', 'wage', 'increase', 'first', 'mean', 'tops', 'extra']
+6.108888888888888
+['think', 'huge', 'profit', 'live', 'fine', 'wage', 'increase', 'greed', 'higher', 'wages', 'good']
+6.336363636363637
+[]
+None
+['no']
+3.48
+['collection', 'classic', 'games', 'popular', 'think', 'games', 'cool', 'you', 'new', 'people']
+6.654000000000001
+['found', 'cool', 'remember', 'kid', 'try', 'games', 'collection', 'seeing', 'dead']
+6.091111111111111
+['present', 'my', 'tomorrow', 'school']
+6.390000000000001
+['remember', 'games', 'amazing', 'no', 'knows']
+6.2
+['good']
+7.2
+[]
+None
+[]
+None
+[]
+None
+['like', 'epic', 'bad', 'games', 'not']
+5.468
+[]
+None
+['she', 'new', 'art']
+6.533333333333334
+[]
+None
+['think', 'me']
+6.390000000000001
+[]
+None
+['try']
+6.02
+[]
+None
+['laughing']
+8.2
+['live', 'fear', 'you', 'steal', 'girls']
+4.96
+['me', 'wii', 'music', 'hate']
+5.765
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['bread', 'make', 'fat', 'wife', 'dead']
+4.84
+['idea', 'yes', 'play', 'me', 'not', 'professional']
+6.323333333333333
+['you']
+6.24
+[]
+None
+['found', 'us']
+6.4
+[]
+None
+['no']
+3.48
+['alright', 'think', 'lol']
+6.373333333333334
+['hardly']
+3.98
+['window']
+6.1
+['make', 'epic']
+6.15
+['scared']
+2.58
+[]
+None
+[]
+None
+['like']
+7.22
+['delicious', 'treat']
+7.33
+[]
+None
+[]
+None
+['not', 'against', 'abortion', 'think', 'kid']
+4.58
+[]
+None
+[]
+None
+[]
+None
+['hates', 'me', 'me', 'pictures', 'joke', 'me']
+6.080000000000001
+['we']
+6.38
+[]
+None
+['horrible']
+2.24
+[]
+None
+['yourself']
+6.24
+['all']
+6.22
+['well', 'stop', 'see', 'snakes']
+5.0725
+['make', 'real', 'like']
+6.666666666666667
+['like', 'stab', 'me', 'my', 'sleep']
+6.114
+[]
+None
+['drawings', 'sweet']
+7.02
+['my']
+6.16
+['simplicity', 'wins']
+7.03
+['you', 'think', 'not']
+5.433333333333334
+['rat']
+3.04
+[]
+None
+['completely', 'not', 'all', 'me', 'relationships', 'you', 'make', 'you']
+6.0425
+['film']
+6.56
+[]
+None
+[]
+None
+[]
+None
+['girls', 'you', 'she', 'thinks', 'you']
+6.395999999999999
+['cool', 'you', 'making']
+6.56
+['people', 'draw', 'shit', 'never', 'like', 'improving', 'sucks', 'think', 'know', 'lack', 'think', 'everyone', 'better', 'content']
+5.468571428571428
+['okay']
+6.56
+['controversy', 'people', 'burning', 'politicians', 'think', 'life']
+4.93
+['palace', 'island', 'own', 'ring', 'palace', 'like', 'insane', 'all', 'build', 'stolen', 'money']
+5.920000000000001
+[]
+None
+[]
+None
+['online', 'video', 'grad']
+6.4799999999999995
+['fight']
+2.7
+['good', 'day']
+6.720000000000001
+['she', 'old', 'teacher']
+5.506666666666667
+['last', 'right']
+5.140000000000001
+[]
+None
+['you']
+6.24
+['dumb', 'idiots', 'make', 'like']
+4.835
+['built']
+6.24
+[]
+None
+['together']
+6.8
+['sucks', 'all', 'my', 'best', 'friends', 'meet', 'planning']
+6.1657142857142855
+[]
+None
+['all']
+6.22
+['phone', 'picture', 'windows', 'picture']
+6.4350000000000005
+['hate', 'see', 'cool', 'youtube', 'video', 'enjoyed', 'disabled', 'youtube', 'kids', 'me', 'talk']
+6.070909090909091
+['shower', 'my', 'dumb', 'shit', 'annoying', 'tired', 'noise']
+4.048571428571428
+[]
+None
+['you', 'me', 'pictures', 'you', 'dancing', 'lol']
+6.673333333333332
+['shit']
+2.5
+['my', 'dad']
+6.59
+[]
+None
+['me']
+6.58
+[]
+None
+['lack', 'water']
+4.93
+['tired', 'you', 'all', 'hell']
+4.505
+['dance']
+7.36
+['poop', 'blanket']
+4.99
+['horrible', 'paranoid', 'myself', 'bad', 'shit', 'try', 'fix']
+4.211428571428572
+['like', 'like', 'speed']
+6.8933333333333335
+['cool', 'new']
+7.01
+['simple', 'online', 'games', 'ready', 'find']
+6.5280000000000005
+['new']
+6.82
+['thank', 'you']
+6.82
+['talented', 'help', 'share', 'playing', 'music', 'drawing', 'making', 'game', 'wonder', 'scare']
+6.494
+['like', 'stream', 'more', 'like', 'my', 'think', 'very', 'interesting', 'me', 'my', 'hair', 'stuck']
+6.295000000000001
+['new', 'tomorrow']
+6.5
+[]
+None
+['make', 'slip', 'ups']
+5.3
+['pray', 'me', 'bro']
+6.473333333333333
+['real', 'died', 'slip', 'up', 'strawberry', 'jam']
+5.243333333333333
+['praying', 'eating', 'people', 'never']
+5.94
+['thank', 'you', 'my']
+6.6000000000000005
+[]
+None
+['me', 'places', 'she']
+6.3
+['dream']
+7.1
+['you', 'sweet', 'you']
+6.706666666666666
+['will', 'make', 'you', 'shitty', 'you', 'good']
+5.713333333333334
+[]
+None
+['sweetheart']
+7.88
+['found', 'cute', 'video', 'my', 'old', 'very', 'neat']
+6.217142857142856
+[]
+None
+['american']
+6.74
+['no']
+3.48
+['you', 'adult', 'you', 'all']
+6.209999999999999
+['content', 'people', 'shit', 'always', 'up', 'world', 'content', 'sharing', 'sites', 'fucked', 'always']
+5.721818181818183
+['true', 'play', 'devils', 'think', 'like', 'shit', 'solution', 'ban', 'all', 'content', 'suck']
+5.27090909090909
+['robot', 'think', 'child', 'young']
+6.595000000000001
+['cat']
+6.64
+['hell']
+2.22
+['shit', 'coolest', 'young', 'good']
+5.825
+['you', 'die']
+3.99
+[]
+None
+['will']
+6.02
+[]
+None
+[]
+None
+['buy', 'simple', 'good', 'like', 'instrument', 'fancy', 'my', 'my', 'guitar']
+6.604444444444444
+[]
+None
+['you', 'not', 'my', 'war']
+4.515
+['know', 'nothing']
+5.0
+['you', 'you']
+6.24
+[]
+None
+[]
+None
+['colors', 'bad', 'me']
+5.406666666666666
+['design', 'hurts', 'my', 'eyes', 'more']
+5.42
+['guitar', 'bad', 'playing']
+5.666666666666667
+['living', 'life']
+7.0
+[]
+None
+['up', 'like', 'steal']
+5.273333333333333
+['game', 'children', 'murdered', 'biggest', 'children']
+5.792
+['all', 'people']
+6.1899999999999995
+[]
+None
+[]
+None
+['opened', 'first', 'house', 'dancing']
+6.5600000000000005
+['old', 'teaching', 'children', 'draw']
+5.995
+[]
+None
+[]
+None
+[]
+None
+['slept', 'mother', 'you']
+6.846666666666667
+['you']
+6.24
+['walk', 'park', 'high', 'life']
+6.765
+['very', 'cool', 'know', 'you']
+6.415000000000001
+[]
+None
+[]
+None
+['lol']
+6.84
+[]
+None
+[]
+None
+['alright', 'white']
+6.18
+[]
+None
+['like']
+7.22
+[]
+None
+['worst', 'shit', 'me', 'know', 'hate']
+3.9240000000000004
+[]
+None
+['not', 'forgiven']
+5.33
+[]
+None
+['best', 'produced']
+6.74
+['she', 'orange', 'definitely', 'not']
+5.694999999999999
+['think', 'all', 'ideas', 'own', 'dumb', 'refuse', 'believe', 'people', 'ahead', 'no', 'we', 'racist']
+5.261666666666667
+['no', 'all', 'ignore', 'idiots']
+3.995
+['loss']
+2.56
+['career']
+6.66
+['found', 'robot', 'pony', 'finish', 'day']
+6.454000000000001
+[]
+None
+['like', 'scared', 'me', 'violent']
+4.61
+['found', 'idea']
+6.8
+['found', 'old', 'never', 'think', 'like', 'not', 'great', 'loss']
+5.1975
+['bubble', 'she']
+6.1899999999999995
+['she']
+6.18
+['think', 'definitely']
+6.2
+['definitely', 'people', 'make', 'pretty', 'bad', 'mistakes', 'horrible', 'big', 'light', 'like', 'like', 'more']
+5.565
+['up']
+6.14
+['completely', 'right', 'like', 'no', 'support']
+6.004
+['found']
+6.54
+['never', 'like', 'me']
+5.713333333333334
+['goodnight', 'song', 'all', 'my', 'seas']
+6.68
+[]
+None
+['my', 'adults', 'very']
+6.113333333333333
+['you', 'right']
+6.390000000000001
+[]
+None
+['like', 'wish', 'like']
+7.12
+['eating', 'big', 'speed', 'special', 'eyes']
+6.639999999999999
+[]
+None
+[]
+None
+['buy', 'you']
+6.26
+[]
+None
+[]
+None
+['you', 'talking']
+6.35
+['sexy', 'thinks']
+6.890000000000001
+['extra', 'color', 'own']
+6.56
+['no']
+3.48
+['shade', 'shade', 'all', 'my', 'color']
+6.316
+['yes']
+6.74
+['you']
+6.24
+['we', 'our', 'we', 'children', 'murdered']
+5.5520000000000005
+['first', 'message', 'regret']
+5.34
+['finished', 'drawing', 'sorry', 'finish', 'caught', 'up']
+5.569999999999999
+[]
+None
+['see', 'babes', 'like']
+6.52
+['she']
+6.18
+[]
+None
+['fancy', 'perspective', 'drawing', 'more', 'color', 'shit', 'fancy']
+6.04
+[]
+None
+['you', 'conversation']
+6.24
+[]
+None
+[]
+None
+['stop', 'funny']
+5.91
+[]
+None
+[]
+None
+['my', 'cousin', 'sister']
+6.446666666666666
+[]
+None
+['born', 'sooner', 'stopped']
+5.640000000000001
+['nice', 'sweet', 'nice', 'sweet', 'zoo', 'we', 'mama']
+7.182857142857143
+['online', 'like', 'see', 'people', 'fighting', 'best', 'design', 'robot', 'degree']
+6.088888888888889
+['sexy', 'babe', 'like', 'bunny']
+7.08
+[]
+None
+[]
+None
+['talk', 'you', 'you', 'lonely']
+5.35
+['wish', 'teachers', 'speed', 'like', 'youtube']
+6.748
+['think', 'hope', 'better']
+6.859999999999999
+['remember', 'very', 'stories', 'nothings']
+5.73
+['cool', 'school']
+6.73
+['forced', 'destroyed', 'mind', 'produced']
+4.385
+['world', 'completely', 'world', 'all', 'stories', 'travelers', 'all', 'started']
+6.3374999999999995
+['dad']
+7.02
+['talking', 'make', 'my', 'ass']
+5.62
+[]
+None
+['kids', 'wife']
+7.0
+[]
+None
+['war', 'more', 'popular', 'better', 'easier', 'hope', 'wins', 'war']
+5.727499999999999
+['us']
+6.26
+[]
+None
+[]
+None
+['talk', 'cool']
+6.63
+['my', 'guitar', 'never', 'imagined', 'myself', 'liking', 'playing', 'guitar']
+6.325
+['me', 'old', 'games', 'you', 'like']
+6.268000000000001
+[]
+None
+[]
+None
+['very', 'cool', 'epic']
+6.54
+[]
+None
+['my', 'drawing']
+6.37
+[]
+None
+[]
+None
+[]
+None
+['like', 'you', 'know']
+6.5200000000000005
+[]
+None
+[]
+None
+['you', 'glee', 'delight', 'you']
+6.76
+['pretty']
+7.32
+['fashion', 'me', 'people', 'rings', 'like', 'hair', 'up', 'like', 'hair']
+6.457777777777777
+[]
+None
+[]
+None
+['you']
+6.24
+[]
+None
+[]
+None
+['late', 'cute', 'child', 'drawings', 'you']
+6.172
+['you']
+6.24
+['girl', 'like', 'drawings', 'technology', 'she', 'chance']
+6.663333333333333
+['good', 'art', 'down', 'better', 'art']
+6.212000000000001
+['knows']
+6.12
+['beast']
+3.36
+[]
+None
+['amazing']
+7.66
+['bitch', 'give', 'food']
+5.706666666666667
+[]
+None
+[]
+None
+['you', 'artist', 'exclusively', 'drawing', 'sexy', 'ladies']
+6.713333333333334
+['my', 'day', 'all', 'rage', 'honestly', 'always', 'more', 'interested', 'bunny', 'girl']
+6.164000000000001
+['bed', 'joining', 'me']
+6.653333333333333
+[]
+None
+['know', 'cool', 'lol']
+6.713333333333334
+['bed']
+7.18
+['good']
+7.2
+[]
+None
+['done', 'shit']
+4.52
+['dump']
+2.84
+['remember', 'gaming', 'glad', 'lol']
+6.79
+[]
+None
+['me', 'me', 'art', 'cute', 'money', 'lol']
+6.903333333333333
+['like', 'baby', 'mean']
+6.06
+['forward']
+6.1
+['more', 'my', 'brain', 'good']
+6.53
+['dumb', 'baby', 'bigger', 'my', 'childhood', 'prefer', 'starring', 'no', 'growing', 'right']
+5.8839999999999995
+[]
+None
+['new', 'friends', 'hope', 'meet', 'more', 'new', 'cool', 'nice', 'people', 'hope', 'find']
+6.880000000000001
+['artist', 'like', 'jerk', 'air']
+6.000000000000001
+['share', 'video', 'think', 'we', 'all', 'buddy', 'buddy']
+6.534285714285716
+['you', 'support', 'all']
+6.3
+['funny', 'promise', 'will', 'forced']
+6.069999999999999
+['my', 'okay', 'not', 'joke']
+6.05
+[]
+None
+[]
+None
+[]
+None
+['god', 'people']
+6.720000000000001
+['me', 'all', 'day']
+6.346666666666667
+['sketch', 'make', 'perspective', 'sketch']
+6.195
+['diss', 'you', 'lie', 'better']
+4.8175
+['we', 'drawing', 'you', 'lie', 'me', 'google', 'all', 'see', 'well', 'internet']
+6.202000000000001
+[]
+None
+['talking', 'child', 'beaten', 'parents', 'deal', 'parents', 'dumb', 'worst']
+5.315
+['imagine', 'babe', 'babe', 'my']
+6.745
+['dating', 'artists', 'me']
+6.6000000000000005
+['die', 'live', 'see', 'yourself']
+5.220000000000001
+[]
+None
+['game', 'art']
+6.76
+[]
+None
+[]
+None
+['incredible']
+7.42
+[]
+None
+['bastards']
+2.68
+[]
+None
+['strong', 'drawings']
+6.73
+['learn', 'hate', 'our', 'parents', 'learn', 'live']
+6.003333333333333
+['fish', 'dumb']
+4.82
+['thoughts']
+6.22
+['bitches', 'shit', 'like', 'up', 'like', 'horrible', 'you', 'talking', 'lol']
+5.291111111111111
+['friends', 'lost', 'friends']
+6.2
+['you']
+6.24
+['she', 'mind', 'we', 'force', 'my', 'friend']
+6.07
+['shut', 'up']
+4.85
+['down', 'camera', 'ruined', 'holy', 'annoying', 'fix']
+4.79
+['you', 'like', 'me', 'sorry', 'lady', 'all', 'own']
+6.097142857142856
+[]
+None
+['share']
+6.78
+['forgot']
+3.44
+['please', 'know']
+6.23
+[]
+None
+['very', 'motivation', 'know', 'up', 'fix', 'miserable']
+5.640000000000001
+['you', 'you', 'you', 'me']
+6.324999999999999
+['arrest', 'country', 'fun', 'see']
+5.68
+['idea', 'my', 'good', 'bad', 'me']
+5.928
+['honestly', 'right', 'more', 'lazy', 'you']
+5.864
+[]
+None
+['available', 'download']
+6.3
+['she']
+6.18
+['you', 'like', 'like', 'improving', 'my', 'art', 'you', 'see', 'you', 'like', 'fine', 'lol', 'amazing']
+6.723076923076923
+['not', 'best']
+5.52
+['result', 'numbers', 'all']
+6.086666666666666
+['best']
+7.18
+['you']
+6.24
+[]
+None
+['people', 'photo', 'dead', 'cursed', 'photo']
+5.008
+['stealing', 'kids', 'money']
+5.713333333333334
+['heart']
+7.22
+['great', 'confusion']
+5.6
+['feed', 'homeless', 'you', 'feed', 'me']
+5.564
+['deleted']
+3.36
+['no', 'wonder', 'find', 'lol', 'big', 'bright', 'lol']
+6.297142857142857
+['lol', 'more', 'popular', 'better', 'not', 'popular', 'not', 'fun']
+6.12
+['cutie']
+7.1
+[]
+None
+['joke']
+7.62
+['me']
+6.58
+['alright', 'not', 'good']
+5.713333333333334
+[]
+None
+['know', 'read', 'truly', 'think', 'horrible', 'retarded', 'people', 'without', 'thinking']
+5.1688888888888895
+[]
+None
+['remember', 'she', 'like']
+6.6066666666666665
+['nice']
+7.38
+[]
+None
+['kids', 'sleep']
+7.27
+[]
+None
+['piss', 'mirror']
+4.91
+['demon']
+2.92
+['nap', 'dreamed', 'late', 'shit', 'up', 'myself', 'weekend', 'horrible']
+5.24375
+['home', 'not', 'me', 'easily', 'up', 'not', 'good', 'paranoid', 'depressed', 'hope', 'live', 'making', 'games', 'stress', 'good', 'my', 'very', 'nice']
+5.832222222222222
+['sure', 'quality', 'rest', 'show', 'better']
+6.768000000000001
+[]
+None
+['huge', 'my', 'childhood', 'visit', 'see', 'games', 'kid', 'eager', 'new', 'ill', 'show', 'support', 'check', 'games']
+6.2700000000000005
+[]
+None
+['worth']
+6.78
+['epic']
+6.3
+[]
+None
+[]
+None
+['good', 'creative', 'ready']
+7.06
+[]
+None
+['thought', 'leading']
+6.51
+['think', 'real']
+6.49
+[]
+None
+['nice', 'people', 'me', 'talking']
+6.645
+['ladies']
+7.2
+[]
+None
+['yes', 'my', 'breath']
+6.426666666666667
+['cute', 'bitches', 'bunny']
+5.72
+['you', 'more']
+6.24
+[]
+None
+['ouch']
+2.9
+['you']
+6.24
+['bro', 'me', 'hair', 'think', 'pretty', 'alright']
+6.406666666666666
+['died']
+1.56
+['deserve']
+6.4
+['make', 'my']
+6.08
+['me']
+6.58
+['create', 'cool']
+7.01
+['artists']
+6.82
+['stolen']
+2.5
+[]
+None
+[]
+None
+['cute', 'bunny', 'girl', 'avatar']
+6.85
+['day']
+6.24
+['likes', 'my', 'my', 'mind']
+6.41
+['guilty', 'cool', 'my', 'own', 'like', 'hope', 'day', 'make', 'games']
+6.257777777777778
+['down', 'rhythm']
+5.155
+[]
+None
+[]
+None
+['fighting', 'freedom', 'country']
+5.646666666666667
+['imagine']
+7.18
+['beating', 'without']
+3.05
+[]
+None
+['lol']
+6.84
+['you', 'up', 'my', 'believe', 'you', 'superior', 'me']
+6.305714285714285
+['you', 'open', 'dictionary', 'see', 'loser', 'you', 'angry', 'book']
+5.32
+['honestly', 'more', 'make']
+6.419999999999999
+['variety', 'fine', 'easily', 'hope', 'real', 'not', 'dumb', 'shit']
+5.515
+['you']
+6.24
+[]
+None
+['party', 'own', 'health', 'enemy']
+5.9
+['none', 'you', 'listening', 'lol', 'understanding', 'popular', 'without', 'meaning', 'harm']
+5.413333333333333
+[]
+None
+['slept', 'up', 'today', 'better', 'right', 'miserable', 'finish']
+5.968571428571429
+[]
+None
+[]
+None
+['christ', 'like', 'natural', 'lol']
+6.694999999999999
+['imagine', 'protected', 'more']
+6.673333333333333
+['me']
+6.58
+['you', 'boy']
+6.24
+['thank']
+7.4
+['melody']
+7.35
+['better', 'stop', 'driving']
+5.6933333333333325
+['missing', 'white', 'mess']
+4.3999999999999995
+['think', 'like', 'dating', 'focused', 'more', 'art', 'community', 'horrible', 'people', 'meet', 'nice', 'people', 'creative']
+6.261538461538463
+['vitamin', 'bro']
+6.55
+['all', 'like', 'message', 'first', 'never', 'message', 'hate']
+5.442857142857142
+['right']
+6.54
+[]
+None
+['you', 'donate', 'you']
+6.406666666666666
+['never', 'date', 'online', 'me', 'drinking', 'wine', 'okay']
+6.0114285714285725
+['blame', 'google', 'thinking', 'lol']
+5.785
+['invasion']
+3.42
+[]
+None
+['shitty']
+2.58
+['sorry', 'me', 'believe', 'like', 'evil', 'like']
+5.546666666666667
+['believe', 'blocked', 'picture', 'baby']
+6.065
+['more', 'amazing', 'people', 'without', 'own']
+5.952
+['she', 'die', 'without']
+3.8200000000000003
+['suspicious', 'suspicious', 'lol']
+4.466666666666666
+['thanks', 'know', 'not']
+5.786666666666666
+[]
+None
+['pizza', 'eats', 'pizza']
+6.920000000000001
+['new', 'first']
+6.82
+['lol']
+6.84
+['believe']
+6.7
+['thank', 'you', 'up']
+6.593333333333334
+[]
+None
+['very', 'google']
+6.66
+[]
+None
+['you', 'babies', 'faces']
+6.633333333333333
+['thought', 'cool', 'videos', 'true', 'colors']
+6.836
+['meet', 'heroes']
+6.77
+[]
+None
+['asian', 'white']
+6.300000000000001
+[]
+None
+['music', 'my', 'ideas', 'know']
+6.859999999999999
+['you', 'safe']
+6.640000000000001
+[]
+None
+[]
+None
+['we']
+6.38
+['up', 'pictures', 'new', 'future', 'promised', 'myself', 'never', 'touch']
+6.187499999999999
+['playing', 'king', 'live']
+6.72
+['we']
+6.38
+['proud', 'my', 'country', 'think', 'stupid', 'negative', 'think', 'we', 'boys', 'flying', 'like']
+5.750909090909092
+['up', 'my', 'hilarious', 'my', 'country']
+6.448
+['day', 'tired', 'myself', 'my', 'own']
+5.64
+['big', 'commitment', 'loose', 'think', 'you', 'rock', 'well']
+5.965714285714285
+['give', 'you', 'think', 'more', 'lying']
+5.56
+['right']
+6.54
+[]
+None
+['sure', 'best', 'not', 'perfect', 'drawing', 'best']
+6.423333333333333
+['make', 'fancy', 'battles', 'please', 'give', 'me', 'suggestions', 'cool', 'try']
+6.168888888888889
+['shit']
+2.5
+['opened', 'my', 'snow', 'no']
+5.49
+['up', 'see', 'all', 'friends', 'horrible']
+5.715999999999999
+['words', 'up', 'myself', 'never', 'dress', 'up', 'dog']
+5.894285714285715
+[]
+None
+['boy']
+6.24
+[]
+None
+['up']
+6.14
+['you', 'die', 'live', 'see', 'yourself']
+5.4239999999999995
+[]
+None
+[]
+None
+['you', 'think']
+6.220000000000001
+['variety', 'nice', 'draw', 'exactly', 'you']
+6.5680000000000005
+['better', 'fair']
+6.98
+['know', 'no', 'alone']
+4.3
+['scary', 'start', 'alone', 'you', 'people', 'you', 'nice', 'help', 'you', 'you', 'help', 'start', 'lowest', 'possible']
+5.5928571428571425
+['muscles', 'like', 'you', 'develop', 'more']
+6.5040000000000004
+['started', 'my', 'encouraged', 'me', 'me']
+6.459999999999999
+['difficult', 'muscles']
+4.87
+['real', 'most', 'people', 'nice', 'you', 'cool']
+6.663333333333334
+[]
+None
+['amazing']
+7.66
+['people', 'think', 'not', 'white', 'not', 'good', 'wrong']
+5.242857142857143
+['never', 'fan', 'content', 'young', 'bad', 'better', 'younger', 'you', 'not', 'sick', 'me']
+5.234545454545455
+['rat']
+3.04
+['you', 'child']
+6.74
+['girls', 'sex', 'girlfriend', 'younger', 'think', 'better', 'not']
+6.411428571428572
+['banana', 'song', 'movie']
+7.093333333333334
+['bro', 'remember', 'me', 'no']
+5.675
+['adults', 'art', 'you', 'join']
+6.279999999999999
+['drinking', 'coffee', 'today', 'hate', 'coffee']
+5.811999999999999
+['my']
+6.16
+['very', 'strong', 'against', 'couple', 'people', 'apart', 'interested', 'think']
+5.825000000000001
+['cute']
+7.52
+[]
+None
+[]
+None
+[]
+None
+['yourself', 'lie', 'yourself', 'smoke', 'happy', 'cool', 'healthy']
+5.965714285714286
+['me']
+6.58
+['cute', 'cool']
+7.359999999999999
+[]
+None
+[]
+None
+['meet', 'heroes']
+6.77
+[]
+None
+['huge', 'idiot', 'waste', 'most', 'you']
+4.872
+[]
+None
+['bro']
+6.22
+['my']
+6.16
+['know', 'sure', 'okay']
+6.326666666666667
+['shit', 'you', 'missed', 'bad']
+3.765
+['bro']
+6.22
+[]
+None
+[]
+None
+['know', 'like']
+6.66
+['temple', 'last']
+4.9399999999999995
+['up']
+6.14
+[]
+None
+[]
+None
+['people', 'help', 'you']
+6.16
+[]
+None
+[]
+None
+['found', 'video', 'accident', 'painting', 'like']
+5.868
+[]
+None
+[]
+None
+['people', 'sad', 'found']
+5.026666666666666
+[]
+None
+['my', 'christmas', 'myself', 'my', 'extra', 'shit']
+5.933333333333334
+[]
+None
+['wish', 'more', 'honestly', 'draw', 'paint', 'perfect', 'not', 'horrible', 'never']
+5.5311111111111115
+['you', 'know']
+6.17
+[]
+None
+['you', 'give', 'create', 'movie', 'all', 'amazing']
+6.7200000000000015
+['big', 'babe', 'not', 'my', 'me', 'pics']
+6.006666666666667
+['up', 'try', 'fix', 'my', 'sleep', 'done', 'day', 'sleep']
+6.4625
+[]
+None
+[]
+None
+['please', 'me', 'you']
+6.3933333333333335
+['all', 'power', 'bitches', 'real', 'idiots', 'lol']
+5.39
+['care', 'my', 'mom', 'annoying']
+5.815
+[]
+None
+['my', 'dark', 'my', 'without', 'see', 'big', 'hanging', 'cool', 'younger', 'scared', 'yelling']
+5.003636363636363
+['nooo', 'new']
+5.35
+['color', 'most', 'artist', 'color', 'drawing', 'like', 'colors', 'right', 'lol']
+6.793333333333333
+['hope', 'up', 'my']
+6.56
+['wife', 'like']
+6.92
+[]
+None
+['living', 'dream']
+6.89
+['ocean', 'people', 'you', 'pandemic']
+5.24
+[]
+None
+['brave']
+7.02
+['you', 'make', 'night']
+6.153333333333333
+[]
+None
+['fired']
+2.3
+['phone', 'automatic', 'insane', 'me']
+5.515000000000001
+[]
+None
+[]
+None
+[]
+None
+['no', 'mind']
+4.76
+['new']
+6.82
+['please', 'make', 'up', 'easier', 'think']
+6.452
+['like', 'horrible']
+4.73
+[]
+None
+['babes']
+6.28
+['nasty', 'she', 'ring', 'right', 'give', 'will', 'give', 'more', 'comfort', 'gold', 'my']
+6.201818181818182
+['broke']
+2.54
+['woman', 'cat']
+6.74
+[]
+None
+['facebook', 'like']
+6.65
+['hands', 'evolution']
+6.109999999999999
+['knows', 'good']
+6.66
+[]
+None
+['simple']
+6.02
+['today', 'will', 'girlfriend', 'girlfriend']
+6.579999999999999
+['babies', 'babies']
+7.46
+['adult']
+6.14
+['very', 'clean', 'you', 'mom']
+6.725
+['share', 'shit']
+4.640000000000001
+[]
+None
+['dream', 'visited', 'music', 'music', 'day', 'mom', 'me', 'dust', 'dirt', 'clean', 'up', 'she', 'argument', 'daughter']
+6.185714285714288
+[]
+None
+['me', 'found', 'whale', 'you', 'think', 'she', 'right', 'not', 'she', 'lol']
+6.160000000000001
+['help', 'smooth']
+6.4399999999999995
+['think', 'everyone']
+6.16
+['haha', 'very', 'buy']
+6.68
+['big', 'us']
+6.24
+['disagree', 'best']
+5.43
+['draw', 'big', 'fat', 'cowboy']
+5.535
+['you', 'fraud']
+4.27
+[]
+None
+['live', 'up']
+6.49
+['chocolate', 'milk']
+7.04
+[]
+None
+['vibe']
+6.02
+['milk']
+6.22
+['ruined', 'quality', 'dumb', 'see', 'good', 'quality', 'higher', 'quality']
+5.827500000000001
+['correct']
+7.02
+[]
+None
+['interested', 'share']
+6.8100000000000005
+['idea', 'melody', 'last', 'night', 'played', 'sleep']
+6.3183333333333325
+['you', 'talking']
+6.35
+['like', 'negative']
+4.82
+['amazing', 'draw', 'more', 'milk']
+6.640000000000001
+[]
+None
+['muffin']
+6.76
+['will', 'you', 'horrible', 'stop', 'you', 'you']
+5.146666666666667
+['okay', 'not', 'like']
+5.88
+['remember', 'think', 'shit', 'down', 'know', 'sure']
+5.2
+['lost', 'cool', 'old', 'piss', 'eggs']
+4.704
+[]
+None
+['amazing', 'team']
+6.96
+['best', 'result', 'think']
+6.46
+['best', 'future']
+6.97
+['new', 'youtube', 'share', 'up']
+6.665
+['will', 'everyone', 'talking']
+6.2
+[]
+None
+[]
+None
+['milk']
+6.22
+['friends', 'myself', 'friends', 'girlfriend', 'lying', 'money', 'know', 'talk', 'make', 'shut', 'down', 'idea']
+5.958333333333333
+['she']
+6.18
+['will']
+6.02
+[]
+None
+['applicable', 'play']
+6.63
+['learn', 'my', 'soul', 'sucked', 'my']
+5.768
+['think', 'giving', 'money', 'homeless', 'people', 'gave', 'more', 'money', 'homeless', 'people', 'people', 'complaining']
+5.491666666666666
+['video', 'horrible', 'earning', 'money', 'video', 'bad', 'people', 'lost', 'legs', 'unfortunate', 'good']
+5.199999999999999
+['perspective', 'bought', 'big', 'idea', 'money', 'straight', 'like', 'best', 'solution', 'me']
+6.68
+['me', 'people', 'like', 'people', 'bringing', 'huge', 'problems', 'shitty', 'people']
+5.551111111111112
+['make', 'big', 'video', 'girlfriend', 'real', 'well', 'able', 'earn', 'dollars', 'research', 'world', 'know']
+6.636666666666666
+['think', 'dumb', 'well', 'youtube', 'deal', 'like', 'famous', 'horrible', 'people', 'light']
+5.788
+['problem']
+2.98
+['shirt', 'perfect', 'more']
+6.640000000000001
+['answer']
+6.24
+['all', 'answers', 'me', 'never', 'answered', 'found', 'solution', 'able', 'solve']
+6.151111111111111
+['more', 'like']
+6.73
+['top', 'words', 'lol', 'epic', 'jesus', 'christ', 'shut', 'up', 'my', 'mother']
+6.216
+['sucked', 'ass']
+3.67
+['cheated', 'cheated', 'up']
+3.766666666666667
+['cheated']
+2.58
+['well', 'right', 'strongly', 'believe', 'lying', 'cheating']
+5.1499999999999995
+['people', 'new', 'bed']
+6.72
+['negative', 'new', 'all', 'holy', 'shit', 'tired', 'living', 'my', 'mom', 'she', 'nothing', 'negative', 'hate']
+4.866153846153846
+['you', 't-shirt']
+6.21
+['sauce']
+6.04
+['you', 'energy', 'art']
+6.686666666666667
+['slap', 'butter']
+4.52
+['new', 'game', 'idea', 'shares', 'progress', 'youtube', 'dislike', 'never', 'youtube', 'lol', 'know', 'my', 'game', 'development', 'exciting']
+6.318666666666667
+['drawing', 'know']
+6.34
+['warning', 'playlist', 'people', 'videos', 'videos', 'people', 'created', 'videos', 'me', 'child', 'safety', 'issues']
+5.946666666666666
+['up', 'youtube', 'share']
+6.613333333333333
+['smart', 'people', 'racist', 'sense', 'least', 'shiny', 'guns', 'cars', 'lol']
+5.426666666666666
+['new', 'quick', 'my', 'game', 'youtube', 'please', 'share', 'you', 'see']
+6.475555555555556
+['dead', 'dead', 'killed']
+1.8533333333333335
+['live', 'my', 'mom', 'god', 'live', 'fear', 'we', 'kicked', 'my', 'mom', 'up', 'shit', 'amazing', 'my', 'dad']
+5.994666666666666
+[]
+None
+['tip', 'game', 'development', 'game', 'design', 'sex', 'forever']
+6.668571428571428
+['wish', 'more']
+6.58
+['make', 'up']
+6.07
+[]
+None
+['bunny', 'wasted']
+4.83
+['like', 'headache', 'all', 'night']
+5.409999999999999
+['polish']
+6.16
+['you', 'rhymes', 'make', 'song', 'real']
+6.640000000000001
+[]
+None
+[]
+None
+[]
+None
+['bro', 'good', 'she', 'light', 'not', 'all']
+6.013333333333333
+['tomorrow', 'new', 'honestly', 'not', 'family', 'gathering', 'fireworks', 'will', 'me', 'like']
+6.504
+['she', 'greater', 'picture', 'she', 'screwed', 'she', 'white', 'talking', 'know', 'fair']
+6.090000000000001
+[]
+None
+['pretty', 'horrible', 'info', 'horrible', 'everyone']
+4.804
+['like', 'greater', 'good', 'talk', 'not', 'talk', 'horrible', 'simply', 'horrible']
+5.331111111111111
+['embrace', 'greek']
+6.15
+['mom', 'mom', 'you', 'no', 'more', 'you', 'paradise', 'okay']
+6.495000000000001
+['think', 'greeks', 'pretty', 'gods']
+6.5425
+[]
+None
+['very', 'my', 'game', 'epic', 'friends']
+6.684
+['start', 'youtube', 'new', 'game', 'idea', 'most', 'me', 'talking', 'progress']
+6.704444444444444
+[]
+None
+['threat', 'court']
+3.07
+['will', 'dating', 'against']
+5.273333333333333
+['able', 'shit', 'lol']
+5.3
+['more', 'future']
+6.5
+['played', 'very', 'video', 'honest', 'never', 'know', 'annoying', 'me']
+5.66
+['you']
+6.24
+['kicked', 'big', 'deal', 'last', 'baby']
+5.348000000000001
+['kill']
+1.56
+['real']
+6.78
+[]
+None
+['sorry', 'up']
+4.9
+[]
+None
+['my', 'new', 'graphics', 'quick']
+6.36
+['ipad', 'fucked']
+5.03
+[]
+None
+['better', 'my', 'worse', 'my', 'games', 'will']
+5.8933333333333335
+['games', 'new']
+7.07
+['help', 'myself', 'sorry']
+5.346666666666667
+['new', 'my', 'none', 'my', 'friends', 'help', 'right', 'me']
+6.262499999999999
+[]
+None
+[]
+None
+['you', 'happy']
+7.2700000000000005
+['real', 'my', 'drive']
+6.340000000000001
+['mean', 'like']
+5.45
+['explore', 'new', 'very', 'unique', 'game', 'idea', 'fear', 'bad', 'idea']
+5.8100000000000005
+[]
+None
+[]
+None
+[]
+None
+['never', 'good']
+5.27
+['up', 'game', 'well', 'camera']
+6.635
+[]
+None
+['very', 'well', 'cool']
+6.666666666666667
+['ass', 'think', 'neat', 'new', 'graphics', 'understands']
+6.150000000000001
+['no', 'download', 'not', 'done', 'lol', 'making']
+5.496666666666666
+[]
+None
+[]
+None
+['like', 'you', 'floating', 'alone', 'floating', 'skills', 'help', 'you', 'survive', 'you', 'together', 'survive']
+6.11
+['more', 'thinking', 'game']
+6.4799999999999995
+['sleeping', 'very', 'loose', 'my', 'lost', 'computer', 'floating', 'game']
+5.822500000000001
+['bed', 'draw', 'ipad', 'all', 'rest', 'day']
+6.626666666666666
+['my', 'old', 'my', 'new', 'power', 'my', 'drawing']
+6.077142857142857
+['grows', 'sleep']
+6.825
+['game', 'know']
+6.51
+['birthday', 'like', 'honestly', 'day', 'okay', 'people', 'wished', 'me', 'happy', 'birthday', 'me', 'happy']
+7.104166666666667
+['hope', 'paint', 'like']
+6.966666666666666
+['queen']
+6.24
+['cancelled']
+2.88
+['my', 'birthday', 'all', 'my', 'bed', 'nothing']
+6.233333333333333
+['problem']
+2.98
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['painting', 'exercise']
+6.54
+['acquire', 'our', 'burning', 'passion', 'making', 'make', 'my']
+5.859999999999999
+[]
+None
+['acquired']
+6.04
+['smoke']
+3.16
+[]
+None
+['eye']
+6.14
+['will']
+6.02
+[]
+None
+['shit', 'wait', 'forgot']
+3.2266666666666666
+['movie', 'see']
+6.449999999999999
+['today']
+6.22
+['thought', 'joke']
+7.0
+['bad', 'please', 'you', 'draw', 'you']
+5.5840000000000005
+['you', 'simple', 'tomorrow', 'very']
+6.14
+['no', 'okay']
+5.02
+['you']
+6.24
+['no', 'kissing', 'me']
+6.0
+[]
+None
+['she', 'woman', 'she']
+6.3999999999999995
+['well', 'people', 'think', 'funny']
+6.74
+['people', 'think', 'funny', 'all']
+6.625
+['good', 'movie', 'think', 'alone', 'not', 'my', 'family', 'like', 'appreciate']
+6.1933333333333325
+['kid', 'day', 'ruined']
+5.206666666666667
+['you', 'confusing', 'me', 'people', 'confused']
+5.104000000000001
+['hate']
+2.34
+[]
+None
+['played', 'loved', 'no', 'good', 'games']
+6.468000000000001
+['lol', 'new']
+6.83
+['happy', 'birthday', 'mine', 'tomorrow']
+7.140000000000001
+['worth', 'play']
+7.02
+['bad']
+2.64
+['very', 'lonesome', 'everyone', 'christmas']
+5.83
+[]
+None
+[]
+None
+['walk', 'touching', 'you', 'fine', 'present']
+6.514
+['me']
+6.58
+['cat', 'cat', 'approaches']
+6.44
+['you', 'all', 'heroes', 'simple', 'act', 'not', 'monster']
+5.565714285714286
+['see', 'kid', 'tired', 'moms', 'shit']
+5.124
+['my', 'birthday', 'tomorrow', 'like', 'lol', 'draw', 'my', 'always', 'cool', 'me', 'own', 'hanging', 'lol']
+6.450769230769231
+['like', 'my', 'hero', 'draw']
+6.905
+['sorry', 'starting', 'most', 'cute', 'me', 'excited']
+6.349999999999999
+['late', 'midnight', 'treat', 'myself', 'movie', 'remember', 'worth', 'night']
+6.117500000000001
+['finish', 'dont', 'like']
+5.88
+['images']
+6.34
+['pictures', 'online']
+6.89
+['prefer']
+6.52
+['will', 'you']
+6.13
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['okay']
+6.56
+['like', 'you', 'you', 'driving']
+6.470000000000001
+['artist', 'without']
+5.140000000000001
+['dumb', 'dumb', 'you', 'missed']
+4.01
+['me', 'regret']
+4.85
+['you']
+6.24
+['dog']
+6.7
+['cosmic']
+6.56
+['bunny', 'girls', 'me']
+6.8
+[]
+None
+['painted', 'me']
+6.4399999999999995
+['contact', 'not']
+4.97
+[]
+None
+['hell']
+2.22
+['sweet', 'dream', 'intimate', 'beautiful', 'babe', 'down', 'great', 'movie', 'she', 'laughed', 'dream', 'good', 'movie']
+6.938461538461539
+['done', 'more', 'drawings', 'my', 'my', 'ipad', 'me', 'very', 'slow']
+6.053333333333333
+[]
+None
+['we', 'celebrate']
+7.18
+['wonderful', 'late', 'night']
+5.813333333333333
+['like', 'very', 'sad', 'accident']
+4.51
+['you', 'good']
+6.720000000000001
+['giving', 'horrible', 'mess', 'believe', 'fix', 'boat', 'hope']
+5.6571428571428575
+['legit', 'talent']
+6.57
+['strong', 'glad', 'friends']
+7.486666666666667
+['sad', 'truth', 'making', 'fun', 'exact', 'thinking']
+6.053333333333334
+['joke', 'you', 'believe', 'scared']
+5.785
+['not', 'up']
+5.0
+['pizza']
+7.16
+['nice', 'sorry']
+5.52
+[]
+None
+[]
+None
+['played', 'last']
+5.0600000000000005
+[]
+None
+['she']
+6.18
+[]
+None
+['gods', 'humanity', 'all', 'raped']
+5.285
+['me', 'humans', 'eat', 'meat', 'buy', 'all']
+6.513333333333333
+['meal']
+7.18
+['make', 'without', 'eggs']
+5.1866666666666665
+['bad', 'nothing']
+3.27
+['young', 'thought', 'my', 'pony', 'coolest', 'shit', 'all', 'not', 'faith', 'make', 'progress']
+5.973636363636363
+[]
+None
+['bad', 'awesome']
+5.12
+['dictionary', 'water', 'we', 'thinks', 'we']
+6.3999999999999995
+[]
+None
+['gives', 'shit', 'integrity']
+5.246666666666667
+['thought', 'dumb', 'people', 'lol', 'well']
+5.824
+['you', 'more', 'think', 'lol']
+6.38
+['stuck', 'together', 'worse', 'book']
+5.1
+['bad', 'like', 'not', 'very', 'bad', 'you', 'photos', 'like', 'helped', 'you', 'improve', 'understanding', 'shit']
+5.552307692307692
+['facebook', 'like', 'young', 'artists', 'drawing', 'faces', 'like', 'you', 'new', 'photos', 'my', 'bad', 'new', 'artists', 'teaching', 'artists', 'bad']
+6.192941176470588
+[]
+None
+['dad', 'own']
+6.59
+['money', 'merry']
+7.43
+['you', 'like']
+6.73
+['like', 'lol']
+7.029999999999999
+['presence', 'my', 'dad', 'think', 'god', 'bless']
+6.626666666666666
+['focused', 'will', 'cute', 'focus']
+6.6000000000000005
+['not', 'assured', 'you', 'never', 'make', 'lol', 'my', 'drawing', 'real', 'life', 'better']
+6.029090909090908
+['my', 'bed', 'dedicated']
+6.72
+[]
+None
+['mean', 'you', 'think', 'more', 'like', 'all', 'day', 'more', 'people', 'lol']
+6.128
+['you', 'lol', 'people', 'earn', 'livin']
+6.578
+[]
+None
+['bitch', 'she', 'my', 'friend', 'me', 'support', 'choices']
+6.028571428571428
+['like', 'you']
+6.73
+['suspended', 'words', 'help', 'us', 'all']
+5.536
+['luckily', 'experienced', 'stories', 'people', 'eggs', 'sick', 'lol']
+5.965714285714286
+['see', 'negative', 'you', 'make', 'see', 'light']
+5.53
+['you', 'play', 'evil', 'think', 'right', 'up']
+5.713333333333334
+['myself', 'lol', 'dirty', 'kids', 'you', 'kid', 'dirty', 'adults']
+5.7575
+[]
+None
+['tale', 'always', 'think', 'make', 'us', 'all', 'never', 'trust', 'like', 'dirty', 'people', 'rich', 'me', 'know']
+6.0857142857142845
+['you', 'right', 'fooled', 'my', 'own', 'share', 'my', 'own']
+5.97875
+['weak']
+2.84
+['you', 'shared']
+6.52
+['hell', 'played', 'right', 'our', 'hands']
+5.444
+['you', 'fell']
+4.73
+[]
+None
+['no', 'idea', 'shitty']
+4.373333333333333
+[]
+None
+['date']
+6.32
+[]
+None
+['my', 'my', 'new', 'holy', 'fast', 'amazed', 'my', 'computer', 'shut', 'down']
+6.006
+['picture', 'sexy']
+7.02
+['wit']
+6.44
+['holy', 'graphics', 'arrived']
+6.406666666666666
+['you', 'know', 'provided', 'you', 'capable']
+6.3
+['my', 'art', 'focused', 'very', 'light', 'art']
+6.436666666666667
+['you', 'real']
+6.51
+['hate', 'popular', 'build', 'shit', 'architectural', 'style', 'build', 'make', 'you', 'inferior']
+5.23
+['think', 'real', 'bro']
+6.3999999999999995
+['saved']
+6.88
+['focus', 'sadly', 'mess', 'bad', 'driving', 'bad', 'she', 'gun', 'up']
+4.326666666666666
+['cars', 'kiss', 'she', 'kind', 'she', 'us', 'like', 'powers', 'aid', 'me', 'gun', 'like']
+6.375
+['eyes', 'locked', 'we', 'think', 'my', 'she', 'my', 'friend', 'talking', 'she', 'not', 'we', 'safe']
+6.046153846153846
+['she', 'school', 'she', 'like', 'she', 'answer', 'she', 'know', 'she', 'no', 'idea', 'she', 'pretty']
+6.212307692307691
+['very', 'dream', 'found', 'girl', 'fire', 'she', 'playing', 'she', 'own', 'powers', 'my', 'friend', 'talking']
+6.396923076923075
+[]
+None
+['rum']
+6.29
+[]
+None
+['worst', 'you']
+4.17
+['think']
+6.2
+['fix']
+6.28
+['cool', 'wonder', 'people', 'friend', 'interesting', 'not', 'perfect', 'like', 'people', 'will', 'never', 'truly', 'friends']
+6.493846153846154
+['you']
+6.24
+['people', 'liked']
+6.66
+['all', 'video', 'talking']
+6.386666666666667
+['lol']
+6.84
+[]
+None
+['making', 'video', 'all', 'honestly', 'think', 'worth', 'learning', 'never', 'like', 'create']
+6.324
+[]
+None
+['pony']
+6.65
+['we', 'you', 'depressed', 'bed']
+5.495
+['fucked', 'up', 'bunny']
+5.526666666666666
+['sorry', 'you']
+4.95
+['me']
+6.58
+['pretty', 'sure']
+6.82
+['relax', 'draw', 'you', 'lol']
+6.805000000000001
+['people']
+6.16
+['protected', 'fair', 'blocked', 'never']
+5.135
+[]
+None
+['truly', 'evil']
+4.38
+['pretty', 'cash', 'money']
+7.346666666666667
+['pretty', 'you', 'sure']
+6.626666666666668
+['great']
+7.88
+['bunny', 'girl']
+6.9399999999999995
+['moments', 'heart', 'right', 'think']
+6.515
+['cool', 'down', 'me', 'bug']
+5.244999999999999
+['present']
+6.96
+['cute']
+7.52
+['home', 'my', 'lunch', 'nap']
+6.79
+['think', 'digital', 'art']
+6.3066666666666675
+['fights']
+3.0
+['foul']
+2.94
+[]
+None
+['paint']
+6.3
+['holy', 'shit', 'you']
+5.126666666666667
+['okay', 'sure', 'we', 'agree', 'making', 'accidentally']
+6.0299999999999985
+[]
+None
+['sis', 'god', 'you']
+6.653333333333333
+['my', 'playlist', 'up', 'words', 'me']
+6.220000000000001
+['software', 'lol']
+6.57
+['blocked', 'me']
+5.11
+[]
+None
+['think', 'answer', 'mean', 'people', 'own']
+5.688000000000001
+['guide', 'ruined', 'all', 'purpose', 'life', 'shitty']
+5.133333333333333
+['you', 'okay']
+6.4
+['all', 'know', 'new']
+6.38
+['will', 'world']
+6.27
+['up']
+6.14
+['opposed', 'people', 'making', 'illegal', 'bad', 'never', 'well']
+4.4628571428571435
+['first', 'glance', 'horrible', 'honestly', 'reading', 'reasoning', 'argue', 'you', 'all', 'free', 'you', 'people', 'no', 'horrible', 'exercise', 'my', 'free']
+5.712941176470586
+['rat']
+3.04
+['retarded', 'school', 'gives', 'you', 'homework', 'adults', 'real', 'jobs', 'homework']
+5.402222222222222
+['nobody', 'creates', 'help', 'shitty', 'candles', 'shit']
+4.581666666666667
+['adult', 'suck', 'honestly']
+5.433333333333333
+['like', 'future', 'interested']
+6.94
+[]
+None
+['you', 'talk']
+6.15
+['won', 'numerous', 'you', 'without', 'knowing']
+6.136
+['you', 'dumb', 'bitch']
+4.146666666666667
+['fast']
+6.44
+['thinking', 'my', 'friend', 'art', 'aggressive']
+6.1000000000000005
+[]
+None
+['me', 'stop', 'buy', 'full']
+5.745
+['new', 'sleep', 'my', 'bed', 'playing', 'dark']
+6.38
+['painted', 'like', 'good', 'please', 'very', 'me', 'you', 'think']
+6.5275
+['like', 'like', 'nothing', 'like', 'ignored', 'own', 'lol']
+5.982857142857142
+['you', 'chance', 'know', 'better']
+6.445
+[]
+None
+['rat']
+3.04
+['shit']
+2.5
+['thought']
+6.38
+['wonder']
+7.08
+['sure', 'you', 'cute', 'house', 'know', 'good']
+6.62
+['reckless', 'fly']
+5.03
+['epic']
+6.3
+['think', 'couple', 'disappointed', 'cute', 'old', 'women', 'big']
+5.8
+['ughh']
+3.92
+['hate', 'song', 'great', 'you', 'you', 'dumb']
+5.5566666666666675
+['nothing']
+3.9
+['stories', 'my', 'female', 'sexual', 'straight', 'up', 'she', 'laughs', 'fucked', 'up']
+6.212
+['birthday', 'my', 'amazon']
+6.913333333333334
+['think', 'my', 'painting', 'drawing', 'skills', 'improving', 'no', 'improve', 'my', 'design', 'skills']
+6.167272727272728
+[]
+None
+['you', 'check', 'my', 'friends', 'story', 'lol']
+6.623333333333335
+[]
+None
+['you', 'cool', 'good']
+6.88
+[]
+None
+['reception', 'all', 'our', 'make', 'more', 'games']
+6.386666666666667
+[]
+None
+['good', 'movie', 'lying']
+5.539999999999999
+[]
+None
+['begged', 'me']
+5.24
+['improve']
+6.44
+['ugh', 'thanks', 'bad', 'crop']
+4.93
+['amazing', 'movie']
+7.25
+[]
+None
+['people', 'popular', 'without', 'critical', 'thinking', 'know', 'haha']
+5.648571428571429
+['bad', 'people']
+4.4
+['me']
+6.58
+[]
+None
+['play', 'old', 'game', 'never', 'me']
+5.616
+['cattle', 'caught', 'up', 'popular', 'people', 'like', 'art', 'loose', 'all', 'ability', 'big', 'deal']
+5.980000000000001
+['played', 'wish', 'more', 'know', 'millions', 'fans', 'fighting', 'games', 'try']
+6.224444444444444
+['fooled', 'we']
+5.005
+[]
+None
+['honest']
+7.46
+['will', 'painting', 'soon', 'good', 'popular', 'you', 'think', 'like']
+6.575
+['nice', 'think', 'my', 'favorite', 'instrument']
+6.6
+['you']
+6.24
+['personal', 'favorite', 'friends']
+7.006666666666667
+['my', 'like', 'lost']
+5.38
+['ugh']
+3.52
+['big', 'my']
+6.1899999999999995
+['me', 'achieve', 'my', 'childhood', 'dream', 'lol', 'cool', 'sexy', 'babes', 'check']
+6.792
+[]
+None
+['painting', 'fine', 'art']
+6.706666666666666
+['me', 'teach', 'me', 'popular']
+6.58
+[]
+None
+['like']
+7.22
+['you', 'you']
+6.24
+['you']
+6.24
+['bitch', 'milk']
+4.68
+[]
+None
+['proud', 'smoking', 'know', 'smoking', 'sexy', 'determination']
+5.670000000000001
+['hi', 'you', 'no']
+5.486666666666667
+['you', 'never']
+4.79
+['artists', 'smoking']
+4.96
+['kid', 'stealing', 'eating']
+5.533333333333334
+['my', 'eyes', 'sore']
+5.113333333333333
+['day', 'knows']
+6.18
+[]
+None
+['mother']
+7.68
+['mean', 'preferred', 'people', 'words', 'win']
+6.116
+['book']
+7.24
+['artists', 'people', 'buy', 'art', 'free', 'you', 'like']
+6.7542857142857144
+['new', 'me', 'face']
+6.506666666666667
+['holy', 'day', 'performance']
+6.539999999999999
+[]
+None
+['me']
+6.58
+['try', 'haha']
+6.83
+['you']
+6.24
+['me', 'exclusively']
+6.35
+['find', 'most', 'popular']
+6.273333333333333
+['like', 'me', 'conversations']
+6.7
+['know', 'popular', 'honestly', 'popularity']
+6.64
+['you', 'know', 'super', 'mario', 'coin', 'numerous', 'youtube', 'more']
+6.5200000000000005
+['think', 'my', 'art', 'decent', 'dynamic', 'painting', 'more', 'popular', 'big']
+6.435555555555556
+['fantasy']
+7.44
+[]
+None
+['you', 'draw']
+6.34
+['good', 'kind']
+7.220000000000001
+[]
+None
+['you', 'you', 'faggot', 'lol']
+5.625
+['bed']
+7.18
+['you']
+6.24
+['sleep']
+7.16
+['thinking', 'true']
+6.68
+['favorite']
+7.04
+['late']
+3.46
+['arts', 'precious', 'cool', 'nice', 'you', 'draw', 'more', 'will', 'cook', 'you', 'meal']
+6.681818181818182
+['know', 'gain', 'please', 'me', 'you']
+6.336
+['played', 'fantasy', 'play', 'new', 'worth', 'see', 'cute']
+6.894285714285715
+['dating', 'people', 'never', 'annoying']
+4.68
+['me']
+6.58
+[]
+None
+['everyone', 'cool', 'art']
+6.640000000000001
+['bitch']
+3.14
+['know', 'information', 'you']
+6.273333333333333
+['you', 'owe', 'meet', 'day', 'not', 'soon', 'you']
+5.548571428571428
+['visit']
+6.54
+[]
+None
+['like', 'honestly']
+7.119999999999999
+[]
+None
+[]
+None
+['give', 'up', 'sweet']
+6.773333333333333
+['hope', 'you', 'better', 'not', 'complete', 'without', 'you']
+5.857142857142857
+['try']
+6.02
+['never', 'clothes']
+4.9
+['everyone']
+6.12
+[]
+None
+['sucks']
+3.14
+['never']
+3.34
+['more', 'youtube', 'everyone', 'me', 'started', 'my', 'videos', 'everyone', 'shit', 'us', 'find']
+5.947272727272726
+['loss', 'possible']
+4.4
+['sweet', 'annoying', 'play', 'lol']
+6.14
+['no', 'no', 'not', 'fly', 'hell']
+3.872
+[]
+None
+[]
+None
+['she', 'she', 'cute']
+6.626666666666666
+['people', 'start', 'disabled', 'clearly', 'fun', 'lady']
+5.97
+['cute']
+7.52
+['you', 'make', 'perfectly', 'ball', 'eyes', 'visible']
+6.3133333333333335
+['funny', 'you', 'funny']
+7.359999999999999
+[]
+None
+['bunny', 'babes', 'myself']
+6.486666666666667
+[]
+None
+['very', 'foul']
+4.53
+[]
+None
+['not', 'think', 'better', 'check', 'great', 'country', 'mind', 'check']
+6.1825
+['making']
+6.24
+['hate', 'people', 'principle', 'think', 'info', 'covid']
+4.733333333333333
+['hope', 'you', 'alright', 'you']
+6.485000000000001
+[]
+None
+['like', 'floating', 'panties']
+6.68
+['thought', 'share', 'my']
+6.44
+['like']
+7.22
+['people', 'bird', 'understand']
+6.453333333333333
+['leading', 'up', 'together', 'forced', 'home', 'not', 'helping']
+5.845714285714286
+['mean', 'dumb', 'bitch', 'wrong']
+3.2550000000000003
+['up']
+6.14
+[]
+None
+['world', 'poor', 'people', 'stole']
+4.4
+['well']
+6.68
+['favorite', 'cat', 'friends', 'me', 'racist', 'honestly', 'cat', 'think', 'precious']
+6.384444444444445
+['old']
+3.98
+['she', 'nice']
+6.779999999999999
+['alright', 'buddy']
+6.46
+[]
+None
+['kid']
+6.84
+['will', 'popular', 'people', 'will', 'draw', 'my', 'own', 'desire']
+6.28
+[]
+None
+['dumb', 'never', 'played', 'game']
+4.925000000000001
+['good']
+7.2
+['punch', 'me']
+5.08
+['sea', 'breath']
+6.66
+[]
+None
+['up', 'my', 'phone']
+6.246666666666667
+[]
+None
+['game', 'wrong']
+5.03
+['more', 'imagine', 'shot']
+5.306666666666667
+['share', 'like']
+7.0
+['cool']
+7.2
+['like', 'more']
+6.73
+['lie', 'you']
+4.42
+['bad', 'never', 'understood']
+4.1866666666666665
+['honestly', 'liked', 'honestly']
+7.066666666666666
+['we', 'friends', 'okay', 'you', 'message', 'me', 'always', 'like', 'people', 'simple', 'people', 'up', 'chatting', 'me']
+6.509999999999999
+['ceased', 'me']
+5.29
+['wonder', 'epic', 'think', 'cool']
+6.694999999999999
+['good']
+7.2
+['you', 'delete', 'believe', 'you', 'me', 'dollars']
+6.116666666666666
+['no', 'start', 'dresses']
+5.3999999999999995
+[]
+None
+[]
+None
+['me', 'pretty', 'clothes']
+6.786666666666666
+['you', 'evil']
+4.07
+['know']
+6.1
+['totally', 'try', 'make', 'cool', 'my']
+6.279999999999999
+['draw', 'mind']
+6.24
+['my', 'contact']
+6.12
+[]
+None
+['ready', 'service', 'appreciated']
+6.566666666666666
+[]
+None
+[]
+None
+['alone']
+3.32
+['no', 'all', 'make']
+5.233333333333333
+['bad', 'slept', 'day']
+5.166666666666667
+[]
+None
+['like', 'you']
+6.73
+[]
+None
+['you', 'like', 'my', 'playlist']
+6.45
+['loves', 'you']
+7.1
+[]
+None
+['greeks', 'thought', 'we', 'not']
+5.7524999999999995
+['gods', 'fucked', 'not', 'always', 'grand', 'moral']
+5.626666666666666
+['think', 'moral', 'find', 'story']
+6.305000000000001
+['you']
+6.24
+['pretty', 'boy', 'hair', 'more', 'appropriate', 'hair', 'pizza']
+6.471428571428571
+['thinking', 'girl', 'ended', 'up', 'dating', 'dating', 'girl', 'apart', 'bad', 'draw', 'you']
+5.627272727272728
+['pretty']
+7.32
+[]
+None
+['war', 'against', 'won', 'kids', 'kids']
+5.612
+['gives', 'me', 'me']
+6.553333333333334
+['hair']
+6.04
+['growing']
+6.52
+[]
+None
+['hi', 'drawing', 'you', 'like', 'without', 'thinking']
+6.1000000000000005
+[]
+None
+['up']
+6.14
+['gods', 'never', 'brain', 'gods', 'answered', 'kind', 'together']
+6.091428571428571
+['beautiful', 'son', 'world', 'female', 'god', 'boy', 'nothing', 'against']
+6.1575
+['real', 'talk', 'sweet', 'game', 'playing', 'started', 'listening', 'all', 'greek', 'never']
+6.2459999999999996
+['drawing', 'old', 'make', 'real', 'nice', 'up', 'cool', 'midnight', 'sleep', 'torn', 'share', 'sketch']
+6.16
+['not', 'alone', 'make', 'me', 'jealous']
+4.4879999999999995
+[]
+None
+['fine']
+6.74
+['people', 'thought', 'movie', 'movie', 'horrible']
+5.692
+[]
+None
+['like', 'worth']
+7.0
+['rest', 'peace']
+7.52
+['you', 'mean', 'color']
+5.640000000000001
+[]
+None
+['hardest', 'me', 'give', 'up', 'lol']
+5.984
+['pleasure']
+8.08
+['racist', 'people', 'you', 'you', 'mess']
+4.932
+['stop', 'you']
+5.07
+['all', 'give', 'big', 'all', 'people', 'enjoy', 'new']
+6.548571428571428
+['making', 'new']
+6.53
+['you', 'she', 'shirt', 'not']
+5.635
+['no']
+3.48
+['thank', 'god']
+7.34
+[]
+None
+['bro', 'like']
+6.72
+['she']
+6.18
+['you', 'mean']
+4.96
+['you']
+6.24
+['eye']
+6.14
+['like', 'done', 'not', 'good', 'reading']
+6.32
+['read', 'book']
+6.88
+['people', 'playing', 'color', 'act', 'better', 'people', 'lol', 'all', 'art', 'sweet']
+6.675999999999999
+['certain', 'you', 'more', 'me']
+6.279999999999999
+[]
+None
+['you', 'not']
+5.05
+['imagine', 'myself', 'not', 'up', 'my']
+5.928
+['hehe', 'bunny']
+6.68
+['like', 'me', 'know', 'up', 'yourself', 'not', 'white', 'me', 'know', 'white', 'trash']
+5.823636363636364
+['complaining', 'you']
+4.53
+['my', 'favorite']
+6.6
+['people', 'you', 'likes', 'drawing', 'people', 'you', 'racist']
+5.82
+[]
+None
+['fine']
+6.74
+['know', 'like', 'windows']
+6.446666666666666
+['fan', 'me', 'hope', 'you', 'enjoy', 'my']
+6.7799999999999985
+[]
+None
+['my', 'not', 'know', 'picture', 'online', 'people', 'my']
+5.971428571428571
+['okay']
+6.56
+['flag']
+6.26
+['like']
+7.22
+['me', 'complete', 'my']
+6.493333333333333
+['you', 'see', 'first', 'better', 'think', 'together', 'no', 'make', 'union']
+6.071111111111111
+['huge', 'people', 'forget', 'ugly', 'princess', 'ugly', 'together', 'perfect', 'idea']
+5.484444444444446
+[]
+None
+['crying', 'laughing']
+5.119999999999999
+[]
+None
+['better', 'gave', 'people', 'choice', 'game', 'bugs', 'respect', 'cool', 'friendly', 'guys', 'wait', 'succeed']
+6.3566666666666665
+['mean', 'opened', 'straight', 'up', 'mad', 'lol']
+5.22
+['all', 'most', 'important', 'right', 'make', 'all', 'loose', 'ideas', 'me', 'appropriate', 'make']
+6.134545454545454
+['my']
+6.16
+['yours']
+6.24
+['bunny', 'girl']
+6.9399999999999995
+['picture', 'fat', 'you', 'think', 'drawing']
+5.779999999999999
+['shit', 'dies']
+2.29
+[]
+None
+[]
+None
+['cute']
+7.52
+['more']
+6.24
+['give', 'people']
+6.35
+['power', 'positive', 'lol']
+7.1066666666666665
+['hope', 'not', 'okay']
+5.933333333333334
+[]
+None
+[]
+None
+[]
+None
+['see', 'pure']
+6.47
+[]
+None
+['cute', 'women']
+7.32
+['bad', 'good', 'will', 'never', 'good', 'not', 'bad', 'no', 'me']
+4.7733333333333325
+['buy', 'my', 'country']
+6.240000000000001
+[]
+None
+[]
+None
+[]
+None
+['not', 'wrong']
+3.5
+['cutie']
+7.1
+['superior']
+6.08
+[]
+None
+['faggot']
+3.18
+['my', 'replied']
+6.1
+['you', 'asshole', 'you', 'you', 'not', 'knowing', 'original', 'meaning']
+5.5075
+['hope']
+7.38
+['not', 'give', 'equal', 'benefit', 'more', 'comfortable', 'you', 'shooting']
+5.717500000000001
+['me']
+6.58
+[]
+None
+[]
+None
+[]
+None
+['thanks', 'warning']
+5.37
+['fair', 'fair', 'think', 'people', 'wonder', 'more', 'confusing', 'friends', 'started', 'wondering']
+6.3100000000000005
+[]
+None
+['know', 'all', 'sure', 'adult']
+6.195
+['friends', 'people', 'will', 'people', 'eggs', 'least', 'uncertain', 'hopefully', 'mean', 'people', 'help', 'wonder']
+5.833333333333333
+[]
+None
+[]
+None
+['world', 'forget', 'she', 'bed', 'cut', 'violence']
+4.73
+['bad']
+2.64
+['think']
+6.2
+['join']
+6.22
+[]
+None
+['guitars', 'my']
+6.45
+['you']
+6.24
+[]
+None
+[]
+None
+['movie', 'like', 'kid', 'decent']
+6.779999999999999
+[]
+None
+['think', 'better', 'solution', 'you', 'face', 'fears', 'see', 'world', 'white', 'straight']
+6.0
+['mean', 'people', 'color', 'me', 'stop', 'me', 'seeing', 'wrong', 'people']
+5.5088888888888885
+['grand']
+7.06
+['last']
+3.74
+['make', 'cry']
+3.92
+['minds']
+6.16
+['yes']
+6.74
+['receives']
+6.13
+['bunny', 'girl']
+6.9399999999999995
+['down']
+3.66
+[]
+None
+['respect', 'nothing', 'wrong', 'ban', 'complaining']
+3.972
+['care']
+6.64
+[]
+None
+['my', 'bed']
+6.67
+['old', 'no', 'will']
+4.493333333333333
+['make', 'comics', 'cool', 'ideas']
+6.81
+['bad', 'like', 'real', 'comic', 'lol', 'think', 'evil', 'devil', 'know', 'more', 'purely', 'play']
+5.574166666666667
+['down']
+3.66
+['music', 'choice', 'magical']
+7.213333333333334
+['epic', 'you']
+6.27
+['always', 'funny']
+7.2
+[]
+None
+['think', 'like', 'making', 'making', 'clear', 'you', 'without', 'clean', 'conscious', 'lol']
+6.186
+['please']
+6.36
+['lol', 'big', 'top']
+6.6066666666666665
+['very', 'cool']
+6.66
+['people', 'facts', 'you', 'bad', 'agree']
+5.5600000000000005
+['monkey', 'thinks', 'fix', 'boring', 'monkey', 'not', 'monkey', 'think', 'real', 'proud']
+5.856
+['no', 'school']
+4.87
+[]
+None
+['brother', 'read', 'you', 'brothers', 'all', 'girlfriend']
+6.703333333333333
+['wish', 'content', 'warning', 'me', 'eyes', 'wait']
+5.473333333333334
+['hi']
+6.74
+[]
+None
+['content', 'warning', 'help', 'first', 'see', 'big', 'fat', 'me', 'eyes']
+5.622222222222223
+['cheeks', 'big', 'share']
+6.43
+['my', 'ass']
+5.01
+[]
+None
+['chicken']
+6.4
+['find', 'shit', 'dark', 'up']
+4.615
+['yourself']
+6.24
+['exactly', 'shame', 'making', 'last', 'shit', 'better', 'start', 'good', 'all', 'bugs', 'first', 'up', 'people', 'lol']
+5.53
+['not', 'playing', 'my', 'like', 'game', 'honestly']
+6.386666666666666
+['big']
+6.22
+[]
+None
+[]
+None
+[]
+None
+['father', 'raise', 'child', 'green', 'my', 'face', 'yelling', 'sleep', 'adult', 'miss', 'dearly']
+6.060000000000001
+['tomorrow', 'fucked']
+4.87
+['think']
+6.2
+['she', 'helps']
+6.39
+['fancy', 'start']
+6.529999999999999
+['girl']
+7.0
+[]
+None
+['team', 'more']
+6.25
+[]
+None
+['buy']
+6.28
+['aesthetic', 'more']
+6.225
+[]
+None
+['thinking', 'tonight']
+6.21
+[]
+None
+['started', 'free', 'trial', 'me', 'will', 'try', 'see', 'worth']
+6.1725
+['like', 'you', 'large']
+6.506666666666667
+['play', 'possible', 'all', 'will']
+6.435
+[]
+None
+['dies']
+2.08
+[]
+None
+['blocked', 'me']
+5.11
+['okay', 'lol']
+6.699999999999999
+['agree', 'dumb', 'lol']
+5.533333333333334
+['bad', 'experiences']
+4.48
+['will', 'play', 'join', 'me']
+6.52
+['people', 'dumb', 'like']
+5.48
+['make', 'you', 'worse', 'you']
+5.295
+['up', 'sense', 'my', 'eyes', 'open']
+6.188000000000001
+['fun']
+7.96
+['flag', 'like', 'message', 'positive', 'not', 'think', 'allow', 'message', 'straight', 'pride', 'removed', 'well']
+6.041666666666667
+['refuse', 'believe', 'choices', 'surely']
+5.615
+['banned', 'all', 'up', 'shit', 'lives', 'banned', 'equally', 'well']
+4.989999999999999
+['idea', 'people', 'tv']
+6.64
+['online', 'fame']
+6.609999999999999
+[]
+None
+['bad']
+2.64
+[]
+None
+['idiot', 'white', 'girl', 'people', 'color', 'white', 'people']
+5.991428571428571
+[]
+None
+[]
+None
+['die']
+1.74
+['date', 'my', 'boyfriend']
+6.286666666666666
+['me', 'help', 'check', 'see']
+6.204999999999999
+['queen']
+6.24
+[]
+None
+['down', 'simply', 'not', 'justice']
+5.17
+['read', 'see', 'find', 'blocked', 'never']
+5.112
+[]
+None
+['youtube', 'breaking', 'community', 'know', 'videos', 'all', 'create', 'videos', 'hell', 'blame']
+5.4399999999999995
+['up']
+6.14
+['sunshine']
+7.94
+['slept', 'day']
+6.43
+['sad']
+2.38
+['think', 'my', 'girls', 'jam', 'shit', 'seeing', 'bunny', 'young', 'super', 'lol']
+6.242
+[]
+None
+['good', 'leadership']
+6.85
+['no', 'real']
+5.13
+['my', 'soul', 'lol']
+6.446666666666666
+['achieved']
+7.56
+['mean', 'we']
+5.03
+[]
+None
+['evolution', 'make']
+6.109999999999999
+[]
+None
+['sorry']
+3.66
+[]
+None
+['straight', 'up', 'white', 'guilt']
+5.265000000000001
+['always', 'make', 'draw', 'big', 'lol', 'draw', 'lol']
+6.465714285714286
+['white', 'people', 'ashamed', 'white', 'dumb', 'dumb']
+4.571666666666666
+[]
+None
+['my', 'problem', 'me', 'try']
+5.4350000000000005
+[]
+None
+[]
+None
+['people', 'mad', 'won', 'lol', 'know', 'not', 'played']
+5.72
+[]
+None
+[]
+None
+['start']
+6.1
+['win', 'win', 'making']
+7.493333333333332
+['me', 'see', 'cute', 'art']
+6.6899999999999995
+['people', 'own', 'risk', 'lol']
+5.695
+[]
+None
+[]
+None
+['my', 'honor']
+6.6899999999999995
+['not']
+3.86
+[]
+None
+['will']
+6.02
+['kill', 'great', 'humor', 'amazing']
+6.205
+['you']
+6.24
+['no', 'more', 'more']
+5.32
+['holy', 'shit', 'excited', 'wonder', 'old', 'my', 'god', 'myself']
+5.945
+[]
+None
+[]
+None
+['dead', 'future']
+4.38
+['me', 'pissed', 'me', 'sleep']
+5.715
+['you', 'you', 'yell', 'forced', 'proposal']
+5.2
+['think', 'people', 'shitty', 'drinking', 'water', 'fucked', 'brain']
+5.408571428571428
+[]
+None
+['you', 'learn']
+6.470000000000001
+[]
+None
+['moon', 'always']
+6.880000000000001
+[]
+None
+['reading', 'comics', 'day']
+6.633333333333333
+[]
+None
+['sexual']
+6.2
+['will', 'old']
+5.0
+['me', 'sweet', 'gift']
+7.313333333333333
+['merry']
+7.56
+['special', 'sauce']
+6.62
+['done', 'bro']
+6.38
+[]
+None
+['think', 'down', 'shit', 'make', 'sure', 'make']
+5.113333333333333
+['we']
+6.38
+['not', 'big', 'fan', 'shows', 'real', 'nice', 'drawings', 'you', 'know', 'people', 'complaining', 'people', 'fat', 'lol', 'style']
+5.846666666666667
+['white', 'boy', 'white', 'boy']
+6.26
+['dollar', 'busted', 'me']
+5.653333333333333
+['earth', 'you']
+6.34
+['fine', 'think', 'you', 'make', 'special', 'movie', 'big', 'deal', 'annoyed']
+6.0377777777777775
+[]
+None
+['wish', 'everyone', 'like', 'well', 'all']
+6.632
+['she', 'sisters', 'husband']
+6.473333333333334
+['remember', 'like', 'remember', 'movie', 'she']
+6.616
+['ready']
+6.58
+[]
+None
+['real', 'friends', 'we']
+7.026666666666666
+['no', 'will', 'laughing']
+5.8999999999999995
+['mountain', 'honestly']
+6.71
+['up']
+6.14
+['people']
+6.16
+[]
+None
+['wish', 'dies']
+4.5
+['very', 'nothing', 'fancy', 'you', 'mutual', 'invite', 'me', 'you', 'okay', 'you', 'not', 'missing', 'promise']
+5.8184615384615395
+[]
+None
+['fear', 'giving', 'you', 'radiation']
+4.7475000000000005
+['sexual', 'allegations']
+5.02
+['read', 'you', 'fucked', 'very', 'cute']
+5.992
+[]
+None
+['you', 'not', 'powerful']
+5.726666666666667
+['thought', 'you']
+6.3100000000000005
+['bread', 'bread']
+6.34
+['make', 'breaking', 'illegal']
+4.28
+['me', 'kids', 'awesome', 'read', 'rest']
+7.052000000000001
+['you', 'artist']
+6.49
+[]
+None
+['idea', 'good', 'idea', 'know', 'active', 'myself', 'you', 'try', 'chatting', 'me', 'artists', 'you']
+6.588333333333332
+['us']
+6.26
+['owe', 'burned', 'myself']
+4.246666666666666
+['hope', 'soon', 'myself']
+6.673333333333333
+['legit', 'original']
+6.220000000000001
+['more', 'babes', 'babe']
+6.446666666666666
+['shitty', 'music', 'remember']
+5.673333333333333
+[]
+None
+['ready', 'relationship', 'own', 'boy']
+6.505000000000001
+['up', 'bigger', 'down', 'you', 'right']
+5.792
+[]
+None
+['hell', 'indeed']
+4.11
+['you', 'make', 'make', 'me']
+6.205
+[]
+None
+['you', 'understand', 'not', 'more', 'partners', 'my', 'confusion']
+5.642857142857143
+[]
+None
+['like', 'disaster']
+4.59
+['people', 'relationship', 'you']
+6.4799999999999995
+['remember']
+6.42
+['you', 'proud']
+6.78
+[]
+None
+['like', 'all', 'great', 'movie', 'moments', 'shame', 'lack', 'babes', 'movie']
+5.913333333333333
+['will', 'movie', 'no', 'will', 'not', 'worth', 'remembering']
+5.611428571428571
+[]
+None
+['lol']
+6.84
+['think', 'pretty', 'nice']
+6.966666666666666
+[]
+None
+['bored', 'shit', 'not', 'draw']
+3.96
+['familiar']
+6.44
+[]
+None
+['story']
+6.48
+[]
+None
+['racist']
+2.08
+['all', 'kid', 'played', 'friday']
+6.579999999999999
+['okay', 'dumb', 'pictures', 'lol', 'haha', 'nice']
+6.423333333333333
+['like', 'funny', 'real']
+7.3066666666666675
+[]
+None
+['me', 'lol']
+6.71
+['fair', 'wish']
+6.9399999999999995
+['bitch', 'all', 'you', 'good']
+5.7
+['hope', 'never']
+5.359999999999999
+['games', 'fun', 'like', 'right', 'choice']
+7.056
+['online', 'games', 'played', 'country', 'first', 'honestly', 'amazing', 'smooth', 'old', 'modern', 'games', 'worse']
+6.289999999999998
+['sorry']
+3.66
+['see', 'cool', 'art', 'my', 'mind', 'my', 'own']
+6.339999999999999
+['accept']
+6.42
+['no', 'me']
+5.03
+['my']
+6.16
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['give', 'you']
+6.390000000000001
+[]
+None
+['thought', 'sketch', 'first']
+6.523333333333333
+[]
+None
+['know', 'fault']
+4.77
+['know']
+6.1
+['not', 'annoying', 'know', 'everyone', 'comfort']
+5.279999999999999
+['my', 'qualities']
+6.62
+['easy', 'lol']
+6.8
+[]
+None
+['me']
+6.58
+['critic', 'special', 'my', 'heart']
+5.984999999999999
+['eyes']
+6.24
+[]
+None
+['play', 'us', 'song']
+7.033333333333334
+[]
+None
+['playing', 'japanese', 'collection']
+6.419999999999999
+[]
+None
+['like', 'you', 'think', 'bad']
+5.575
+['wow', 'glad', 'you']
+7.06
+[]
+None
+['like', 'me', 'playing', 'try', 'explore', 'more']
+6.595
+[]
+None
+['sleep']
+7.16
+['you', 'deserve', 'all']
+6.286666666666666
+['sweet', 'nice', 'cool', 'neat', 'art', 'drawings', 'bye']
+6.557142857142857
+['hate', 'no', 'me', 'online', 'cool', 'epic']
+5.4366666666666665
+['not', 'deserve', 'chance', 'express', 'yourself', 'find', 'you', 'truly', 'yourself', 'folks', 'wrong', 'correct', 'mean', 'harm', 'you', 'never', 'truly', 'find', 'think']
+5.5463157894736845
+['lol', 'nobody', 'cares']
+5.946666666666666
+['my', 'poor', 'poor']
+3.6
+[]
+None
+['not', 'advantage', 'frustrated']
+4.533333333333333
+['exists', 'try']
+6.18
+['me', 'you', 'better', 'you', 'me']
+6.5280000000000005
+[]
+None
+['problem', 'me', 'you', 'see']
+5.465
+[]
+None
+['imagine', 'thought']
+6.779999999999999
+['like', 'nice', 'boyfriend']
+6.993333333333333
+['better', 'certain']
+6.529999999999999
+['not', 'you']
+5.05
+['started', 'me', 'like']
+6.6000000000000005
+['exact', 'think', 'dumb']
+5.1000000000000005
+[]
+None
+['epic', 'cool', 'creative', 'free', 'chat', 'all']
+6.916666666666667
+['great', 'message', 'you', 'think', 'you', 'think', 'tv']
+6.505714285714286
+['dumb', 'bitch']
+3.1
+['artists', 'exclusive', 'talking', 'like', 'conversations', 'cool', 'people', 'not', 'start']
+6.288888888888889
+['like', 'good', 'misses', 'reasonable', 'sense', 'more', 'money', 'not', 'make', 'sense']
+6.069999999999999
+['see', 'precious']
+6.699999999999999
+['me', 'greatly', 'all']
+6.553333333333334
+[]
+None
+['cool', 'we', 'nice', 'all']
+6.795
+['complaints', 'friends', 'valid', 'pretty', 'always', 'noise', 'amazing', 'enjoyed']
+6.36125
+['know', 'we', 'draw', 'we', 'please']
+6.332
+['true']
+7.08
+['baby']
+7.28
+[]
+None
+['suspect', 'worst', 'problem', 'complaints', 'we', 'europe', 'deaf', 'folks', 'japanese', 'most', 'understand', 'us', 'know', 'japanese']
+4.994999999999999
+['think', 'missed', 'day', 'enjoying', 'my']
+6.024
+[]
+None
+[]
+None
+['right']
+6.54
+['movies', 'honestly', 'bad', 'think', 'care']
+5.968
+[]
+None
+['never']
+3.34
+['green', 'monster', 'boy']
+5.493333333333333
+['lol', 'no']
+5.16
+[]
+None
+['best', 'worst']
+4.64
+['you']
+6.24
+['wish', 'better']
+6.96
+[]
+None
+[]
+None
+['home', 'well']
+6.91
+['leading', 'sexy', 'children']
+7.053333333333334
+[]
+None
+['know', 'find', 'game']
+6.34
+[]
+None
+['me', 'waiting', 'likes', 'drawing', 'bunny']
+6.199999999999999
+['gaming']
+6.42
+[]
+None
+['alright', 'very', 'cool', 'thank', 'you']
+6.608
+['quicker']
+6.12
+['my', 'funny']
+7.04
+['know', 'melody', 'sure']
+6.59
+['god']
+7.28
+['stole', 'my', 'miss']
+4.133333333333334
+['not']
+3.86
+['stupid']
+2.68
+['guns']
+2.98
+['friends', 'presence', 'me', 'greatly', 'hate']
+5.944
+['good', 'bad']
+4.92
+['story', 'agree']
+6.59
+['you']
+6.24
+['play', 'play', 'my']
+6.8933333333333335
+['day', 'guests', 'truly', 'hate', 'family', 'mind', 'people', 'talk']
+5.945
+[]
+None
+['yourself', 'all', 'people', 'more', 'helps', 'act', 'like']
+6.382857142857143
+['see', 'people', 'success', 'up', 'bad', 'teacher', 'you', 'bitch']
+5.575
+['truly']
+6.86
+['thought', 'impossible', 'full', 'try']
+5.38
+[]
+None
+['inspiration', 'you']
+6.63
+['see', 'problem', 'think', 'neat', 'universe']
+5.76
+['myself', 'my', 'argue', 'game', 'popular']
+5.796000000000001
+['clearly', 'make', 'you', 'bad']
+5.265000000000001
+['parents', 'stop', 'arguing']
+4.773333333333333
+['lawyer', 'threat', 'harm', 'theft']
+2.76
+['old', 'arguments', 'think', 'white', 'walk', 'world']
+5.34
+[]
+None
+['me', 'green']
+6.68
+['oops', 'my', 'bad', 'lol']
+4.84
+['good', 'art', 'high', 'people', 'buying', 'artist', 'live', 'drawing']
+6.645
+['eyes', 'creep', 'me']
+5.546666666666667
+['okay']
+6.56
+[]
+None
+['please', 'you', 'start', 'pics']
+6.275
+['okay', 'dreams', 'true']
+7.026666666666666
+['will', 'understand']
+6.289999999999999
+['spam', 'people']
+4.43
+['you', 'make', 'new', 'never', 'good', 'created', 'you', 'explore', 'you', 'know', 'lol']
+6.131818181818182
+['please', 'think', 'movie', 'like', 'play', 'like', 'play', 'snake', 'day']
+6.455555555555555
+['like', 'my', 'people']
+6.513333333333333
+['plans', 'we', 'try', 'tomorrow', 'friend']
+6.4879999999999995
+['fair', 'she', 'never', 'like', 'style', 'artist']
+6.2
+['shame']
+2.68
+['yourself', 'nasty', 'people', 'focus', 'you', 'like']
+5.766666666666667
+[]
+None
+[]
+None
+['loose', 'more', 'certain']
+5.419999999999999
+['you', 'stomp']
+4.99
+['rough', 'you']
+4.890000000000001
+['girls', 'you', 'please']
+6.513333333333333
+['awesome']
+7.6
+['kiss', 'lol']
+7.24
+['you']
+6.24
+['shit', 'remorse']
+2.87
+[]
+None
+['sorry', 'you', 'down']
+4.5200000000000005
+['energy']
+7.22
+['holy', 'shit']
+4.57
+[]
+None
+['dumb']
+3.06
+[]
+None
+['applying']
+6.16
+['steal', 'joke', 'my', 'preferred', 'software']
+5.824
+['funny']
+7.92
+['epic', 'art', 'real', 'tired', 'try', 'done', 'myself', 'soon']
+6.0275
+[]
+None
+['white', 'me', 'up', 'you']
+6.3100000000000005
+['not', 'fan', 'hate', 'fucked', 'up']
+4.512
+['you', 'played', 'think', 'you', 'start', 'drawing', 'more', 'cried']
+5.772500000000001
+[]
+None
+[]
+None
+[]
+None
+['up']
+6.14
+[]
+None
+['play', 'wait']
+5.5
+['nothing']
+3.9
+[]
+None
+[]
+None
+['numerous', 'women', 'never', 'touched', 'vagina']
+5.816
+[]
+None
+[]
+None
+['finished']
+6.78
+['starting', 'clean', 'thinking', 'make', 'not']
+5.9079999999999995
+[]
+None
+[]
+None
+['own', 'my', 'all', 'people', 'you', 'will', 'smoke']
+5.73142857142857
+[]
+None
+['lie', 'lives']
+4.41
+['worse']
+2.7
+['stuck']
+3.66
+['me', 'started']
+6.29
+[]
+None
+['empty', 'without', 'relationship']
+4.713333333333334
+['not']
+3.86
+['joke']
+7.62
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['try', 'make']
+6.01
+['correct', 'least', 'think', 'dumb', 'make', 'please']
+5.44
+['problem', 'up', 'night', 'drink', 'water', 'sleep', 'found']
+6.014285714285714
+['you', 'live', 'horrible', 'water', 'places', 'okay']
+5.786666666666666
+['drink', 'water']
+6.53
+['picture', 'believe', 'me', 'own', 'real', 'satisfy']
+6.7
+[]
+None
+['hair', 'very', 'cute']
+6.56
+['worst', 'preference', 'fine', 'not', 'you', 'liar']
+4.715
+['kids', 'shows', 'you', 'unique', 'show', 'you', 'truly', 'forced', 'kids', 'school']
+6.282000000000001
+['try', 'void', 'drawing']
+5.453333333333333
+['people', 'unfortunately', 'ability', 'like', 'equal']
+5.776
+['wish']
+6.92
+['comic', 'like', 'we', 'think', 'lady', 'comic', 'wrong', 'disgusting', 'me', 'all']
+5.9079999999999995
+['life', 'people', 'better', 'ugly', 'people']
+5.8759999999999994
+['you']
+6.24
+['painting', 'like', 'like', 'white', 'first', 'color', 'all']
+6.791428571428571
+[]
+None
+['like', 'hope']
+7.3
+['blocked']
+3.64
+['cool', 'people', 'earn', 'money', 'making', 'up', 'designs', 'understand']
+6.665
+['nice']
+7.38
+['you']
+6.24
+['fair', 'very', 'community']
+6.453333333333333
+['never']
+3.34
+['people', 'thinks', 'controversy', 'retarded', 'shit', 'restricted', 'like']
+4.590000000000001
+['like']
+7.22
+['you', 'done', 'you', 'good', 'people', 'you', 'agree']
+6.474285714285715
+['clear', 'good', 'give', 'people', 'not', 'know', 'wrong', 'think', 'right']
+5.782222222222222
+['singing', 'song', 'lol']
+7.126666666666666
+['me']
+6.58
+[]
+None
+['late', 'playing']
+5.3
+['you', 'brain', 'start', 'bleeding']
+5.404999999999999
+['okay', 'horrible', 'know', 'people', 'like', 'my']
+5.739999999999999
+['pissed', 'frustrated', 'confused', 'male', 'world', 'we', 'live']
+4.882857142857143
+[]
+None
+[]
+None
+[]
+None
+['we', 'all', 'very', 'you']
+6.24
+['my', 'poor', 'rest']
+5.22
+['my', 'arrived', 'acoustic', 'guitar', 'guitar']
+6.644
+['you', 'ready']
+6.41
+[]
+None
+['me']
+6.58
+[]
+None
+['very', 'friends']
+7.02
+['you', 'will']
+6.13
+['good', 'more', 'painter']
+6.6066666666666665
+['yes']
+6.74
+[]
+None
+[]
+None
+['shut', 'up']
+4.85
+[]
+None
+[]
+None
+['lucky']
+7.68
+[]
+None
+['you']
+6.24
+['you', 'big']
+6.23
+[]
+None
+['okay', 'fix', 'yourself', 'you', 'fix', 'think']
+6.300000000000001
+['pretty', 'good', 'play']
+7.260000000000001
+[]
+None
+[]
+None
+['cute', 'you', 'make', 'december', 'better']
+6.619999999999999
+[]
+None
+['give', 'snow']
+6.43
+['camera']
+6.8
+['art', 'ipad', 'me']
+6.56
+['like']
+7.22
+['christmas', 'clothes']
+7.21
+['think']
+6.2
+['make', 'never', 'crop']
+5.166666666666667
+[]
+None
+['no']
+3.48
+[]
+None
+['you']
+6.24
+[]
+None
+['most', 'accurate', 'me', 'me', 'my', 'proceeded', 'neighbor', 'sex', 'bedroom']
+6.516666666666665
+[]
+None
+['liar']
+3.18
+[]
+None
+[]
+None
+['game', 'you', 'play', 'son', 'god', 'you', 'try']
+6.725714285714285
+['hope', 'find', 'more', 'fairly', 'certain', 'language']
+6.423333333333333
+[]
+None
+[]
+None
+[]
+None
+['you']
+6.24
+['people', 'die', 'alone', 'woman', 'hands']
+4.812
+[]
+None
+['like', 'like', 'me', 'like', 'like', 'me', 'will', 'up']
+6.775
+['all', 'yours']
+6.23
+['me']
+6.58
+['people', 'draw', 'art', 'no', 'my', 'my', 'wondering', 'sketch', 'erased', 'all']
+5.742999999999999
+['like', 'people', 'complain', 'found', 'children']
+6.04
+['you']
+6.24
+['you', 'right', 'myself', 'kid', 'more', 'kids', 'cut']
+6.137142857142858
+[]
+None
+[]
+None
+['down', 'delay']
+3.52
+['like', 'prince', 'you', 'play', 'mate', 'people']
+6.633333333333333
+['girl', 'cute', 'always', 'fast', 'hoping', 'last']
+6.370000000000001
+['worth', 'trouble']
+4.78
+['cool', 'not', 'great', 'haircut', 'kid']
+6.396
+['more', 'recommendations', 'my', 'up', 'lost', 'play']
+5.793333333333333
+['you', 'think', 'gross', 'you']
+5.6
+[]
+None
+['choices', 'not', 'my']
+5.353333333333334
+['high', 'holy']
+6.64
+[]
+None
+['make', 'my', 'avatar', 'play', 'games']
+6.548
+['expensive', 'play', 'cute']
+6.1066666666666665
+['never']
+3.34
+['you', 'drink']
+6.300000000000001
+[]
+None
+['all', 'see']
+6.14
+['first', 'nothing', 'windows', 'game', 'most', 'likely', 'not', 'sure']
+5.8125
+['my', 'me', 'please']
+6.366666666666667
+['bite', 'me']
+5.28
+['no', 'not']
+3.67
+['like', 'magic', 'me', 'you', 'focus', 'color', 'paint', 'all', 'you', 'more', 'learn']
+6.514545454545455
+['think', 'easily', 'draw']
+6.553333333333334
+['not', 'girl']
+5.43
+['ideas']
+7.16
+['draw', 'big', 'lady']
+6.419999999999999
+['graphics']
+6.44
+[]
+None
+['okay', 'sense', 'thank', 'you']
+6.625
+['you', 'contact', 'me', 'you']
+6.285
+[]
+None
+['comic', 'puppy', 'joke']
+7.426666666666667
+['sleep']
+7.16
+['sleep']
+7.16
+['thinks', 'we', 'care', 'lol']
+6.56
+[]
+None
+['me', 'merry', 'christmas']
+7.366666666666667
+['accidentally', 'mean', 'my', 'found', 'myself', 'crime', 'fully', 'racist']
+4.64
+['joke']
+7.62
+['up']
+6.14
+['day', 'accidentally', 'info', 'girl', 'seeing']
+5.9399999999999995
+['more', 'cool', 'fan', 'art']
+6.675000000000001
+['lol']
+6.84
+[]
+None
+[]
+None
+['me']
+6.58
+['afraid', 'leaving', 'house']
+4.193333333333333
+[]
+None
+['suspended']
+3.08
+['talking', 'show', 'chess', 'playing', 'girl', 'joke']
+6.793333333333333
+['cutest']
+7.62
+['you', 'like', 'all']
+6.56
+['dream', 'tonight', 'my', 'dads', 'house', 'complaining', 'stupid', 'my', 'dreams', 'boring']
+5.47
+['not', 'great', 'show', 'keyboard']
+6.025
+['bought', 'us', 'like', 'up']
+6.4799999999999995
+['lost']
+2.76
+['like']
+7.22
+[]
+None
+['touching']
+6.61
+['you', 'banana', 'you', 'eat', 'banana']
+6.648000000000001
+['forest', 'no', 'woman']
+5.666666666666667
+['critics', 'male', 'quit', 'woman', 'automatically']
+5.312
+['sure', 'costume', 'designer', 'female']
+6.444999999999999
+['cute']
+7.52
+[]
+None
+['boy']
+6.24
+['never']
+3.34
+['you', 'sick']
+4.13
+[]
+None
+['will', 'not', 'allow']
+5.293333333333333
+[]
+None
+['resource']
+6.46
+[]
+None
+['up', 'easier', 'you', 'straight', 'attracted', 'not', 'exclusive', 'vagina']
+6.205
+['phone', 'ruin', 'people', 'day']
+5.380000000000001
+['she', 'hanging', 'my', 'good']
+5.84
+['like', 'guitars']
+6.98
+['buy', 'like', 'me', 'my', 'shit', 'good', 'afraid', 'most', 'produces', 'very', 'bad', 'quality']
+5.574999999999999
+['never', 'first', 'deny']
+4.533333333333333
+['lol']
+6.84
+[]
+None
+['cheating', 'you']
+4.25
+['shock', 'family']
+5.63
+['dislike', 'original', 'limitations', 'ahead', 'try']
+4.991999999999999
+[]
+None
+[]
+None
+['definitely', 'real', 'very', 'certain', 'attract', 'you', 'accurate', 'infinite', 'easier']
+6.532222222222222
+[]
+None
+['answered', 'own']
+6.1899999999999995
+['believe', 'me', 'research']
+6.580000000000001
+['women', 'my', 'mind']
+6.44
+['world', 'shit']
+4.51
+['artists', 'think', 'more', 'comfortable', 'you', 'color', 'shade', 'you']
+6.5200000000000005
+['lord']
+6.34
+['always']
+6.48
+[]
+None
+[]
+None
+[]
+None
+['think', 'nice', 'like', 'money', 'entertainment', 'money', 'know']
+7.0371428571428565
+['laughed', 'jokes']
+8.120000000000001
+['you', 'okay', 'ipad', 'you', 'my', 'shit']
+5.7
+['god', 'she', 'world']
+6.66
+['green']
+6.78
+['racist']
+2.08
+['equally']
+6.4
+['all', 'us']
+6.24
+['well', 'you', 'always', 'worth', 'saving', 'up', 'lol']
+6.588571428571429
+['buy']
+6.28
+['hope', 'my']
+6.77
+['read']
+6.52
+['child', 'equal', 'screaming', 'alone']
+4.8950000000000005
+[]
+None
+['more']
+6.24
+['advance']
+6.58
+['will', 'perfect', 'day', 'glorious']
+6.855
+[]
+None
+[]
+None
+['like']
+7.22
+['evil', 'people', 'hell', 'lol']
+4.28
+['not', 'nice', 'healing']
+6.053333333333334
+['see', 'you']
+6.15
+[]
+None
+['wife', 'mine', 'divorce', 'refuse', 'signing', 'she', 'me']
+5.337142857142857
+['shit']
+2.5
+['tomorrow']
+6.18
+['gang']
+3.82
+['without']
+3.54
+['fine', 'disagree', 'all', 'criticism', 'hate', 'women', 'lol', 'dumb']
+4.887500000000001
+[]
+None
+['like']
+7.22
+[]
+None
+[]
+None
+['fan']
+6.66
+['principles']
+6.14
+['thought', 'think']
+6.29
+['ideas']
+7.16
+[]
+None
+['see', 'make', 'tribute', 'videos', 'create', 'faces', 'stroke', 'tenderly', 'mail', 'you']
+5.976
+['walked', 'my', 'hurts', 'no', 'pain']
+3.9760000000000004
+['friends', 'you', 'children', 'please', 'stop', 'right', 'not', 'thinking']
+6.0275
+['music', 'like', 'grand', 'songs']
+7.3149999999999995
+['please', 'like', 'not', 'seeing']
+5.955
+['weak']
+2.84
+['you']
+6.24
+[]
+None
+[]
+None
+['up', 'me']
+6.359999999999999
+['started', 'finishing', 'cool', 'home', 'my', 'arrived', 'lol']
+6.528571428571429
+[]
+None
+['thanksgiving', 'thankful', 'friends']
+7.586666666666666
+[]
+None
+['seed', 'all', 'prepared', 'best', 'thankful']
+6.744
+[]
+None
+['brain', 'help', 'you', 'recognize', 'glance']
+6.184
+['lol']
+6.84
+['true', 'lol']
+6.96
+['youtube', 'disappointed']
+4.59
+['ass']
+3.86
+['know']
+6.1
+['you', 'like', 'sexy', 'you']
+6.775
+[]
+None
+['correct', 'trap']
+5.2299999999999995
+[]
+None
+[]
+None
+['face']
+6.12
+['never', 'you']
+4.79
+['me']
+6.58
+['you', 'good', 'story']
+6.640000000000001
+[]
+None
+['sing', 'song', 'not', 'singing', 'song']
+6.684
+['glad']
+7.48
+['me']
+6.58
+['bullet', 'started']
+4.68
+['like', 'depressed']
+4.7
+['done', 'always', 'up', 'like', 'nothing', 'very', 'clearly', 'no', 'real', 'answer', 'sucks', 'not']
+5.506666666666667
+['more', 'last']
+4.99
+[]
+None
+[]
+None
+['drawing', 'develop', 'addiction']
+5.1866666666666665
+['complaint', 'like', 'golden', 'designed', 'badly', 'dog', 'big']
+5.64
+['clear', 'human', 'big', 'dog']
+6.369999999999999
+['weak']
+2.84
+['no', 'knows', 'not', 'make', 'fun']
+5.484
+['boy', 'big', 'art', 'chat', 'face']
+6.320000000000001
+['big', 'losers', 'offense', 'myself']
+4.825
+[]
+None
+['kill']
+1.56
+['sweet', 'cool', 'epic', 'play', 'music', 'will', 'day']
+6.954285714285715
+['me', 'thank', 'you']
+6.739999999999999
+['shitty', 'think', 'arrived', 'home', 'forward']
+5.632000000000001
+['song']
+7.58
+['song']
+7.58
+['started', 'drawing', 'ipad', 'more', 'relaxing', 'quality', 'hope', 'best', 'worlds']
+6.74888888888889
+['hell', 'clean', 'ipad']
+5.206666666666667
+['sketch', 'thought', 'like', 'done', 'clean']
+6.6819999999999995
+['big', 'never', 'sketch', 'clean', 'first', 'wrong']
+5.465
+['clean', 'up', 'sketch', 'lol']
+6.5625
+['color']
+7.0
+['artists', 'all']
+6.52
+[]
+None
+['up', 'boring', 'ass', 'life']
+5.055
+['breast']
+6.22
+['rage']
+2.56
+['amazing', 'exact', 'iphone', 'phone', 'game']
+6.720000000000001
+['my', 'house']
+6.25
+['simple', 'game', 'idea', 'steal', 'myself', 'make', 'cool', 'quick']
+5.9975000000000005
+['people', 'shows']
+6.12
+[]
+None
+[]
+None
+[]
+None
+['women', 'lonely', 'waters', 'people', 'hopes', 'you', 'woman', 'sorry', 'you', 'welcome']
+5.960000000000001
+[]
+None
+[]
+None
+[]
+None
+['thought', 'up', 'she', 'help']
+6.195
+['like', 'game', 'fully', 'more', 'mind', 'gone']
+6.003333333333334
+['decent', 'you', 'story', 'forward', 'game', 'fights']
+5.826666666666667
+['animal']
+6.8
+['woman']
+6.84
+['broken', 'lol']
+4.93
+['eyes', 'worse', 'better']
+5.3133333333333335
+['you', 'make']
+6.12
+[]
+None
+['my', 'like', 'will', 'you', 'all', 'you', 'big', 'like', 'swimming', 'pool']
+6.484
+['she', 'game']
+6.55
+['legs']
+6.06
+[]
+None
+[]
+None
+['bitch', 'power']
+4.91
+['my', 'brain', 'hoping', 'find', 'my', 'like', 'me']
+6.525714285714286
+['wow', 'thanks']
+7.43
+['millionaire']
+7.62
+['sketch', 'right', 'like', 'make', 'easier', 'suggestions', 'not', 'fair', 'you']
+6.314444444444444
+['up', 'millionaire']
+6.88
+['bro', 'annoying', 'clean', 'up', 'sketch', 'you', 'all', 'like', 'top', 'sketch', 'all', 'big', 'perfect', 'my']
+6.234285714285713
+['babes']
+6.28
+[]
+None
+['me', 'sad', 'my', 'sucks', 'dumb']
+4.264
+['worst', 'offense']
+2.83
+[]
+None
+[]
+None
+['please']
+6.36
+[]
+None
+['woman', 'she', 'you']
+6.419999999999999
+['funny', 'moments']
+7.01
+[]
+None
+['more', 'better', 'people', 'thinking']
+6.42
+['win']
+8.12
+['piss', 'like', 'good']
+5.993333333333333
+['like', 'like', 'good', 'money']
+7.235
+[]
+None
+['you', 'my', 'drawing', 'you']
+6.305
+[]
+None
+['pretty', 'good', 'own']
+6.8933333333333335
+['my', 'slave']
+4.11
+[]
+None
+['my', 'better']
+6.58
+['play', 'game']
+7.09
+['me']
+6.58
+['money', 'guns', 'air', 'open', 'you', 'better']
+6.07
+['straight', 'art', 'like', 'think']
+6.52
+['songs', 'lol']
+6.9
+['shit']
+2.5
+['like', 'stop', 'increasingly', 'annoyed', 'found', 'songs', 'like', 'stop', 'me']
+5.666666666666666
+['money', 'buy', 'shit', 'buy', 'affection']
+5.978
+['egypt', 'uncle']
+6.529999999999999
+[]
+None
+['make', 'exclusive', 'artists', 'draw', 'my']
+6.380000000000001
+[]
+None
+[]
+None
+[]
+None
+['bitch']
+3.14
+['loved']
+7.96
+['best', 'playing', 'guitar', 'mine', 'hate']
+6.036
+['very', 'idea', 'grown', 'hate']
+5.3999999999999995
+['good', 'pretty', 'colors', 'will', 'most']
+6.752
+['will', 'make', 'join']
+6.079999999999999
+['deserve', 'lol']
+6.62
+['you', 'see']
+6.15
+['people', 'draw', 'you', 'you', 'color', 'you', 'racist']
+5.771428571428572
+['people', 'dedicated']
+6.49
+['never', 'chance', 'give', 'chance']
+5.69
+['straight', 'my', 'give', 'false', 'hope', 'false', 'hope', 'shit', 'nice']
+5.52888888888889
+['today', 'late', 'up', 'today']
+5.51
+['definitely', 'deal']
+6.26
+['never', 'myself', 'honestly', 'begin', 'start', 'paranoid']
+5.423333333333333
+[]
+None
+['think', 'you']
+6.220000000000001
+['think', 'like', 'nothing', 'know', 'pure', 'lol']
+6.19
+[]
+None
+['comic', 'purely']
+6.734999999999999
+['life']
+7.32
+['me', 'clothes', 'more', 'tired']
+5.655
+['she', 'pretty']
+6.75
+['me']
+6.58
+['know', 'all']
+6.16
+['will', 'draw', 'myself', 'cool', 'epic', 'christmas', 'clothes', 'soon']
+6.6274999999999995
+['know']
+6.1
+['play']
+7.26
+[]
+None
+[]
+None
+['you', 'face']
+6.18
+['see', 'you', 'make', 'me', 'real', 'sis']
+6.3500000000000005
+[]
+None
+['all', 'together', 'we', 'earn', 'thousands', 'me']
+6.603333333333333
+['think', 'spotlight']
+6.275
+['simply', 'cleaned', 'up', 'like', 'people', 'me']
+6.510000000000001
+[]
+None
+['will', 'make', 'see', 'fan']
+6.185
+['brother']
+7.22
+['stop', 'know', 'you', 'me', 'hate']
+5.032
+['most', 'prominent', 'not', 'fun', 'loose', 'nice', 'like', 'see']
+6.115
+['she', 'magic']
+6.49
+['share']
+6.78
+[]
+None
+['picture']
+6.64
+['fun', 'eating', 'cake', 'without', 'bake', 'food']
+6.75
+['ruined', 'cool', 'hats']
+5.383333333333333
+[]
+None
+['me', 'real', 'good', 'draw', 'suggestions']
+6.616
+[]
+None
+['hope', 'you', 'big', 'sad']
+5.555
+['you', 'know', 'all', 'cancelled', 'finish', 'development', 'we', 'know', 'today', 'more']
+5.948
+['interesting', 'gaming']
+6.97
+['you', 'game', 'brain', 'unnecessary', 'you', 'game']
+6.103333333333334
+[]
+None
+[]
+None
+['wait', 'dislike']
+3.31
+['you', 'fell']
+4.73
+['laughing', 'rights']
+7.34
+['draw', 'myself', 'demon', 'babes', 'my', 'friends', 'will', 'make', 'fun', 'me']
+6.258000000000001
+['make', 'more', 'comics', 'epic', 'content', 'like', 'dead', 'horse', 'farm', 'likes']
+6.096
+['mom', 'comics', 'kid', 'day']
+6.9
+[]
+None
+['like', 'not', 'bad', 'sucks', 'me', 'me', 'my', 'we', 'all', 'live', 'sure']
+5.63090909090909
+[]
+None
+[]
+None
+['you', 'spam']
+4.470000000000001
+[]
+None
+['story', 'my', 'life']
+6.653333333333333
+[]
+None
+['never', 'smile', 'know']
+5.846666666666667
+[]
+None
+['right', 'me', 'up', 'most', 'like', 'falling', 'perfectly']
+6.180000000000001
+['bro']
+6.22
+['you', 'making', 'all', 'up', 'think', 'you', 'make', 'faster', 'games', 'always', 'slow', 'me']
+6.151666666666667
+['up', 'loose', 'charm', 'me']
+5.9350000000000005
+['help', 'make', 'my', 'popular', 'more', 'pics']
+6.246666666666667
+['google']
+7.2
+['you']
+6.24
+['temple', 'centuries', 'you']
+6.153333333333333
+[]
+None
+['kids', 'up', 'you', 'advanced']
+6.584999999999999
+[]
+None
+['star', 'wars']
+4.56
+[]
+None
+[]
+None
+['jail']
+1.76
+['like']
+7.22
+[]
+None
+['know', 'she', 'like', 'lol']
+6.585
+['deal', 'shit']
+4.41
+['no', 'you', 'raped']
+3.786666666666667
+['accidentally', 'sex', 'rape']
+4.286666666666666
+[]
+None
+['you', 'bitch', 'stealing', 'rotten', 'legitimate']
+4.132
+['girl', 'cute', 'nice', 'talking', 'most', 'important', 'she', 'thought', 'bunny']
+6.704444444444444
+['comic', 'artists', 'skill', 'painting', 'beautiful']
+7.034000000000001
+['my', 'art', 'like']
+6.66
+['she']
+6.18
+['school']
+6.26
+['lose', 'make', 'joke', 'help']
+5.615
+['think', 'healthy']
+7.109999999999999
+['not', 'real']
+5.32
+['not', 'amazing', 'fan', 'hate', 'insane']
+4.712
+[]
+None
+['bro', 'me', 'well', 'me']
+6.515000000000001
+['honestly', 'movies', 'you']
+6.866666666666667
+['popular', 'annoying', 'like', 'young', 'adult']
+5.92
+['not', 'super', 'amazing', 'fan', 'fine', 'not', 'super', 'fan']
+6.35
+['pleased', 'sure']
+6.86
+['gold', 'star', 'you']
+7.006666666666667
+['hair', 'solve', 'you', 'dumb']
+5.4799999999999995
+['all', 'people', 'shut', 'up']
+5.52
+['cute']
+7.52
+['think', 'decent', 'me']
+6.333333333333333
+['well']
+6.68
+['home', 'day', 'down', 'bed']
+6.055
+['like', 'me', 'donations', 'you', 'never', 'people', 'give', 'me', 'money']
+6.279999999999999
+['easy']
+6.76
+['art', 'very', 'strongly', 'talk', 'pics', 'like', 'nice']
+6.5600000000000005
+[]
+None
+['you', 'right', 'people', 'annoying', 'you', 'idea']
+5.843333333333334
+[]
+None
+['no', 'like', 'day']
+5.646666666666666
+['lie', 'good', 'exercises']
+5.446666666666666
+['think', 'creating', 'comic', 'nothing', 'fucked', 'up']
+5.599999999999999
+['like', 'cool', 'dog', 'cool', 'dog']
+7.0040000000000004
+['eating']
+7.3
+['you', 'my', 'girl']
+6.466666666666666
+[]
+None
+['think', 'my', 'fine']
+6.366666666666667
+['yes', 'my', 'dumb', 'bitch']
+4.775
+['died']
+1.56
+[]
+None
+[]
+None
+['research', 'interesting', 'spice', 'up', 'idea', 'simple', 'try']
+6.485714285714285
+[]
+None
+['closed']
+3.66
+['you', 'mean', 'art']
+5.506666666666667
+['you']
+6.24
+['rude']
+2.62
+[]
+None
+['join', 'morning', 'all', 'my', 'big', 'up', 'empty']
+5.868571428571428
+['think', 'more', 'you', 'more']
+6.23
+['me', 'all']
+6.4
+[]
+None
+['art', 'shit']
+4.55
+[]
+None
+['my', 'cares', 'complaints', 'productive']
+5.8149999999999995
+['fat']
+3.24
+['female', 'boy', 'rabbit', 'art']
+6.705
+[]
+None
+['like']
+7.22
+['forgot']
+3.44
+['hate', 'not', 'problem', 'warning', 'ahead', 'warning', 'me']
+4.074285714285715
+['down', 'dark']
+3.74
+['you', 'my', 'eyes', 'lol']
+6.37
+['like', 'funny', 'ace']
+7.273333333333333
+['me', 'without']
+5.0600000000000005
+['mad', 'bro', 'strongly', 'dislike', 'people', 'save', 'okay', 'play', 'me']
+5.66
+['draw', 'babe', 'right', 'will', 'give', 'you', 'you', 'up', 'make', 'she', 'old', 'you', 'sorry', 'make']
+5.931428571428571
+['my', 'drawing']
+6.37
+['bro', 'purple', 'drawing', 'you', 'google', 'problem', 'quit', 'people', 'cartoon', 'real']
+5.93
+['school', 'my', 'teacher', 'me']
+6.34
+[]
+None
+['down']
+3.66
+[]
+None
+['we', 'make', 'corona', 'virus']
+4.045
+[]
+None
+['bro', 'future', 'lol']
+6.6066666666666665
+['read', 'bitch', 'bible']
+5.38
+['tired', 'fire', 'waiting', 'images']
+4.29
+['give', 'damn', 'clothes']
+5.326666666666667
+['blocked', 'me', 'lol']
+5.686666666666667
+['mad']
+2.6
+['you', 'never', 'mind', 'orange', 'accidentally', 'big', 'fat']
+5.085714285714286
+[]
+None
+['thanks']
+7.4
+['you', 'owe']
+4.890000000000001
+['like']
+7.22
+[]
+None
+['more', 'ill', 'peace']
+5.506666666666667
+['know', 'my', 'youtube']
+6.3933333333333335
+['day']
+6.24
+['day', 'will', 'all', 'make', 'sense']
+6.156000000000001
+['me', 'you', 'cool', 'you', 'started', 'okay']
+6.47
+['you']
+6.24
+['you', 'you', 'you', 'you']
+6.24
+['played']
+6.38
+['understand', 'shit', 'sex', 'completely', 'separated', 'know']
+5.39
+['hurts']
+2.14
+[]
+None
+[]
+None
+['believe', 'real', 'video']
+6.653333333333333
+['okay', 'relax', 'own']
+6.8066666666666675
+['my', 'poor', 'child']
+5.24
+['bitch', 'started']
+4.57
+[]
+None
+['lol', 'find', 'me', 'good', 'like', 'colors', 'most', 'think']
+6.657500000000001
+['pictures', 'she', 'best', 'lol']
+6.8149999999999995
+['comfort']
+7.5
+['think', 'burned', 'bridges', 'my', 'own']
+5.492
+[]
+None
+['great', 'perfect', 'my', 'make', 'cool', 'like']
+6.98
+['cry', 'you', 'fucked']
+3.8800000000000003
+[]
+None
+['stuck', 'talking', 'me', 'me', 'forward', 'stuck', 'talk', 'frustrated']
+5.250000000000001
+['anger', 'power']
+4.49
+['people', 'up', 'me', 'without', 'thought', 'very', 'sad']
+5.328571428571429
+['funny', 'honestly']
+7.47
+['thought']
+6.38
+[]
+None
+['more', 'you']
+6.24
+['safe', 'own', 'buddy', 'fun', 'useful', 'comfortable', 'wit']
+6.9799999999999995
+['scared']
+2.58
+[]
+None
+['you', 'you', 'think', 'easier', 'first', 'you', 'all', 'good', 'nice', 'faces', 'shit', 'shit', 'top', 'fucker']
+5.8135714285714295
+['first', 'madness', 'make', 'sure', 'fancy', 'like', 'google', 'better', 'nice', 'eyes', 'face']
+6.441818181818183
+['bro', 'better']
+6.609999999999999
+['never', 'me']
+4.96
+['new']
+6.82
+[]
+None
+['found', 'discount']
+6.87
+['fell']
+3.22
+['you', 'tree']
+6.68
+[]
+None
+['you', 'you', 'died', 'you', 'heaven', 'god', 'see', 'you', 'pet', 'you', 'lost', 'you', 'we', 'kid', 'expecting', 'you']
+6.005
+['think', 'like', 'shit']
+5.306666666666667
+['best']
+7.18
+['not']
+3.86
+['demon', 'cuddle', 'lonely']
+4.366666666666666
+['depressed']
+2.18
+['all', 'people', 'you']
+6.206666666666666
+['comic', 'finish', 'tonight', 'late', 'bed']
+6.1160000000000005
+['animal', 'you', 'game', 'hoping', 'super', 'epic', 'new', 'updates', 'you', 'mind', 'new', 'fun', 'fine']
+6.749230769230768
+['simple']
+6.02
+['you', 'know', 'bro']
+6.1866666666666665
+['you', 'art', 'everyone', 'higher', 'chance', 'people', 'live']
+6.408571428571428
+['we', 'art', 'like']
+6.733333333333333
+['like', 'baby', 'drawing', 'ipad']
+6.895
+['wish', 'better', 'artists', 'make', 'money', 'online', 'without', 'starving', 'all', 'artists', 'know', 'see', 'living', 'parents', 'no', 'hope', 'own', 'passion', 'wish', 'live', 'art']
+6.228571428571428
+['help', 'myself']
+6.1899999999999995
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['king']
+6.18
+[]
+None
+['make', 'attract', 'all', 'artists', 'warning', 'good']
+6.05
+[]
+None
+['think', 'beans', 'share', 'draw', 'you', 'like']
+6.48
+[]
+None
+[]
+None
+['screams', 'awesome']
+5.54
+['rough', 'hope']
+5.46
+[]
+None
+['good', 'ipad', 'suggestions', 'great']
+6.915
+['new', 'game', 'pain', 'you', 'complete', 'unlocked']
+5.8566666666666665
+['okay']
+6.56
+[]
+None
+['okay', 'all', 'good']
+6.66
+['me', 'morning', 'bed', 'lol']
+6.79
+['stop', 'crash']
+3.25
+['you']
+6.24
+['buy', 'we', 'play', 'big', 'more']
+6.476000000000001
+['me']
+6.58
+['champ', 'never', 'doubt']
+4.34
+['good', 'right', 'good']
+6.98
+[]
+None
+[]
+None
+['cherry', 'top']
+6.9
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['babes', 'me']
+6.43
+[]
+None
+['up']
+6.14
+['crime']
+2.2
+[]
+None
+['make', 'cry']
+3.92
+[]
+None
+['last']
+3.74
+[]
+None
+['you', 'dies']
+4.16
+['gun', 'my', 'game', 'done', 'today']
+5.732
+['wish', 'stop']
+5.41
+['eyes', 'lol', 'think', 'played', 'eye']
+6.36
+[]
+None
+['down', 'open']
+4.88
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+[]
+None
+['never', 'understood', 'shit']
+4.14
+['dogs']
+6.78
+['bad', 'alright', 'make', 'hands', 'make', 'easier']
+5.713333333333334
+['like', 'you', 'walking', 'you', 'fat']
+5.824000000000001
+['all', 'my', 'color', 'pure']
+6.5649999999999995
+[]
+None
+['shit']
+2.5
+['like', 'personal']
+6.64
+[]
+None
+[]
+None
+['share', 'old', 'new', 'art']
+6.045
+['productive', 'impress']
+6.640000000000001
+['you']
+6.24
+[]
+None
+[]
+None
+[]
+None
+['art']
+6.6
+['up']
+6.14
+[]
+None
+[]
+None
+['like', 'joke']
+7.42
+['know', 'equal', 'funny', 'people']
+6.56
+['up', 'dream', 'my', 'prison']
+5.364999999999999
+[]
+None
+[]
+None
+[]
+None
+['no', 'you', 'more']
+5.32
+['cares']
+7.36
+[]
+None
+[]
+None
+['popular']
+6.6
+['like']
+7.22
+['face', 'piss', 'lunch', 'money', 'force', 'piss', 'cash', 'buy', 'meal', 'down']
+5.65
+[]
+None
+['you']
+6.24
+['people']
+6.16
+['tea', 'my', 'mom', 'day', 'tired', 'noise']
+5.63
+['eyes', 'like', 'hurting']
+5.273333333333333
+[]
+None
+['you', 'start']
+6.17
+[]
+None
+['exists']
+6.34
+['day']
+6.24
+['good', 'ipad']
+6.85
+[]
+None
+['advice', 'know', 'you', 'well', 'advice', 'not', 'advice', 'people', 'know', 'meaning']
+5.98
+[]
+None
+['sorry', 'not', 'not']
+3.793333333333333
+[]
+None
+['my', 'dating']
+6.28
+['technology', 'make', 'you', 'smile', 'you', 'know', 'naturally', 'yourself']
+6.5575
+['she', 'candy']
+6.85
+['loved']
+7.96
+[]
+None
+['she']
+6.18
+['drawing', 'think']
+6.390000000000001
+['try', 'drawing', 'shit', 'draw', 'big', 'me', 'suggestions']
+5.774285714285713
+['god', 'lol']
+7.0600000000000005
+['will', 'she']
+6.1
+['deal']
+6.32
+['free', 'you', 'jail', 'yell', 'you']
+5.192
+['lives', 'mansion', 'make', 'games', 'games']
+6.736
+['like', 'cool', 'shows', 'fine', 'nice']
+6.924000000000001
+['enjoyed', 'game', 'think', 'sadly']
+5.855
+[]
+None
+['my', 'corona']
+3.94
+['started', 'playing', 'animal', 'more', 'my', 'island', 'me', 'content']
+6.465
+['art']
+6.6
+[]
+None
+[]
+None
+['honestly', 'complain', 'like', 'female']
+6.069999999999999
+['lunch', 'played', 'my', 'nice']
+6.835
+['rabbit']
+7.1
+[]
+None
+['my', 'ipad']
+6.33
+['nothing', 'wrong', 'nice', 'alive']
+5.4
+[]
+None
+['like', 'dogs']
+7.0
+['movie', 'old']
+5.41
+['mom', 'camera', 'buy', 'dead', 'japan']
+5.744
+['able', 'stuck', 'house', 'car', 'broke', 'corona', 'virus', 'pandemic', 'shit']
+3.7466666666666666
+['good', 'create', 'money', 'passion', 'we', 'all', 'know']
+6.76
+['please', 'adult', 'all', 'celebrate', 'overseas', 'parents', 'house', 'day', 'parents', 'late', 'forget', 'leaving']
+5.859999999999999
+['pretty', 'good']
+7.26
+['my', 'true']
+6.62
+['mean', 'bonus', 'points', 'minus', 'points']
+5.4799999999999995
+['peace', 'shit']
+5.18
+[]
+None
+['friends', 'me', 'big', 'ass']
+6.145
+[]
+None
+['okay', 'me']
+6.57
+['opening', 'up', 'first', 'first', 'check', 'first', 'you', 'lol']
+6.4975000000000005
+[]
+None
+['costume']
+6.26
+['dream', 'ended', 'me', 'stealing', 'big', 'ass', 'driving', 'me', 'riding', 'horse', 'me', 'ends', 'up', 'riding', 'tree']
+5.706666666666666
+['always', 'able', 'draw']
+6.493333333333333
+['sleep', 'thinking', 'playing', 'guitar']
+6.95
+['my', 'day', 'good', 'solution', 'people', 'know']
+6.45
+['waiting', 'finish', 'my', 'rabbit', 'see', 'result', 'good']
+6.131428571428572
+['never']
+3.34
+[]
+None
+['precious']
+7.34
+[]
+None
+[]
+None
+[]
+None
+['me', 'eyes']
+6.41
+[]
+None
+['like', 'she']
+6.699999999999999
+[]
+None
+['game']
+6.92
+['no']
+3.48
+[]
+None
+['not', 'big', 'deal', 'shit', 'all', 'lame', 'you', 'think', 'you', 'baby', 'seeing']
+5.534545454545455
+['worst', 'talent']
+4.58
+['my', 'relationship']
+6.6
+['not', 'american']
+5.3
+['make', 'rest', 'good', 'finish', 'start', 'making', 'lol']
+6.611428571428571
+[]
+None
+[]
+None
+['fancy']
+6.96
+['happy', 'achieved', 'today', 'my', 'boy', 'all']
+6.783333333333332
+['never', 'tired', 'drawing', 'simply']
+4.92
+['like', 'making', 'jokes', 'more', 'creative', 'ideas', 'always']
+6.96
+['me']
+6.58
+['life', 'making', 'shitty', 'jokes', 'shit', 'drawing']
+5.533333333333334
+['mobile', 'like', 'me', 'my', 'phone', 'phone', 'phone']
+6.519999999999999
+['cool']
+7.2
+[]
+None
+['like', 'you']
+6.73
+[]
+None
+['wings']
+6.52
+['more', 'like', 'give', 'me', 'new', 'faces', 'express', 'my', 'emotions']
+6.442222222222222
+[]
+None
+['think', 'equally', 'wrong', 'nixon']
+4.915000000000001
+['enable', 'shit', 'like']
+5.293333333333333
+['day', 'my', 'big', 'empty', 'couch', 'guest']
+5.793333333333333
+['never', 'hired']
+5.02
+[]
+None
+['no']
+3.48
+['expressions']
+6.6
+['all']
+6.22
+['wow', 'holy', 'ridiculous', 'imagine', 'like', 'modern']
+6.496666666666667
+['wow', 'youtube', 'good', 'check', 'wait', 'learned', 'deleted']
+5.957142857142857
+['god', 'glad']
+7.380000000000001
+['deal']
+6.32
+[]
+None
+['big', 'think']
+6.21
+['hair', 'pretty', 'cute']
+6.96
+[]
+None
+['sharing']
+7.06
+['everyone', 'sad', 'youtube', 'deleted', 'first']
+5.12
+['complicated']
+3.34
+['like', 'me', 'like', 'sure', 'hope', 'thought', 'all', 'friendly', 'me']
+6.84
+['me', 'exclusively']
+6.35
+['face']
+6.12
+[]
+None
+[]
+None
+['you']
+6.24
+['all', 'superior', 'sorry', 'bro']
+5.545
+['haha', 'right']
+7.09
+['new', 'like', 'shit']
+5.513333333333333
+['fat']
+3.24
+['right', 'like', 'like', 'overseas', 'online', 'fun', 'lovely', 'like', 'overseas', 'offline']
+6.616
+['share']
+6.78
+[]
+None
+[]
+None
+['my']
+6.16
+['hate', 'living', 'life', 'simple', 'shit']
+4.9719999999999995
+['making', 'personal', 'all', 'frustrated', 'worried']
+4.767999999999999
+['you', 'brother']
+6.73
+['freelance', 'artist', 'able', 'afford', 'story', 'bills']
+5.806666666666666
+[]
+None
+['enemies']
+2.44
+['making', 'fun', 'you']
+6.813333333333333
+['fat', 'bunny', 'gross']
+4.613333333333334
+[]
+None
+['angry', 'lol', 'fat']
+4.133333333333334
+['big', 'you', 'wondering', 'up', 'you', 'find', 'find', 'like', 'choice']
+6.257777777777778
+['steal']
+2.46
+['lives', 'day']
+6.23
+['not', 'like', 'you']
+5.773333333333333
+['my', 'dog', 'all', 'homes']
+6.425
+[]
+None
+['you', 'insanity', 'like', 'she', 'you']
+5.867999999999999
+['my', 'big', 'jacket', 'like']
+6.449999999999999
+['my', 'own']
+6.16
+['me', 'making', 'bunny']
+6.566666666666666
+['lol']
+6.84
+[]
+None
+['good', 'fault']
+5.32
+['no']
+3.48
+['night', 'friend', 'all', 'friends', 'my', 'green', 'stronger']
+6.868571428571427
+['worst', 'my', 'first', 'gone']
+4.625
+['new']
+6.82
+['full', 'right']
+6.38
+['performing', 'surgery']
+4.58
+['she', 'cares']
+6.77
+[]
+None
+['answer', 'false']
+4.71
+['big', 'very', 'see', 'you', 'sure']
+6.192
+['god']
+7.28
+['not', 'sure', 'real', 'dumb']
+5.005
+[]
+None
+['see', 'own']
+6.109999999999999
+['dammit']
+3.36
+['everyone', 'up', 'shock', 'guys', 'sky', 'everyone', 'dancing', 'all', 'start']
+6.144444444444444
+['lol']
+6.84
+['sweet', 'my', 'broke', 'fix']
+5.655
+['we', 'sure', 'all', 'clean', 'not', 'we', 'sure', 'lying', 'evil']
+5.206666666666667
+['know', 'shit', 'white', 'slave', 'white', 'people', 'definitely']
+5.082857142857143
+[]
+None
+['deal', 'know']
+6.21
+['know', 'worse', 'make', 'like', 'white', 'think', 'believe', 'white', 'superior']
+5.9511111111111115
+[]
+None
+['know']
+6.1
+['mario', 'you']
+6.300000000000001
+['slim']
+6.06
+['my', 'correct']
+6.59
+['you', 'all', 'book', 'buy']
+6.495000000000001
+['me', 'wife', 'me', 'wifi']
+6.535
+['me', 'banned', 'my', 'big', 'nasty', 'shit']
+4.493333333333333
+['big', 'nasty', 'shit']
+3.78
+['dumb', 'found', 'video', 'god', 'damn', 'retarded', 'holy', 'shit']
+4.7625
+[]
+None
+['you', 'bad', 'art', 'know', 'world', 'artist', 'killed', 'depression', 'paintings', 'like', 'moral', 'you', 'kill', 'wait']
+5.04142857142857
+[]
+None
+['like', 'not', 'like']
+6.1000000000000005
+['drawing', 'gifts', 'know']
+6.746666666666667
+['people', 'eyes', 'hair']
+6.146666666666667
+['think', 'annoying', 'me', 'people', 'you', 'you', 'horrible', 'you', 'you']
+5.440000000000001
+['remember']
+6.42
+[]
+None
+['you', 'never']
+4.79
+[]
+None
+['goal', 'buddy']
+6.93
