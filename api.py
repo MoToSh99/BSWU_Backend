@@ -15,6 +15,18 @@ def getMostRecentTweetsAPI():
     tweetList = m.getTweets(username)
     return jsonify(tweetList)
 
+@app.route('/setupuser')
+def setupUser():
+    return jsonify(m.setupUser(request.args.get('username')))
+
+@app.route('/profileinfo')
+def getProfileInfo():
+    return jsonify(m.getProfileInfo(request.args.get('username')))
+
+@app.route('/gethappytweet')
+def getHappyTweet():
+    return jsonify(m.getHappyTweet(request.args.get('username')))
+
 # Run application
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5123)
