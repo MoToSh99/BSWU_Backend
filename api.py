@@ -7,21 +7,9 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-# Display the latest tweets
-@app.route('/recenttweets')
-@cross_origin()
-def getMostRecentTweetsAPI():
-    username = request.args.get('username')
-    tweetList = m.getTweets(username)
-    return jsonify(tweetList)
-
-@app.route('/profileinfo')
-def getProfileInfo():
-    return jsonify(m.getProfileInfo(request.args.get('username')))
-
-@app.route('/gethappytweet')
-def getHappyTweet():
-    return jsonify(m.getHappyTweet(request.args.get('username')))
+@app.route('/getdata')
+def getData():
+    return jsonify(m.getData(request.args.get('username')))
 
 # Run application
 if __name__ == '__main__':
