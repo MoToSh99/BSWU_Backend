@@ -3,26 +3,22 @@ from tweepy.models import User
 import config
 import re
 import sentiment
+import operator
 
 # Set up Twitter API
-api = config.setupTwitterAuth()
-username = ""
-allTweets = ""
-
-
 
 def setupUser(user):
-    global username, allTweets
     username = user
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(10)
-    return 0
+    getProfileInfo(user())
     
+    return 0
 
 
 # Get maximum latest tweets from user
 def getTweets(username):
     # Weird twitter user for testing: STANN_co
-    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items()
+    setupUser(username)
     tweetList = []
     for status in allTweets:
         tweetList.append(status.full_text)
@@ -30,6 +26,7 @@ def getTweets(username):
 
 # Get profile info from user
 def getProfileInfo(username):
+    api = config.setupTwitterAuth()
     user = api.get_user(username) 
 
     # Remove _normal from profile image URL
@@ -49,18 +46,26 @@ def getProfileInfo(username):
         "profile_image_url" : url
     }
 
+
+
+    return userInfo
+
 def getHappyTweet(username):
-    hapinessScore = 0
-    tweetID = ""
+    usr = setupUser(username)
+    tweets = {}
     for tweet in allTweets:
-        newScore = sentiment.getHapinessScore(tweet.full_text)
-        if newScore > hapinessScore:
-           hapinessScore = newScore
-           tweetID = tweet.id
+        score = sentiment.getHapinessScore(tweet.full_text)
+        if score != -1:
+            dict = {tweet.id: score}
+            tweets.update(dict)
+
+       
+    happy = max(tweets.items(), key=operator.itemgetter(1))[0]
+    sad = min(tweets.items(), key=operator.itemgetter(1))[0]
+
     # TODO only ID
-    html = '<blockquote class="twitter-tweet"><a href="https://twitter.com/x/status/{}"></a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'.format(tweetID)
-        
-    obj = {
-        "id" : html
-    }    
-    return obj
+    html = '<blockquote class="twitter-tweet"><a href="https://twitter.com/x/status/{}"></a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'.format(happy)
+     
+    return sad
+
+print(getHappyTweet("STANN_co"))

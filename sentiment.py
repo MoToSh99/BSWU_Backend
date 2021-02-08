@@ -11,7 +11,7 @@ def getHapinessScore(tweet_text):
     file = pyhmeter.load_scores("Hedonometer.csv")
     h = pyhmeter.HMeter(tokens, file, 1)
     score = h.happiness_score()
-    if score== None :
+    if score == None :
         return -1
     else:
         return score

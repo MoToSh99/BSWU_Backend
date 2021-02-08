@@ -15,10 +15,6 @@ def getMostRecentTweetsAPI():
     tweetList = m.getTweets(username)
     return jsonify(tweetList)
 
-@app.route('/setupuser')
-def setupUser():
-    return jsonify(m.setupUser(request.args.get('username')))
-
 @app.route('/profileinfo')
 def getProfileInfo():
     return jsonify(m.getProfileInfo(request.args.get('username')))
