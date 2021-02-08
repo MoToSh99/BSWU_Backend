@@ -43,10 +43,13 @@ class HMeter(object):
 
         # then we strip out stop words as described by Dodd paper
         self.matchlist = []
+        self.matchValueList= {}
         for word in labmtmatches:
             score = self.wordscores[word]
             if score >= 5.0 + self.deltah or score <= 5.0 - self.deltah:
                 self.matchlist.append(word)
+                self.matchValueList.update({word : score})
+
 
     def fractional_abundance(self, word):
         """Takes a word and return its fractional abundance within

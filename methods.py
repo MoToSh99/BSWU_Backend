@@ -5,31 +5,52 @@ import re
 import sentiment
 import operator
 
-
-
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(10)
-    scores = tweetScores(allTweets)
-    #print(scores)
-    print(scores.items())
+    tweetsDict = getTweetsDict(allTweets)
+
+    print(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
-     "tweets" : { "happiest" : getHappiestTweet(scores), "saddest" : getSaddestTweet(scores) },
+     "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScore(tweetsDict)), "saddest" : getSaddestTweet(tweetsOnlyScore(tweetsDict)) },
+     "allTweets" : tweetsDict,
     }
     
     return data
 
-def tweetScores(allTweets):
+def getTweetsDict(allTweets):
     tweets = {}
+    count = 1
     for tweet in allTweets:
         score = sentiment.getHapinessScore(tweet.full_text)
         if score != -1:
-            dict = { tweet.id : {"score" : score, "created" : str(tweet.created_at)} }
+            dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at) }}
             tweets.update(dict)
+            count += 1
             
     return tweets
+
+def getTopFiveWords(allTweets):
+    words = {}
+    count = 1
+    for tweet in allTweets:
+        score = sentiment.getHapinessScore(tweet.full_text)
+        if score != -1:
+            dict = { count : word}
+            tweets.update(dict)
+            count += 1
+            
+    return words
+
+#TODO Evt. fix måden at få data på
+def tweetsOnlyScore(scores):
+    scoresOnly = {}
+    for score in scores:
+        dict = {scores[score]["id"] : scores[score]["score"]}
+        scoresOnly.update(dict)
+    return scoresOnly
 
 # Get profile info from user
 def getProfileInfo(username):
@@ -52,7 +73,7 @@ def getProfileInfo(username):
 
     return userInfo
 
-def getHappiestTweet(scores):
+def getHappiestTweet(scores): 
     tweet = max(scores.items(), key=operator.itemgetter(1))[0]
     id = str(tweet)
      
@@ -63,5 +84,6 @@ def getSaddestTweet(scores):
     id = str(tweet)
     
     return id
+
 
 getData("STANN_co")
