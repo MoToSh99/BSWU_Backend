@@ -10,7 +10,7 @@ import time
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 500
+    count = 2000
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(count)
     listAllTweets = list(allTweets)
@@ -23,7 +23,6 @@ def getData(username):
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScore(tweetsDict)), "saddest" : getSaddestTweet(tweetsOnlyScore(tweetsDict)) },
      "allTweets" : tweetsDict,
      "topfivewords" : getTopFiveWords(listAllTweets),
-     #"bottomfivewords" : getBottomFiveWords(listAllTweets)
     }
 
     toc2 = time.perf_counter()
@@ -48,7 +47,6 @@ def getTweetsDict(allTweets):
 def getTopFiveWords(allTweets):
     tic = time.perf_counter()
     
-    
     wordDict = {}
     for tweet in allTweets:
         wordDict.update(sentiment.getWordsWithScoere(tweet.full_text))
@@ -58,18 +56,6 @@ def getTopFiveWords(allTweets):
     print(f"getTopFiveWords in {toc - tic:0.4f} seconds")
     return {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
-""" def getBottomFiveWords(allTweets):
-    tic = time.perf_counter()
-    
-    wordDict = {}
-    for tweet in allTweets:
-        wordDict.update(sentiment.getWordsWithScoere(tweet.full_text)) 
-
-    toc = time.perf_counter()
-    print(f"getBottomFiveWords in {toc - tic:0.4f} seconds")
-
-    return nsmallest(5, wordDict, key=wordDict.get)
- """
 #TODO Evt. fix måden at få data på
 def tweetsOnlyScore(scores):
     tic = time.perf_counter()
