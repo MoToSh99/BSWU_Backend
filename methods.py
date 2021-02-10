@@ -10,7 +10,7 @@ import time
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 50
+    count = 10
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(count)
     listAllTweets = list(allTweets)
@@ -18,6 +18,7 @@ def getData(username):
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
     tweetsDict = getTweetsDict(listAllTweets)
+    print(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : getOverallScore(tweetsDict),
@@ -31,11 +32,12 @@ def getData(username):
     
     return data
 
+#TODO - Check LIMIT HANDLER
 def getGeoData():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended').items(100)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended').items(1000)
 
     return getOverallScore(getTweetsDict(tweets))
 
@@ -46,7 +48,7 @@ def getTweetsDict(allTweets):
     for tweet in allTweets:
         score = sentiment.getHapinessScore(tweet.full_text)
         if score != -1:
-            dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at) }}
+            dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at), "geo_location" : tweet.geo }}
             tweets.update(dict)
             count += 1
     toc = time.perf_counter()
@@ -141,6 +143,8 @@ def getOverallScore(tweetsDict):
 
     return float("{:.2f}".format(total/count))
 
-#getData("STANN_co")
 
-print(getGeoData())
+
+
+
+getData("T")

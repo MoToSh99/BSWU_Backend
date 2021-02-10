@@ -3,7 +3,7 @@ import pyhmeter
 import re
 from heapq import nlargest, nsmallest
 from operator import itemgetter
-
+from nltk.sentiment import SentimentIntensityAnalyzer
 
 def getPyhmeter(tweet_text):
     #TODO: remove URL and other stuff to clean text
@@ -25,3 +25,12 @@ def getHapinessScore(tweet_text):
 def getWordsWithScoere(tweet_text):
     pyhmeter = getPyhmeter(tweet_text)
     return pyhmeter.matchValueList
+
+def nltksen():
+    sia = SentimentIntensityAnalyzer()
+    print(sia.polarity_scores("Wow, NLTK is really powerful but also kinda not you terrorist bad horrible death rape murder!"))
+
+
+print(getHapinessScore("Wow, NLTK is really powerful but also kinda not you terrorist bad horrible death rape murder!"))
+
+nltksen()
