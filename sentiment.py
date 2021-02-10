@@ -10,7 +10,7 @@ def getPyhmeter(tweet_text):
     pattern = re.compile('(@\w*)|(\|.*)')
     removedAt = pattern.sub('', tweet_text)
     tokens = word_tokenize(removedAt)
-    if tokens.lenght < 4:
+    if len(tokens) < 10:
       return -1
     # TODO Language according to tweet, and load file external
     file = pyhmeter.load_scores("Hedonometer.csv")
@@ -20,8 +20,8 @@ def getHapinessScore(tweet_text):
     pyhmeter = getPyhmeter(tweet_text)
     if(pyhmeter == -1):
         return -1
-    gscore = pyhmeter.happiness_score()
-
+   
+    score = pyhmeter.happiness_score()
     if score == None :
         return -1
     else:
@@ -29,7 +29,10 @@ def getHapinessScore(tweet_text):
 
 def getWordsWithScoere(tweet_text):
     pyhmeter = getPyhmeter(tweet_text)
-    return pyhmeter.matchValueList
+    if(pyhmeter == -1):
+        return []
+    else:
+        return pyhmeter.matchValueList
 
 def nltksen():
     sia = SentimentIntensityAnalyzer()

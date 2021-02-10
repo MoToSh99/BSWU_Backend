@@ -10,7 +10,7 @@ import time
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 1
+    count = 40
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(count)
     listAllTweets = list(allTweets)
@@ -146,4 +146,4 @@ def getOverallScore(tweetsDict):
 
 
 
-getData("STANN_co")
+#getData("STANN_co")
