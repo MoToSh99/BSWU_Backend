@@ -10,7 +10,7 @@ import time
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 2000
+    count = 50
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(count)
     listAllTweets = list(allTweets)
@@ -20,8 +20,9 @@ def getData(username):
     tweetsDict = getTweetsDict(listAllTweets)
     data = {
      "userinfo" : getProfileInfo(username),
+     "overallscore" : getOverallScore(tweetsDict),
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScore(tweetsDict)), "saddest" : getSaddestTweet(tweetsOnlyScore(tweetsDict)) },
-     "allTweets" : tweetsDict,
+     "alltweets" : tweetsDict,
      "topfivewords" : getTopFiveWords(listAllTweets),
     }
 
@@ -30,12 +31,15 @@ def getData(username):
     
     return data
 
-def testGeo():
+def getGeoData():
     api = config.setupTwitterAuth()
-    places = api.geo_search(query="USA", granularity="country")
+    places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
+    print(place_id)
 
     tweets = api.search(q="place:%s" % place_id)
+
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id).items(50)
     count = 0
     for tweet in tweets:
         print(count)
@@ -130,4 +134,21 @@ def getSaddestTweet(scores):
     
     return id
 
-print(testGeo())
+
+def getOverallScore(tweetsDict):
+    tic = time.perf_counter()
+
+    total = 0
+    count = 0
+    for tweet in tweetsDict:
+        total += tweetsDict[tweet]["score"]
+        count += 1
+
+    toc = time.perf_counter()
+    print(f"getOverallScore in {toc - tic:0.4f} seconds")
+
+    return float("{:.2f}".format(total/count))
+
+#getData("STANN_co")
+
+testGeo()
