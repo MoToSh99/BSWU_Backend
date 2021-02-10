@@ -10,7 +10,7 @@ import time
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 10
+    count = 1
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(count)
     listAllTweets = list(allTweets)
@@ -32,7 +32,7 @@ def getData(username):
     
     return data
 
-#TODO - Check LIMIT HANDLER
+#TODO - Check LIMIT HANDLER og skrive til fil.
 def getGeoData():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
@@ -146,5 +146,4 @@ def getOverallScore(tweetsDict):
 
 
 
-
-getData("T")
+getData("STANN_co")

@@ -10,13 +10,18 @@ def getPyhmeter(tweet_text):
     pattern = re.compile('(@\w*)|(\|.*)')
     removedAt = pattern.sub('', tweet_text)
     tokens = word_tokenize(removedAt)
+    if tokens.lenght < 4:
+      return -1
     # TODO Language according to tweet, and load file external
     file = pyhmeter.load_scores("Hedonometer.csv")
     return pyhmeter.HMeter(tokens, file, 1)
 
 def getHapinessScore(tweet_text):
     pyhmeter = getPyhmeter(tweet_text)
-    score = pyhmeter.happiness_score()
+    if(pyhmeter == -1):
+        return -1
+    gscore = pyhmeter.happiness_score()
+
     if score == None :
         return -1
     else:
@@ -28,9 +33,12 @@ def getWordsWithScoere(tweet_text):
 
 def nltksen():
     sia = SentimentIntensityAnalyzer()
-    print(sia.polarity_scores("Wow, NLTK is really powerful but also kinda not you terrorist bad horrible death rape murder!"))
+    print(sia.polarity_scores("Hallo, how are you today 👹"))
 
+def rescale(X,A,B,C,D,force_float=False):
+    retval = ((float(X - A) / (B - A)) * (D - C)) + C
+    if not force_float and all(map(lambda x: type(x) == int, [X,A,B,C,D])):
+        return int(round(retval))
+    return retval
 
-print(getHapinessScore("Wow, NLTK is really powerful but also kinda not you terrorist bad horrible death rape murder!"))
-
-nltksen()
+print(rescale(0.75, -1, 1, 1, 9))
