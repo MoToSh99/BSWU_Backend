@@ -35,17 +35,9 @@ def getGeoData():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
-    print(place_id)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended').items(100)
 
-    tweets = api.search(q="place:%s" % place_id)
-
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id).items(50)
-    count = 0
-    for tweet in tweets:
-        print(count)
-        if(tweet.text != None):
-            print(tweet.text + " | " + tweet.place.name if tweet.place else "Undefined place")
-        count += 1
+    return getOverallScore(getTweetsDict(tweets))
 
 def getTweetsDict(allTweets):
     tic = time.perf_counter()
@@ -151,4 +143,4 @@ def getOverallScore(tweetsDict):
 
 #getData("STANN_co")
 
-testGeo()
+print(getGeoData())

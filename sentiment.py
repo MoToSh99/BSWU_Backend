@@ -7,7 +7,7 @@ from operator import itemgetter
 
 def getPyhmeter(tweet_text):
     #TODO: remove URL and other stuff to clean text
-    pattern = re.compile('@\w*')
+    pattern = re.compile('(@\w*)|(\|.*)')
     removedAt = pattern.sub('', tweet_text)
     tokens = word_tokenize(removedAt)
     # TODO Language according to tweet, and load file external
