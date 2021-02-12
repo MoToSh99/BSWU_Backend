@@ -7,6 +7,7 @@ import operator
 from heapq import nlargest, nsmallest
 import time
 
+# Returns all relevant data to the API
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
@@ -32,7 +33,8 @@ def getData(username):
     
     return data
 
-#TODO - Check LIMIT HANDLER og skrive til fil.
+#TODO - Revision
+# Get overall score for a country
 def getGeoData():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
@@ -41,6 +43,7 @@ def getGeoData():
 
     return getOverallScore(getTweetsDict(tweets))
 
+# Get all tweets and collect them in a dictionary
 def getTweetsDict(allTweets):
     tic = time.perf_counter()
     tweets = {}
@@ -48,13 +51,14 @@ def getTweetsDict(allTweets):
     for tweet in allTweets:
         score = sentiment.getHapinessScore(tweet.full_text)
         if score != -1:
-            dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at), "geo_location" : tweet.geo }}
+            dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at) }}
             tweets.update(dict)
             count += 1
     toc = time.perf_counter()
     print(f"getTweetsDict in {toc - tic:0.4f} seconds")       
     return tweets
 
+# Get the top five happiest and unhappiest words used by the user
 def getTopFiveWords(allTweets):
     tic = time.perf_counter()
     
@@ -68,6 +72,7 @@ def getTopFiveWords(allTweets):
     return {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
 #TODO Evt. fix måden at få data på
+# Only get tweet id's and scores
 def tweetsOnlyScore(scores):
     tic = time.perf_counter()
     
@@ -106,6 +111,7 @@ def getProfileInfo(username):
     print(f"getProfileInfo in {toc - tic:0.4f} seconds")
     return userInfo
 
+# Get the happiest tweet posted by the user. Returns the id of the tweet.
 def getHappiestTweet(scores): 
     tic = time.perf_counter()
     
@@ -117,6 +123,7 @@ def getHappiestTweet(scores):
      
     return id
 
+# Get the unhappiest tweet posted by the user. Returns the id of the tweet.
 def getSaddestTweet(scores):
     tic = time.perf_counter()
     
@@ -128,6 +135,7 @@ def getSaddestTweet(scores):
     
     return id
 
+# Get the overall happiness score from a collection of tweets
 def getOverallScore(tweetsDict):
     tic = time.perf_counter()
 
