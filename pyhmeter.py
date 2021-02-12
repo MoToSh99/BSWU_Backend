@@ -1,17 +1,28 @@
 from __future__ import division
 import csv
+from emosent import get_emoji_sentiment_rank
 
-def load_scores(filename):
-    """Takes a file from the Dodd research paper and returns a dict of
-    wordscores. Note this function is tailored to the file provided
-    by the Dodd paper. For other sets of word scores, a dict can be
-    passed directly to HMeter."""
-    
-    doddfile = csv.reader(open(filename, "r"), delimiter=',')
+# Converts from one scale to another (used for emojis)
+def rescale(X,A,B,C,D,force_float=False):
+    retval = ((float(X - A) / (B - A)) * (D - C)) + C
+    if not force_float and all(map(lambda x: type(x) == int, [X,A,B,C,D])):
+        return int(round(retval))
+    return retval
+
+def load_scores():
+    file1 = csv.reader(open("Hedonometer.csv", "r"), delimiter=',')
     for x in range(4):  # strip header info
-        next(doddfile)
+        next(file1)
 
-    return {row[1]: float(row[3]) for row in doddfile}
+    file = csv.reader(open("Emoji_Sentiment_Data_v1.0.csv", "r"), delimiter=',')
+    for x in range(4):  # strip header info
+        next(file)
+
+    words = {row[1]: float(row[3]) for row in file1}
+    emojis = {row[0]: float("{:.2f}".format(rescale(get_emoji_sentiment_rank(row[0])["sentiment_score"], -1, 1, 1, 9))) for row in file}
+    
+    return {**words, **emojis}
+
 
 class HMeter(object):
     """HMeter is the main class to prepare a text sample for scores. It

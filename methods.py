@@ -35,7 +35,7 @@ def getData(username):
 #TODO - Check LIMIT HANDLER og skrive til fil.
 def getGeoData():
     api = config.setupTwitterAuth()
-    places = api.geo_search(query="Denmark", granularity="country")
+    places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended').items(1000)
 
@@ -127,7 +127,6 @@ def getSaddestTweet(scores):
     print(f"getSaddestTweet in {toc - tic:0.4f} seconds")
     
     return id
-
 
 def getOverallScore(tweetsDict):
     tic = time.perf_counter()
