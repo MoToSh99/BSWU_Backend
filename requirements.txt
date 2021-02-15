@@ -4,3 +4,5 @@ django-heroku
 tweepy
 flask
 pandas
+emosent-py
+nltk

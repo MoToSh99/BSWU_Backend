@@ -1,3 +1,4 @@
+from time import sleep
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import methods as m
@@ -13,9 +14,11 @@ def getData():
     return jsonify(m.getData(request.args.get('username')))
 
 
-while True:
-    ds.getGeo()
-
 # Run application
 if __name__ == '__main__':
-    app.run(host='192.168.1.51', port=5124)
+    app.run(host='localhost', port=5124)
+
+
+while True:
+    sleep(20)
+    ds.getGeo()
