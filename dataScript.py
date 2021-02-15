@@ -1,3 +1,4 @@
+from time import sleep
 import methods as m
 import config
 import tweepy as tw
@@ -25,3 +26,9 @@ def getGeo():
     dfNew.set_index('id', inplace=True)
     dfNewWithoutDup = dfNew.reset_index().drop_duplicates(subset='id', keep='last').set_index('id').sort_index()
     dfNewWithoutDup.to_csv("data.csv")
+
+
+def getGeoLoop():
+    getGeo()
+    print("Done loop")
+    sleep(20)

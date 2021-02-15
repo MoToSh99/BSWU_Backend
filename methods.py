@@ -19,7 +19,6 @@ def getData(username):
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
     tweetsDict = getTweetsDict(listAllTweets)
-    print(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : getOverallScore(tweetsDict),
