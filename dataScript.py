@@ -10,7 +10,7 @@ def putDataDB():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
     df = pd.DataFrame.from_dict(m.getTweetsDict(tweets), orient='index')
     df.set_index('id', inplace=True)
     df.to_sql('tweets', con=engine, if_exists='append')
