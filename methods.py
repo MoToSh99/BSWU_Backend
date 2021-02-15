@@ -11,64 +11,48 @@ import time
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 40
+    count = 1000
+    print("Count: " + str(count))
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
     listAllTweets = list(allTweets)
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
-    tweetsDict = getTweetsDict(listAllTweets)
+    tweetsDict, topfivewords = getTweetsDict(listAllTweets)
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : getOverallScore(tweetsDict),
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScore(tweetsDict)), "saddest" : getSaddestTweet(tweetsOnlyScore(tweetsDict)) },
      "alltweets" : tweetsDict,
-     "topfivewords" : getTopFiveWords(listAllTweets),
+     "topfivewords" : topfivewords,
     }
+
+    print(data["topfivewords"])
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
     
     return data
 
-#TODO - Revision
-# Get overall score for a country
-def getGeoData():
-    api = config.setupTwitterAuth()
-    places = api.geo_search(query="USA", granularity="country")
-    place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended').items(1000)
-
-    return getOverallScore(getTweetsDict(tweets))
 
 # Get all tweets and collect them in a dictionary
 def getTweetsDict(allTweets):
     tic = time.perf_counter()
     tweets = {}
     count = 1
+    wordDict = {}
     for tweet in allTweets:
         score = sentiment.getHapinessScore(tweet.full_text)
         if score != -1:
             dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at) }}
             tweets.update(dict)
             count += 1
+            wordDict.update(sentiment.getWordsWithScore(tweet.full_text))
     toc = time.perf_counter()
     print(f"getTweetsDict in {toc - tic:0.4f} seconds")       
-    return tweets
+    return tweets, {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
-# Get the top five happiest and unhappiest words used by the user
-def getTopFiveWords(allTweets):
-    tic = time.perf_counter()
-    
-    wordDict = {}
-    for tweet in allTweets:
-        wordDict.update(sentiment.getWordsWithScoere(tweet.full_text))
-    
-    toc = time.perf_counter()
-
-    print(f"getTopFiveWords in {toc - tic:0.4f} seconds")
-    return {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
 #TODO Evt. fix måden at få data på
 # Only get tweet id's and scores
@@ -152,4 +136,4 @@ def getOverallScore(tweetsDict):
 
 
 
-#getData("STANN_co")
+getData("STANN_co")

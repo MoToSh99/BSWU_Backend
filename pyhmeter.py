@@ -61,51 +61,6 @@ class HMeter(object):
                 self.matchlist.append(word)
                 self.matchValueList.update({word : score})
 
-
-    def fractional_abundance(self, word):
-        """Takes a word and return its fractional abundance within
-        self.matchlist"""
-        frac_abund = self.matchlist.count(word) / len(self.matchlist)
-        return frac_abund
-
-    def word_shift(self, comp):
-        """Produces data necessary to create a word shift graph. Returns a list 
-        of tuples that contain each word's contribution to happiness score shift 
-        between two samples. So for example, assigned to a variable 'output_data'
-        output_data[n] represents the data for one word where:
-            
-        output_data[n][0] the word
-        output_data[n][1] the proportional contribution the word gives to overall
-                          word shift
-        output_data[n][2] The relative abundance of word between the two samples
-        output_data[n][3] The word's happiness relative to the refernce sample
-        
-        Using this data, we can construct word shift graphs as described here:
-        http://www.hedonometer.org/shifts.html"""
-
-        # initialize variables for potentially large loop.
-        # create our comparison object. self is the reference object.
-        tcomp = HMeter(comp, self.deltah)
-
-        # we want a list of all potential words, but only need each word once.
-        word_shift_list = set(tcomp.matchlist + self.matchlist)
-
-        output_data = []
-        ref_happiness_score = self.happiness_score()
-        comp_happiness_score = tcomp.happiness_score()
-        happy_diff = comp_happiness_score - ref_happiness_score
-
-        for word in word_shift_list:
-            abundance = (tcomp.fractional_abundance(word) -
-                         self.fractional_abundance(word))
-            happiness_shift = self.wordscores[word] - ref_happiness_score
-            paper_score = (happiness_shift * abundance * 100) / happy_diff
-            output_data.append((word, paper_score, abundance, happiness_shift))
-
-        # sort words by absolute value of individual word shift
-        output_data.sort(key=lambda word: abs(word[1]))
-        return output_data
-
     def happiness_score(self):
         """Takes a list made up of individual words and returns the happiness
         score."""
