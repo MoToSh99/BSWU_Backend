@@ -33,7 +33,8 @@ def putDataDB():
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
     df = pd.DataFrame.from_dict(m.getTweetsDict(tweets), orient='index')
     df.set_index('id', inplace=True)
-    df.reset_index().drop_duplicates(subset='id', keep='last').set_index('id').sort_index()
+    with engine.connect() as con:
+        con.execute('ALTER TABLE table_name ADD PRIMARY KEY (id);')
     df.to_sql('tweets', con=engine, if_exists='append')
 
 
