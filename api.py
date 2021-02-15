@@ -14,13 +14,6 @@ def getData():
     return jsonify(m.getData(request.args.get('username')))
 
 
-@app.route('/startgeo')
-def startGeo():
-    ds.getGeoLoop
-    return "Starting geo loop"
-
-
-
 # Run application
 if __name__ == '__main__':
     app.run(host='localhost', port=5124)

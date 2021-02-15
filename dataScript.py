@@ -9,7 +9,7 @@ def getGeoInit():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended',lang='en').items(100)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended',lang='en').items()
     df = pd.DataFrame.from_dict(m.getTweetsDict(tweets), orient='index')
     df.set_index('id', inplace=True)
     df.to_csv("data.csv")
@@ -19,16 +19,14 @@ def getGeo():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended').items(3200)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
     dfOld = pd.read_csv("data.csv")
-    dfUpdate = pd.DataFrame.from_dict(m.getTweetsDict(tweets), orient='index')
+    dict = m.getTweetsDict(tweets)
+    print(dict)
+    dfUpdate = pd.DataFrame.from_dict(dict, orient='index')
     dfNew = dfOld.append(dfUpdate, sort=True)
     dfNew.set_index('id', inplace=True)
     dfNewWithoutDup = dfNew.reset_index().drop_duplicates(subset='id', keep='last').set_index('id').sort_index()
     dfNewWithoutDup.to_csv("data.csv")
 
-
-def getGeoLoop():
-    getGeo()
-    print("Done loop")
-    sleep(20)
+getGeo()
