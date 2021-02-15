@@ -20,5 +20,4 @@ def putDataDB():
     read  = pd.read_sql("tweets", con=engine) 
 
 
-
 putDataDB()

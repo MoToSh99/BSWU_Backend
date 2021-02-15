@@ -2,7 +2,6 @@ from time import sleep
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import methods as m
-import dataScript as ds
 
 # Set up Flask application
 app = Flask(__name__)
