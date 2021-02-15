@@ -17,7 +17,7 @@ def putDataDB():
 
     engine.execute("DELETE FROM tweets T1 USING tweets T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
   
-    read  = pd.read_sql("tweets", con=engine)
+    read  = pd.read_sql("tweets", con=engine) 
 
 
 
