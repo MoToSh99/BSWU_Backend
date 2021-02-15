@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import methods as m
+import dataScript as ds
 
 # Set up Flask application
 app = Flask(__name__)
@@ -11,6 +12,10 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def getData():
     return jsonify(m.getData(request.args.get('username')))
 
+
+while True:
+    ds.getGeo()
+
 # Run application
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5124)
+    app.run(host='192.168.1.51', port=5124)

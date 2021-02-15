@@ -13,7 +13,7 @@ def getData(username):
     api = config.setupTwitterAuth()
     count = 40
     tic = time.perf_counter()
-    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False).items(count)
+    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
     listAllTweets = list(allTweets)
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
