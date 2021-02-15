@@ -43,12 +43,12 @@ def getTweetsDict(allTweets):
     count = 1
     wordDict = {}
     for tweet in allTweets:
-        score = sentiment.getHapinessScore(tweet.full_text)
-        if score != -1:
-            dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at) }}
+        hapinessScore, wordScore = sentiment.getScores(tweet.full_text)
+        if hapinessScore != -1:
+            dict = { count : {"id" : tweet.id, "score" : hapinessScore, "created" : str(tweet.created_at) }}
             tweets.update(dict)
             count += 1
-            wordDict.update(sentiment.getWordsWithScore(tweet.full_text))
+            wordDict.update(wordScore)
     toc = time.perf_counter()
     print(f"getTweetsDict in {toc - tic:0.4f} seconds")       
     return tweets, {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
