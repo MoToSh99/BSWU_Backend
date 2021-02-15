@@ -35,7 +35,7 @@ def putDataDB():
     df.set_index('id', inplace=True)
     df.to_sql('tweets', con=engine, if_exists='append')
     with engine.connect() as con:
-        con.execute('ALTER TABLE table_name ADD PRIMARY KEY (id);')
+        con.execute('ALTER TABLE tweets ADD PRIMARY KEY (id);')
 
 
 putDataDB()
