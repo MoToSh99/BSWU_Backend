@@ -3,5 +3,4 @@ gunicorn
 django-heroku
 tweepy
 flask
-time
 pandas
