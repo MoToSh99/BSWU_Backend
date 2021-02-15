@@ -3,8 +3,6 @@ import pyhmeter
 import re
 from heapq import nlargest, nsmallest
 from operator import itemgetter
-import time
-
 
 file = pyhmeter.load_scores()
 
@@ -15,17 +13,19 @@ def getPyhmeter(tweet_text):
     removedAt = pattern.sub('', tweet_text)
     tk = TweetTokenizer()
     tokens = tk.tokenize(removedAt)
+    
     return pyhmeter.HMeter(tokens, file, 1)
 
 # Gets the happiness score from a single tweet
-def getScores(tweet_text):
+def getHapinessScore(tweet_text):
     pyhmeter = getPyhmeter(tweet_text)
-    hapinessScore = pyhmeter.happiness_score()
-    # Get all matches from a single tweet along with their individual scores
-    wordScore = pyhmeter.matchValueList
-    if hapinessScore == None :
-        return -1, -1
+    score = pyhmeter.happiness_score()
+    if score == None :
+        return -1
     else:
-        return hapinessScore, wordScore
+        return score
 
-
+# Get all matches from a single tweet along with their individual scores
+def getWordsWithScore(tweet_text):
+    pyhmeter = getPyhmeter(tweet_text)
+    return pyhmeter.matchValueList
