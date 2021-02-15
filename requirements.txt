@@ -1,0 +1,8 @@
+django
+gunicorn
+django-heroku
+tweepy
+flask
+heapq
+time
+pandas
