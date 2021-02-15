@@ -11,7 +11,7 @@ import time
 def getData(username):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 100
+    count = 1000
     print("Count: " + str(count))
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
@@ -20,10 +20,11 @@ def getData(username):
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
     tweetsDict = getTweetsDict(listAllTweets)
+    tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : getOverallScore(tweetsDict),
-     "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScore(tweetsDict)), "saddest" : getSaddestTweet(tweetsOnlyScore(tweetsDict)) },
+     "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
      "alltweets" : tweetsDict,
      "topfivewords" : getTopFiveWords(listAllTweets),
     }
@@ -144,4 +145,4 @@ def getOverallScore(tweetsDict):
 
 
 
-getData("STANN_co")
+#getData("STANN_co")

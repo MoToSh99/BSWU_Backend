@@ -4,3 +4,5 @@ pandas
 emosent-py
 nltk
 flask_cors
+sqlalchemy
+psycopg2
