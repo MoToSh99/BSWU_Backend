@@ -18,7 +18,7 @@ def getData():
 
 # Run application
 if __name__ == '__main__':
-    app.run(host='localhost', port=5124)
+    app.run(threaded=True, port=5000)
 
 
 
