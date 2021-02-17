@@ -93,6 +93,7 @@ def getProfileInfo(username):
         "location" : str(user.location),
         "profile_location" : str(user.profile_location),
         "geo_enabled" : str(user.geo_enabled),
+        "statuses_count" : user.statuses_count,
         "followers_count" : str(user.followers_count),
         "friends_count" : str(user.friends_count),
         "verified" : str(user.verified),
