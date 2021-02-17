@@ -8,10 +8,9 @@ from heapq import nlargest, nsmallest
 import time
 
 # Returns all relevant data to the API
-def getData(username):
+def getData(username, count):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    count = 100
     print("Count: " + str(count))
     tic = time.perf_counter()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
