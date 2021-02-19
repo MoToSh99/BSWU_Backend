@@ -6,6 +6,8 @@ import sentiment
 import operator
 from heapq import nlargest, nsmallest
 import time
+import datetime
+import numpy as np
 
 # Returns all relevant data to the API
 def getData(username, count):
@@ -26,6 +28,7 @@ def getData(username, count):
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
      "alltweets" : tweetsDict,
      "topfivewords" : getTopFiveWords(listAllTweets),
+     "weekscores" : getWeekScores(tweetsDict)
     }
 
     toc2 = time.perf_counter()
@@ -142,6 +145,29 @@ def getOverallScore(tweetsDict):
 
     return float("{:.2f}".format(total/count))
 
+
+# Get the average scores distributed over individual weekdays
+def getWeekScores(tweetsDict):
+    tic = time.perf_counter()
+    weekdays = [0, 0, 0, 0, 0, 0, 0]
+    weekdayScores = [0, 0, 0, 0, 0, 0, 0]
+    for tweet in tweetsDict:
+        dt = tweetsDict[tweet]["created"]
+        date = dt.split(' ')
+        part = date[0]
+        year, month, day = (int(x) for x in part.split('-'))   
+        ans = datetime.date(year, month, day)
+
+        weekdays[ans.weekday()] += 1
+        weekdayScores[ans.weekday()] += tweetsDict[tweet]["score"]
+    
+    np.seterr(divide='ignore', invalid='ignore')
+    out = np.divide(weekdayScores, weekdays)
+    withoutNan = np.nan_to_num(out) 
+    toc = time.perf_counter()
+    print(f"getWeekScores in {toc - tic:0.4f} seconds")
+
+    return list(withoutNan)
 
 
 
