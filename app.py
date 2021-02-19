@@ -10,6 +10,10 @@ def getData():
         count = 3200
     return jsonify(m.getData(request.args.get('username'), count))
 
+@app.route('/userinfo')
+def getUserInfo():
+    return jsonify(m.getProfileInfo(request.args.get('username')))
+
 # A welcome message to test our server
 @app.route('/')
 def index():
