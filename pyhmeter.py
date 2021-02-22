@@ -23,6 +23,33 @@ def load_scores():
     
     return {**words, **emojis}
 
+def load_scores_word():
+    file1 = csv.reader(open("Hedonometer.csv", "r"), delimiter=',')
+    for x in range(4):  # strip header info
+        next(file1)
+
+    file = csv.reader(open("Emoji_Sentiment_Data_v1.0.csv", "r"), delimiter=',')
+    for x in range(4):  # strip header info
+        next(file)
+
+    words = {row[1]: float(row[3]) for row in file1}
+    emojis = {row[0]: float("{:.2f}".format(rescale(get_emoji_sentiment_rank(row[0])["sentiment_score"], -1, 1, 1, 9))) for row in file}
+    
+    return words
+
+def load_scores_emoji():
+    file1 = csv.reader(open("Hedonometer.csv", "r"), delimiter=',')
+    for x in range(4):  # strip header info
+        next(file1)
+
+    file = csv.reader(open("Emoji_Sentiment_Data_v1.0.csv", "r"), delimiter=',')
+    for x in range(4):  # strip header info
+        next(file)
+
+    words = {row[1]: float(row[3]) for row in file1}
+    emojis = {row[0]: float("{:.2f}".format(rescale(get_emoji_sentiment_rank(row[0])["sentiment_score"], -1, 1, 1, 9))) for row in file}
+    
+    return emojis   
 
 class HMeter(object):
     """HMeter is the main class to prepare a text sample for scores. It
@@ -75,3 +102,4 @@ class HMeter(object):
             return happysum / count
         else:
             pass  # empty lists have no score
+ 
