@@ -31,7 +31,8 @@ def getData(username, count):
      "topfivewords" : topWords,
      "wordsmatched" : wordsAmount,
      "weekscores" : getWeekScores(tweetsDict),
-     "tweetstart" :  tweetsDict[len(tweetsDict)]["created"]
+     "tweetstart" :  tweetsDict[len(tweetsDict)]["created"],
+     "tweetsamount" : len(listAllTweets)
     }
 
     toc2 = time.perf_counter()
