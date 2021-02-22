@@ -22,17 +22,21 @@ def getData(username, count):
     tic2 = time.perf_counter()
     tweetsDict = getTweetsDict(listAllTweets)
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
+    wordsAmount, topWords = getTopFiveWords(listAllTweets)
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : getOverallScore(tweetsDict),
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
      "alltweets" : tweetsDict,
-     "topfivewords" : getTopFiveWords(listAllTweets),
-     "weekscores" : getWeekScores(tweetsDict)
+     "topfivewords" : topWords,
+     "wordsmatched" : wordsAmount,
+     "weekscores" : getWeekScores(tweetsDict),
+     "tweetstart" :  tweetsDict[len(tweetsDict)]["created"]
     }
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
+
     
     return data
 
@@ -63,7 +67,7 @@ def getTopFiveWords(allTweets):
     toc = time.perf_counter()
 
     print(f"getTopFiveWords in {toc - tic:0.4f} seconds")
-    return {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
+    return {"matchedwords" : len(wordDict)}, {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
 #TODO Evt. fix måden at få data på
 # Only get tweet id's and scores
@@ -169,6 +173,4 @@ def getWeekScores(tweetsDict):
 
     return list(withoutNan)
 
-
-
-#getData("STANN_co")
+getData("STANN_co", 100)
