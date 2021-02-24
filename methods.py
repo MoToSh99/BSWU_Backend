@@ -178,4 +178,4 @@ def getWeekScores(tweetsDict):
 
     return list(withoutNan)
 
-getData("STANN_co", 100)
+#getData("STANN_co", 100)
