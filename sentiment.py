@@ -23,7 +23,7 @@ def getHapinessScore(tweet_text):
     if score == None :
         return -1
     else:
-        return score
+        return score 
 
 # Get all matches from a single tweet along with their individual scores
 def getWordsWithScore(tweet_text):
