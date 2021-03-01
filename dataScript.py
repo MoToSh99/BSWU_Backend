@@ -2,7 +2,6 @@ import methods as m
 import config
 import tweepy as tw
 import pandas as pd
-import os
 from sqlalchemy import create_engine
 import re
 
@@ -46,6 +45,7 @@ def celebrityScore(username):
     engine.execute("DELETE FROM celebrity T1 USING celebrity T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
     read  = pd.read_sql("celebrity", con=engine)
+
 
 
 def runceleb():

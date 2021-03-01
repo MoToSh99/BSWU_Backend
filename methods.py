@@ -1,5 +1,6 @@
 import tweepy as tw
 from tweepy.models import User
+from tweepy.error import TweepError
 import config
 import re
 import sentiment
@@ -8,6 +9,9 @@ from heapq import nlargest, nsmallest
 import time
 import datetime
 import numpy as np
+from sqlalchemy import create_engine
+import pandas as pd
+import json
 
 # Returns all relevant data to the API
 def getData(username, count):
@@ -23,24 +27,24 @@ def getData(username, count):
     tweetsDict = getTweetsDict(listAllTweets)
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     wordsAmount, topWords = getTopFiveWords(listAllTweets)
+    overallScore = getOverallScore(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
-     "overallscore" : getOverallScore(tweetsDict),
+     "overallscore" : overallScore,
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
      "alltweets" : tweetsDict,
      "topfivewords" : topWords,
      "wordsmatched" : wordsAmount,
      "weekscores" : getWeekScores(tweetsDict),
      "tweetstart" :  tweetsDict[len(tweetsDict)]["created"],
-     "tweetsamount" : len(listAllTweets)
+     "tweetsamount" : len(tweetsDict),
+     "celebrityscore" : getClosestsCelebrities(overallScore)
     }
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
-
     
     return data
-
 
 # Get all tweets and collect them in a dictionary
 def getTweetsDict(allTweets):
@@ -88,9 +92,14 @@ def tweetsOnlyScore(scores):
 # Get profile info from user
 def getProfileInfo(username):
     tic = time.perf_counter()
-    
+
     api = config.setupTwitterAuth()
-    user = api.get_user(username) 
+
+    try:
+        user = api.get_user(username)
+    except TweepError as e:
+        return e
+        
     # Remove _normal from profile image URL
     profile_image_url = user.profile_image_url_https
     url = re.sub('_normal', '', profile_image_url)
@@ -99,11 +108,11 @@ def getProfileInfo(username):
         "username" : user.screen_name,
         "location" : str(user.location),
         "profile_location" : str(user.profile_location),
-        "geo_enabled" : str(user.geo_enabled),
+        "geo_enabled" : user.geo_enabled,
         "statuses_count" : user.statuses_count,
-        "followers_count" : str(user.followers_count),
-        "friends_count" : str(user.friends_count),
-        "verified" : str(user.verified),
+        "followers_count" : user.followers_count,
+        "friends_count" : user.friends_count,
+        "verified" : user.verified,
         "profile_image_url" : url
     }
 
@@ -154,7 +163,6 @@ def getOverallScore(tweetsDict):
 
     return float("{:.2f}".format(total/count))
 
-
 # Get the average scores distributed over individual weekdays
 def getWeekScores(tweetsDict):
     tic = time.perf_counter()
@@ -178,4 +186,16 @@ def getWeekScores(tweetsDict):
 
     return list(withoutNan)
 
+def getClosestsCelebrities(overallScore):
+    engine = create_engine('postgres://fptgchibpcgsug:82c819e919e1b13f7e80f667ac1ddbc0eb85747a59a3360ab77175992f88eb2d@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dermsjvi46fmof')
+    celebScores  = pd.read_sql("celebrity", con=engine)
+
+    df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
+    #out = df_sort.to_json(orient='records')[1:-1].replace('},{', '} {')
+    
+    result = df_sort.to_json(orient="records")
+    parsed = json.loads(result)
+    return parsed
+
+#print(getClosestsCelebrities(6))
 #getData("STANN_co", 100)
