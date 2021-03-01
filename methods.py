@@ -191,11 +191,9 @@ def getClosestsCelebrities(overallScore):
     celebScores  = pd.read_sql("celebrity", con=engine)
 
     df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
-    #out = df_sort.to_json(orient='records')[1:-1].replace('},{', '} {')
     
     result = df_sort.to_json(orient="records")
     parsed = json.loads(result)
     return parsed
 
-#print(getClosestsCelebrities(6))
 #getData("STANN_co", 100)
