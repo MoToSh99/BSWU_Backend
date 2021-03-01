@@ -186,6 +186,7 @@ def getWeekScores(tweetsDict):
 
     return list(withoutNan)
 
+# Get the closest three scores from a list of chosen celebrities on Twitter
 def getClosestsCelebrities(overallScore):
     engine = create_engine('postgres://fptgchibpcgsug:82c819e919e1b13f7e80f667ac1ddbc0eb85747a59a3360ab77175992f88eb2d@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dermsjvi46fmof')
     celebScores  = pd.read_sql("celebrity", con=engine)
