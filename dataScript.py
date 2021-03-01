@@ -2,7 +2,6 @@ import methods as m
 import config
 import tweepy as tw
 import pandas as pd
-import os
 from sqlalchemy import create_engine
 import re
 
@@ -19,9 +18,6 @@ def putDataDB():
     engine.execute("DELETE FROM tweets T1 USING tweets T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
   
     read  = pd.read_sql("tweets", con=engine) 
-
-
-#putDataDB()
 
 
 
@@ -49,6 +45,7 @@ def celebrityScore(username):
     engine.execute("DELETE FROM celebrity T1 USING celebrity T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
     read  = pd.read_sql("celebrity", con=engine)
+
 
 
 def runceleb():
