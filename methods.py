@@ -36,7 +36,7 @@ def getData(username, count):
      "topfivewords" : topWords,
      "wordsmatched" : wordsAmount,
      "weekscores" : getWeekScores(tweetsDict),
-     "tweetstart" :  tweetsDict[len(tweetsDict)]["created"],
+     "tweetstart" :  tweetsDict[len(tweetsDict)-1]["created"],
      "tweetsamount" : len(tweetsDict),
      "celebrityscore" : getClosestsCelebrities(overallScore)
     }
@@ -47,7 +47,7 @@ def getData(username, count):
     return data
 
 # Get all tweets and collect them in a dictionary
-def getTweetsDict(allTweets):
+def getTweetsDictRaw(allTweets):
     tic = time.perf_counter()
     tweets = {}
     count = 1
@@ -61,6 +61,13 @@ def getTweetsDict(allTweets):
     print(f"getTweetsDict in {toc - tic:0.4f} seconds")       
     return tweets
 
+def getTweetsDict(allTweets):
+    df = pd.DataFrame.from_dict(getTweetsDictRaw(allTweets), orient='index')    
+    result = df.to_json(orient="records")
+    parsed = json.loads(result)
+    return parsed
+
+
 # Get the top five happiest and unhappiest words used by the user
 def getTopFiveWords(allTweets):
     tic = time.perf_counter()
@@ -72,7 +79,7 @@ def getTopFiveWords(allTweets):
     toc = time.perf_counter()
 
     print(f"getTopFiveWords in {toc - tic:0.4f} seconds")
-    return {"matchedwords" : len(wordDict)}, {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
+    return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
 #TODO Evt. fix måden at få data på
 # Only get tweet id's and scores
@@ -81,7 +88,7 @@ def tweetsOnlyScore(scores):
     
     scoresOnly = {}
     for score in scores:
-        dict = {scores[score]["id"] : scores[score]["score"]}
+        dict = {score["id"] : score["score"]}
         scoresOnly.update(dict)
 
     toc = time.perf_counter()
@@ -155,7 +162,7 @@ def getOverallScore(tweetsDict):
     total = 0
     count = 0
     for tweet in tweetsDict:
-        total += tweetsDict[tweet]["score"]
+        total += tweet["score"]
         count += 1
 
     toc = time.perf_counter()
@@ -169,14 +176,14 @@ def getWeekScores(tweetsDict):
     weekdays = [0, 0, 0, 0, 0, 0, 0]
     weekdayScores = [0, 0, 0, 0, 0, 0, 0]
     for tweet in tweetsDict:
-        dt = tweetsDict[tweet]["created"]
+        dt = tweet["created"]
         date = dt.split(' ')
         part = date[0]
         year, month, day = (int(x) for x in part.split('-'))   
         ans = datetime.date(year, month, day)
 
         weekdays[ans.weekday()] += 1
-        weekdayScores[ans.weekday()] += tweetsDict[tweet]["score"]
+        weekdayScores[ans.weekday()] += tweet["score"]
     
     np.seterr(divide='ignore', invalid='ignore')
     out = np.divide(weekdayScores, weekdays)

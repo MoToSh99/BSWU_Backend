@@ -11,7 +11,7 @@ def putDataDB():
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
-    df = pd.DataFrame.from_dict(m.getTweetsDict(tweets), orient='index')
+    df = pd.DataFrame.from_dict(m.getTweetsDictRaw(tweets), orient='index')
     df.set_index('id', inplace=True)
     df.to_sql('tweets', con=engine, if_exists='append')
 
@@ -27,7 +27,7 @@ def celebrityScore(username):
     
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(30)
     listAllTweets = list(allTweets)
-    tweetsDict = m.getTweetsDict(listAllTweets)
+    tweetsDict = m.getTweetsDictRaw(listAllTweets)
 
     score = m.getOverallScore(tweetsDict)
     
