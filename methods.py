@@ -24,7 +24,11 @@ def getData(username, count):
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
+
     tweetsDict = getTweetsDict(listAllTweets)
+    dateobject = tweetsDict[len(tweetsDict)-1]["created"]
+    formattedDate = formatDate(dateobject)
+
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     wordsAmount, topWords = getTopFiveWords(listAllTweets)
     overallScore = getOverallScore(tweetsDict)
@@ -36,7 +40,7 @@ def getData(username, count):
      "topfivewords" : topWords,
      "wordsmatched" : wordsAmount,
      "weekscores" : getWeekScores(tweetsDict),
-     "tweetstart" :  tweetsDict[len(tweetsDict)-1]["created"],
+     "tweetstart" :  formattedDate,
      "tweetsamount" : len(tweetsDict),
      "celebrityscore" : getClosestsCelebrities(overallScore)
     }
@@ -204,4 +208,19 @@ def getClosestsCelebrities(overallScore):
     parsed = json.loads(result)
     return parsed
 
-#getData("STANN_co", 100)
+def formatDate(date):
+    date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+    day = date.day
+
+    if (3 < day < 21) or (23 < day < 31):
+        day = str(day) + 'th'
+    else:
+        suffixes = {1: 'st', 2: 'nd', 3: 'rd'}
+        day = str(day) + suffixes[day % 10]
+
+    datestring = date.strftime("%B " + str(day) + " %Y")
+    print(datestring)
+    return datestring
+
+
+#getData("STANN_co", 10)
