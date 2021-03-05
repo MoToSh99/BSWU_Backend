@@ -151,7 +151,7 @@ def getSaddestTweet(scores):
     tic = time.perf_counter()
     
     tweet = min(scores.items(), key=operator.itemgetter(1))[0]
-    score = max(scores.items(), key=operator.itemgetter(1))[1]
+    score = min(scores.items(), key=operator.itemgetter(1))[1]
     id = str(tweet)
 
     toc = time.perf_counter()
