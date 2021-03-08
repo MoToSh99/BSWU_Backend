@@ -272,5 +272,15 @@ def getDanishUsersScore(overallScore,engine ):
 
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
+
+def userFollowers(username, api):
+    friends = tw.Cursor(api.friends, screen_name=username).items(200)
+    for friend in friends: 
+        print(friend.screen_name)
+    
+
+
 #getData("robysinatra", 50)
+
+
 
