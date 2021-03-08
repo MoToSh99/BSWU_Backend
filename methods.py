@@ -45,6 +45,8 @@ def getData(username, count):
      "celebrityscore" : getClosestsCelebrities(overallScore)
     }
 
+    tweetsByMonth(tweetsDict)
+
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
     
@@ -219,8 +221,38 @@ def formatDate(date):
         day = str(day) + suffixes[day % 10]
 
     datestring = date.strftime("%B " + str(day) + " %Y")
-    print(datestring)
     return datestring
 
+def tweetsByMonth(tweetsDict):   
+    months = {
+        1:{"score": 0, "amount": 0, "avg":0},
+        2:{"score": 0, "amount": 0, "avg":0},
+        3:{"score": 0, "amount": 0, "avg":0},
+        4:{"score": 0, "amount": 0, "avg":0},
+        5:{"score": 0, "amount": 0, "avg":0},
+        6:{"score": 0, "amount": 0, "avg":0},
+        7:{"score": 0, "amount": 0, "avg":0},
+        8:{"score": 0, "amount": 0, "avg":0},
+        9:{"score": 0, "amount": 0, "avg":0},
+        10:{"score": 0, "amount": 0, "avg":0},
+        11:{"score": 0, "amount": 0, "avg":0},
+        12:{"score": 0, "amount": 0, "avg":0}
+        }
+    tweets : typing.Dict[int, months] = {}
 
-#getData("STANN_co", 10)
+    for tweet in tweetsDict:
+        dt = tweet["created"]
+        date = dt.split(' ')
+        part = date[0]
+        year, month, day = (int(x) for x in part.split('-')) 
+        ans = datetime.date(year, month, day)
+        dict = {ans.month :  {"score" : months[ans.month]['score'] + tweet["score"], "amount" : months[ans.month]['amount'] + 1, "avg" : (months[ans.month]['score'] + tweet["score"])/(months[ans.month]['amount'] + 1)}}
+        months.update(dict)
+        tweets.update({ans.year : months})
+    
+    print(tweets)
+
+    return tweets
+    
+#getData("robysinatra", 50)
+
