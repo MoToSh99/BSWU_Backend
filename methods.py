@@ -25,6 +25,8 @@ def getData(username, count):
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
 
+    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    
     tweetsDict = getTweetsDict(listAllTweets)
     dateobject = tweetsDict[len(tweetsDict)-1]["created"]
     formattedDate = formatDate(dateobject)
@@ -42,10 +44,11 @@ def getData(username, count):
      "weekscores" : getWeekScores(tweetsDict),
      "tweetstart" :  formattedDate,
      "tweetsamount" : len(tweetsDict),
-     "celebrityscore" : getClosestsCelebrities(overallScore)
+     "celebrityscore" : getClosestsCelebrities(overallScore, engine),
+     "danishuserscore" : getDanishUsersScore(overallScore, engine)
     }
 
-    tweetsByMonth(tweetsDict)
+    #tweetsByMonth(tweetsDict)
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
@@ -200,8 +203,7 @@ def getWeekScores(tweetsDict):
     return list(withoutNan)
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
-def getClosestsCelebrities(overallScore):
-    engine = create_engine('postgres://fptgchibpcgsug:82c819e919e1b13f7e80f667ac1ddbc0eb85747a59a3360ab77175992f88eb2d@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dermsjvi46fmof')
+def getClosestsCelebrities(overallScore, engine):
     celebScores  = pd.read_sql("celebrity", con=engine)
 
     df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
@@ -253,6 +255,22 @@ def tweetsByMonth(tweetsDict):
     print(tweets)
 
     return tweets
+
+
+# Get the closest three scores from a list of chosen celebrities on Twitter
+def getDanishUsersScore(overallScore,engine ):
+    df = pd.read_sql("danishusers", con=engine)
+    df_sort = df.sort_values(by=['score'])
     
+    danishOverall = float("{:.2f}".format(df_sort["score"].mean()))
+    amountOfUsers = len(df_sort.index)
+
+    over = len(df_sort[(df_sort['score']>overallScore)])
+    under = len(df_sort[(df_sort['score']>overallScore)])
+
+    percent = over/len(df_sort)*100
+
+    return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
+
 #getData("robysinatra", 50)
 
