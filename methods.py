@@ -53,7 +53,7 @@ def getData(username, count):
      "weekscores" : getWeekScores(tweetsDict),
      "tweetstart" :  formattedDate,
      "tweetsamount" : len(tweetsDict),
-     "celebrityscore" : getClosestsCelebrities(overallScore, engine),
+     "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine)
     }
 
@@ -235,8 +235,9 @@ def getWeekScores(tweetsDict):
             }
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
-def getClosestsCelebrities(overallScore, engine):
+def getClosestsCelebrities(username, overallScore, engine):
     celebScores  = pd.read_sql("celebrity", con=engine)
+    celebScores = celebScores.drop(celebScores[(celebScores['username']==username)].index)
 
     df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
     
