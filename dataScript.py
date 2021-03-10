@@ -4,6 +4,10 @@ import tweepy as tw
 import pandas as pd
 from sqlalchemy import create_engine
 import re
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import kde
+import seaborn as sns
 
 def putDataDB():
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
@@ -77,3 +81,24 @@ def putDataForUser():
         engine.execute("DELETE FROM danishusers T1 USING danishusers T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
         read  = pd.read_sql("danishusers", con=engine)
+
+def createHistogram():
+    data = [5, 4.3, 3.1, 6.5, 7.9]
+
+    plt.hist(data, density=True, bins=5)  # density=False would make counts
+    plt.ylabel('Frequency')
+    plt.xlabel('Sentiment score')
+
+    plt.show()
+
+def createDensityPlot():
+    data = [5, 4.3, 3.1, 6.5, 7.9]
+    data2 = [2.1, 3.3, 8.1, 7.5, 1.9]
+
+    sns.kdeplot(data, color="green", shade=True)
+    sns.kdeplot(data2, color="blue", shade=True)
+    plt.show()
+    plt.show()
+
+#createHistogram()
+#createDensityPlot()
