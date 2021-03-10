@@ -4,6 +4,7 @@ import tweepy as tw
 import pandas as pd
 from sqlalchemy import create_engine
 import re
+import numpy as np
 
 def putDataDB():
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
@@ -77,3 +78,4 @@ def putDataForUser():
         engine.execute("DELETE FROM danishusers T1 USING danishusers T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
         read  = pd.read_sql("danishusers", con=engine)
+

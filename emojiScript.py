@@ -7,6 +7,9 @@ import config
 import tweepy as tw
 import pandas as pd
 from sqlalchemy import create_engine
+import matplotlib.pyplot as plt
+from scipy.stats import kde
+import seaborn as sns
 
 file = pyhmeter.load_scores()
 
@@ -175,3 +178,30 @@ def putEmojiData():
     putEmojiData3()
 
 putEmojiData()
+
+def createHistogram():  
+    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
+    read  = pd.read_sql("emoji_textwithoutemoji", con=engine) 
+    data = list(read["score"])
+
+    plt.hist(data, density=True, bins=5)  # density=False would make counts
+    plt.ylabel('Frequency')
+    plt.xlabel('Sentiment score')
+
+    plt.show()
+
+def createDensityPlot():
+    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
+    #read  = pd.read_sql("emoji_textwithemoji", con=engine)
+    read2  = pd.read_sql("emoji_textwithoutemoji", con=engine) 
+
+    #data = list(read["score"])
+    data2 = list(read2["score"])
+
+    #sns.kdeplot(data, color="green", shade=True)
+    sns.kdeplot(data2, color="blue", shade=True)
+    #plt.show()
+    plt.show()
+
+#createHistogram()
+#createDensityPlot()
