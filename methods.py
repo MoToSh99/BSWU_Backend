@@ -196,11 +196,34 @@ def getWeekScores(tweetsDict):
     
     np.seterr(divide='ignore', invalid='ignore')
     out = np.divide(weekdayScores, weekdays)
-    withoutNan = np.nan_to_num(out) 
+    withoutNan = np.nan_to_num(out)
+    withoutNanList = list(withoutNan)
+
+    count = 0
+    for score in withoutNanList:
+        withoutNan[count] = float("{:.2f}".format(score))
+        withoutNanList[count] = float("{:.2f}".format(score))
+        count += 1
+
     toc = time.perf_counter()
     print(f"getWeekScores in {toc - tic:0.4f} seconds")
 
-    return list(withoutNan)
+    weekdayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    highestScore = max(withoutNan)
+    highestWeekday = weekdayNames[withoutNanList.index(highestScore)]
+
+    np.delete(withoutNan, withoutNanList.index(highestScore))
+    weekdayNames.remove(highestWeekday)
+
+    return {
+            0 : {"Day" : highestWeekday, "Score" : highestScore}, 
+            1 : {"Day" : weekdayNames[0], "Score" : withoutNan[0]},
+            2 : {"Day" : weekdayNames[1], "Score" : withoutNan[1]},
+            3 : {"Day" : weekdayNames[2], "Score" : withoutNan[2]},
+            4 : {"Day" : weekdayNames[3], "Score" : withoutNan[3]},
+            5 : {"Day" : weekdayNames[4], "Score" : withoutNan[4]},
+            6 : {"Day" : weekdayNames[5], "Score" : withoutNan[5]}
+            }
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
 def getClosestsCelebrities(overallScore, engine):
@@ -212,6 +235,7 @@ def getClosestsCelebrities(overallScore, engine):
     parsed = json.loads(result)
     return parsed
 
+# Get date as string containing month and day with correct suffix
 def formatDate(date):
     date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
     day = date.day
@@ -256,7 +280,6 @@ def tweetsByMonth(tweetsDict):
 
     return tweets
 
-
 # Get the closest three scores from a list of chosen celebrities on Twitter
 def getDanishUsersScore(overallScore,engine ):
     df = pd.read_sql("danishusers", con=engine)
@@ -272,15 +295,10 @@ def getDanishUsersScore(overallScore,engine ):
 
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
-
+# Get the users that the given user follows
 def userFollowers(username, api):
     friends = tw.Cursor(api.friends, screen_name=username).items(200)
     for friend in friends: 
         print(friend.screen_name)
-    
-
 
 #getData("robysinatra", 50)
-
-
-
