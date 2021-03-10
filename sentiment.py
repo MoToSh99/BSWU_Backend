@@ -29,5 +29,5 @@ def getHapinessScore(tweet_text):
 def getWordsWithScore(tweet_text):
     global file
     file = pyhmeter.load_scores_word()
-    pyhmeter = getPyhmeter(tweet_text)
-    return pyhmeter.matchValueList
+    py = getPyhmeter(tweet_text)
+    return py.matchValueList
