@@ -19,8 +19,16 @@ def getData(username, count):
     api = config.setupTwitterAuth()
     print("Count: " + str(count))
     tic = time.perf_counter()
+    try:
+        user = api.get_user(username)
+    except TweepError as e:
+        print(e)
+        return {"Error" : e.args[0][0]['message'] }
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
     listAllTweets = list(allTweets)
+    print(listAllTweets)
+    if (len(listAllTweets) == 0):
+        return {"Error" : "No tweets"}
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
@@ -291,7 +299,8 @@ def getDanishUsersScore(overallScore,engine ):
     over = len(df_sort[(df_sort['score']>overallScore)])
     under = len(df_sort[(df_sort['score']>overallScore)])
 
-    percent = over/len(df_sort)*100
+    percent = float("{:.2f}".format(over/len(df_sort)*100))
+
 
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
