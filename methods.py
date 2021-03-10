@@ -25,6 +25,8 @@ def getData(username, count):
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
     tic2 = time.perf_counter()
 
+    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    
     tweetsDict = getTweetsDict(listAllTweets)
     dateobject = tweetsDict[len(tweetsDict)-1]["created"]
     formattedDate = formatDate(dateobject)
@@ -42,10 +44,11 @@ def getData(username, count):
      "weekscores" : getWeekScores(tweetsDict),
      "tweetstart" :  formattedDate,
      "tweetsamount" : len(tweetsDict),
-     "celebrityscore" : getClosestsCelebrities(overallScore)
+     "celebrityscore" : getClosestsCelebrities(overallScore, engine),
+     "danishuserscore" : getDanishUsersScore(overallScore, engine)
     }
 
-    tweetsByMonth(tweetsDict)
+    #tweetsByMonth(tweetsDict)
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
@@ -193,15 +196,37 @@ def getWeekScores(tweetsDict):
     
     np.seterr(divide='ignore', invalid='ignore')
     out = np.divide(weekdayScores, weekdays)
-    withoutNan = np.nan_to_num(out) 
+    withoutNan = np.nan_to_num(out)
+    withoutNanList = list(withoutNan)
+
+    count = 0
+    for score in withoutNanList:
+        withoutNan[count] = float("{:.2f}".format(score))
+        withoutNanList[count] = float("{:.2f}".format(score))
+        count += 1
+
     toc = time.perf_counter()
     print(f"getWeekScores in {toc - tic:0.4f} seconds")
 
-    return list(withoutNan)
+    weekdayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    highestScore = max(withoutNan)
+    highestWeekday = weekdayNames[withoutNanList.index(highestScore)]
+
+    np.delete(withoutNan, withoutNanList.index(highestScore))
+    weekdayNames.remove(highestWeekday)
+
+    return {
+            0 : {"Day" : highestWeekday, "Score" : highestScore}, 
+            1 : {"Day" : weekdayNames[0], "Score" : withoutNan[0]},
+            2 : {"Day" : weekdayNames[1], "Score" : withoutNan[1]},
+            3 : {"Day" : weekdayNames[2], "Score" : withoutNan[2]},
+            4 : {"Day" : weekdayNames[3], "Score" : withoutNan[3]},
+            5 : {"Day" : weekdayNames[4], "Score" : withoutNan[4]},
+            6 : {"Day" : weekdayNames[5], "Score" : withoutNan[5]}
+            }
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
-def getClosestsCelebrities(overallScore):
-    engine = create_engine('postgres://fptgchibpcgsug:82c819e919e1b13f7e80f667ac1ddbc0eb85747a59a3360ab77175992f88eb2d@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/dermsjvi46fmof')
+def getClosestsCelebrities(overallScore, engine):
     celebScores  = pd.read_sql("celebrity", con=engine)
 
     df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
@@ -210,6 +235,7 @@ def getClosestsCelebrities(overallScore):
     parsed = json.loads(result)
     return parsed
 
+# Get date as string containing month and day with correct suffix
 def formatDate(date):
     date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
     day = date.day
@@ -253,6 +279,26 @@ def tweetsByMonth(tweetsDict):
     print(tweets)
 
     return tweets
-    
-#getData("robysinatra", 50)
 
+# Get the closest three scores from a list of chosen celebrities on Twitter
+def getDanishUsersScore(overallScore,engine ):
+    df = pd.read_sql("danishusers", con=engine)
+    df_sort = df.sort_values(by=['score'])
+    
+    danishOverall = float("{:.2f}".format(df_sort["score"].mean()))
+    amountOfUsers = len(df_sort.index)
+
+    over = len(df_sort[(df_sort['score']>overallScore)])
+    under = len(df_sort[(df_sort['score']>overallScore)])
+
+    percent = over/len(df_sort)*100
+
+    return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
+
+# Get the users that the given user follows
+def userFollowers(username, api):
+    friends = tw.Cursor(api.friends, screen_name=username).items(200)
+    for friend in friends: 
+        print(friend.screen_name)
+
+#getData("robysinatra", 50)
