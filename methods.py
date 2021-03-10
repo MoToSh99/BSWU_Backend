@@ -17,16 +17,17 @@ import json
 def getData(username, count):
     # Set up Twitter API
     api = config.setupTwitterAuth()
-    print("Count: " + str(count))
     tic = time.perf_counter()
     try:
         user = api.get_user(username)
     except TweepError as e:
         print(e)
         return {"Error" : e.args[0][0]['message'] }
+
+    print("Count: " + str(count))
+        
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
     listAllTweets = list(allTweets)
-    print(listAllTweets)
     if (len(listAllTweets) == 0):
         return {"Error" : "No tweets"}
     toc = time.perf_counter()
