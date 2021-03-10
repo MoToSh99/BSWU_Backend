@@ -27,5 +27,7 @@ def getHapinessScore(tweet_text):
 
 # Get all matches from a single tweet along with their individual scores
 def getWordsWithScore(tweet_text):
+    global file
+    file = pyhmeter.load_scores_word()
     pyhmeter = getPyhmeter(tweet_text)
     return pyhmeter.matchValueList
