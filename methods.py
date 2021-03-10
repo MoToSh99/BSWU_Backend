@@ -154,11 +154,10 @@ def getHappiestTweet(scores):
     score = max(scores.items(), key=operator.itemgetter(1))[1]
     id = str(tweet)
 
-
     toc = time.perf_counter()
     print(f"getHappiestTweet in {toc - tic:0.4f} seconds")
      
-    return {"id" : id, "score" : score}
+    return {"id" : id, "score" : float("{:.2f}".format(score))}
 
 # Get the unhappiest tweet posted by the user. Returns the id of the tweet.
 def getSaddestTweet(scores):
@@ -171,7 +170,7 @@ def getSaddestTweet(scores):
     toc = time.perf_counter()
     print(f"getSaddestTweet in {toc - tic:0.4f} seconds")
     
-    return {"id" : id, "score" : score}
+    return {"id" : id, "score" : float("{:.2f}".format(score))}
 
 # Get the overall happiness score from a collection of tweets
 def getOverallScore(tweetsDict):
