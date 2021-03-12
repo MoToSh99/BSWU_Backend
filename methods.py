@@ -13,10 +13,10 @@ from sqlalchemy import create_engine
 import pandas as pd
 import json
 
+listAllTweets = []
 debug = False
 
-# Returns all relevant data to the API
-def getData(username, count):
+def getTwitterData(username, count):
     # Set up Twitter API
     api = config.setupTwitterAuth()
     tic = time.perf_counter()
@@ -34,8 +34,15 @@ def getData(username, count):
         return {"Error" : "No tweets"}
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
-    tic2 = time.perf_counter()
 
+    return listAllTweets
+
+
+# Returns all relevant data to the API
+def getData(username):
+
+    tic = time.perf_counter()
+    
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     
     tweetsDict = getTweetsDict(listAllTweets)
