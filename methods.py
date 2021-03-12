@@ -39,7 +39,6 @@ def getTwitterData(username, count):
 
     dict = {username : listAllTweetss}
     listAllTweets.update(dict)
-    print(listAllTweets)
     
 
 
@@ -47,7 +46,7 @@ def getTwitterData(username, count):
 def getData(username):
     global listAllTweets
     if (username not in listAllTweets):
-        return "Call /gettwitterdata first"
+        return {"Error" : "Call /gettwitterdata first"}
     tic = time.perf_counter()
     
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
