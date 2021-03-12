@@ -17,6 +17,7 @@ listAllTweets = {}
 debug = False
 
 def getTwitterData(username, count):
+    global listAllTweets
     del listAllTweets[username]
     # Set up Twitter API
     api = config.setupTwitterAuth()
@@ -37,7 +38,7 @@ def getTwitterData(username, count):
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
 
 
-    global listAllTweets
+
     dict = {username : listAllTweetss}
     listAllTweets.update(dict)
     
