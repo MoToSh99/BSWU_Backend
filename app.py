@@ -32,7 +32,7 @@ def getTwitterData():
     count = int(request.args.get('count'))
     username = request.args.get('username')
     executor.submit(m.getTwitterData, username, count)
-    return 'Calling Twitter API in the background!'
+    return {"msg" : "Calling Twitter API in the background!"}
 
 @app.route('/checkusername')
 def checkData():
