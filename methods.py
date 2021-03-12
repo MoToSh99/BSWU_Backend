@@ -17,6 +17,7 @@ listAllTweets = {}
 debug = False
 
 def getTwitterData(username, count):
+    del listAllTweets[username]
     # Set up Twitter API
     api = config.setupTwitterAuth()
     tic = time.perf_counter()
