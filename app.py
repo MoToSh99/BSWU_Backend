@@ -34,7 +34,7 @@ def getTwitterData():
     executor.submit(m.getTwitterData, username, count)
     return 'Calling Twitter API in the background!'
 
-@app.route('/checkUsernames')
+@app.route('/checkUsername')
 def checkData():
     username = request.args.get('username')
     if (username in m.listAllTweets):

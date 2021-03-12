@@ -14,6 +14,7 @@ import pandas as pd
 import json
 
 listAllTweets = {}
+debug = False
 
 def getTwitterData(username, count):
     # Set up Twitter API
@@ -340,4 +341,4 @@ def debugPrint(text):
     else:
         return
 
-getData("robysinatra", 50)
+#getData("robysinatra")
