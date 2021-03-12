@@ -31,6 +31,8 @@ def index():
 def getTwitterData():
     count = int(request.args.get('count'))
     username = request.args.get('username')
+    if (username in m.listAllTweets):
+        m.listAllTweets.pop(username)
     executor.submit(m.getTwitterData, username, count)
     return {"msg" : "Calling Twitter API in the background!"}
 
