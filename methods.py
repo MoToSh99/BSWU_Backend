@@ -92,7 +92,7 @@ def getTweetsDictRaw(allTweets):
             tweets.update(dict)
             count += 1
     toc = time.perf_counter()
-    print(f"getTweetsDict in {toc - tic:0.4f} seconds")       
+    debugPrint(f"getTweetsDict in {toc - tic:0.4f} seconds")       
     return tweets
 
 def getTweetsDict(allTweets):
@@ -112,7 +112,7 @@ def getTopFiveWords(allTweets):
     
     toc = time.perf_counter()
 
-    print(f"getTopFiveWords in {toc - tic:0.4f} seconds")
+    debugPrint(f"getTopFiveWords in {toc - tic:0.4f} seconds")
     return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
 #TODO Evt. fix måden at få data på
@@ -126,7 +126,7 @@ def tweetsOnlyScore(scores):
         scoresOnly.update(dict)
 
     toc = time.perf_counter()
-    print(f"tweetsOnlyScore in {toc - tic:0.4f} seconds")
+    debugPrint(f"tweetsOnlyScore in {toc - tic:0.4f} seconds")
     
     return scoresOnly
 
@@ -158,7 +158,7 @@ def getProfileInfo(username):
     }
 
     toc = time.perf_counter()
-    print(f"getProfileInfo in {toc - tic:0.4f} seconds")
+    debugPrint(f"getProfileInfo in {toc - tic:0.4f} seconds")
     return userInfo
 
 # Get the happiest tweet posted by the user. Returns the id of the tweet.
@@ -171,7 +171,7 @@ def getHappiestTweet(scores):
     id = str(tweet)
 
     toc = time.perf_counter()
-    print(f"getHappiestTweet in {toc - tic:0.4f} seconds")
+    debugPrint(f"getHappiestTweet in {toc - tic:0.4f} seconds")
      
     return {"id" : id, "score" : float("{:.2f}".format(score))}
 
@@ -184,7 +184,7 @@ def getSaddestTweet(scores):
     id = str(tweet)
 
     toc = time.perf_counter()
-    print(f"getSaddestTweet in {toc - tic:0.4f} seconds")
+    debugPrint(f"getSaddestTweet in {toc - tic:0.4f} seconds")
     
     return {"id" : id, "score" : float("{:.2f}".format(score))}
 
@@ -199,7 +199,7 @@ def getOverallScore(tweetsDict):
         count += 1
 
     toc = time.perf_counter()
-    print(f"getOverallScore in {toc - tic:0.4f} seconds")
+    debugPrint(f"getOverallScore in {toc - tic:0.4f} seconds")
 
     return float("{:.2f}".format(total/count))
 
@@ -229,15 +229,15 @@ def getWeekScores(tweetsDict):
         withoutNanList[count] = float("{:.2f}".format(score))
         count += 1
 
-    toc = time.perf_counter()
-    print(f"getWeekScores in {toc - tic:0.4f} seconds")
-
     weekdayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     highestScore = max(withoutNan)
     highestWeekday = weekdayNames[withoutNanList.index(highestScore)]
 
     np.delete(withoutNan, withoutNanList.index(highestScore))
     weekdayNames.remove(highestWeekday)
+
+    toc = time.perf_counter()
+    debugPrint(f"getWeekScores in {toc - tic:0.4f} seconds")
 
     return {
             0 : {"Day" : highestWeekday, "Score" : highestScore}, 
@@ -251,13 +251,19 @@ def getWeekScores(tweetsDict):
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
 def getClosestsCelebrities(username, overallScore, engine):
+    tic = time.perf_counter()
     celebScores  = pd.read_sql("celebrity", con=engine)
     celebScores = celebScores.drop(celebScores[(celebScores['username']==username)].index)
 
     df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
+    df_sort_on_score = df_sort.sort_values(by=['score'])
     
-    result = df_sort.to_json(orient="records")
+    result = df_sort_on_score.to_json(orient="records")
     parsed = json.loads(result)
+
+    toc = time.perf_counter()
+    debugPrint(f"getClosestsCelebrities in {toc - tic:0.4f} seconds")
+
     return parsed
 
 # Get date as string containing month and day with correct suffix
@@ -300,13 +306,11 @@ def tweetsByMonth(tweetsDict):
         dict = {ans.month :  {"score" : months[ans.month]['score'] + tweet["score"], "amount" : months[ans.month]['amount'] + 1, "avg" : (months[ans.month]['score'] + tweet["score"])/(months[ans.month]['amount'] + 1)}}
         months.update(dict)
         tweets.update({ans.year : months})
-    
-    print(tweets)
 
     return tweets
 
-# Get the closest three scores from a list of chosen celebrities on Twitter
 def getDanishUsersScore(overallScore,engine ):
+    tic = time.perf_counter()
     df = pd.read_sql("danishusers", con=engine)
     df_sort = df.sort_values(by=['score'])
     
@@ -318,6 +322,8 @@ def getDanishUsersScore(overallScore,engine ):
 
     percent = float("{:.2f}".format(over/len(df_sort)*100))
 
+    toc = time.perf_counter()
+    debugPrint(f"getDanishUsersScore in {toc - tic:0.4f} seconds")
 
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
@@ -325,6 +331,13 @@ def getDanishUsersScore(overallScore,engine ):
 def userFollowers(username, api):
     friends = tw.Cursor(api.friends, screen_name=username).items(200)
     for friend in friends: 
-        print(friend.screen_name)
+        debugPrint(friend.screen_name)
 
-#getData("robysinatra", 50)
+# Print debug messages
+def debugPrint(text):
+    if (debug):
+        print(text)
+    else:
+        return
+
+getData("robysinatra", 50)
