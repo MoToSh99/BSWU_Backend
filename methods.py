@@ -13,7 +13,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 import json
 
-listAllTweets = []
+listAllTweets = {}
 
 def getTwitterData(username, count):
     # Set up Twitter API
@@ -28,28 +28,36 @@ def getTwitterData(username, count):
     print("Count: " + str(count))
         
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
-    listAllTweets = list(allTweets)
-    if (len(listAllTweets) == 0):
+    listAllTweetss = list(allTweets)
+    if (len(listAllTweetss) == 0):
         return {"Error" : "No tweets"}
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
 
-    return listAllTweets
+
+    global listAllTweets
+    dict = {username : listAllTweetss}
+    listAllTweets.update(dict)
+    
 
 
 # Returns all relevant data to the API
 def getData(username):
-
+    global listAllTweets
+    if (username not in listAllTweets):
+        return "Call /gettwitterdata first"
     tic = time.perf_counter()
     
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     
-    tweetsDict = getTweetsDict(listAllTweets)
+    tweets = listAllTweets[username]
+
+    tweetsDict = getTweetsDict(tweets)
     dateobject = tweetsDict[len(tweetsDict)-1]["created"]
     formattedDate = formatDate(dateobject)
 
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
-    wordsAmount, topWords = getTopFiveWords(listAllTweets)
+    wordsAmount, topWords = getTopFiveWords(tweets)
     overallScore = getOverallScore(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
