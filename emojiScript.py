@@ -49,7 +49,7 @@ def TweetsgetHapinessScoreTextWithEmoji():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()        
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(50)        
     tweetss = {}
     count = 1
 
@@ -97,9 +97,9 @@ def getHapinessScoreTextWithEmojiRemoved(tweet_text):
 
 def TweetsgetHapinessScoreTextWithEmojiRemoved():
     api = config.setupTwitterAuth()
-    places = api.geo_search(query="USA", granularity="country")
+    places = api.geos_search(query="USA", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()        
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(50)        
     tweetss = {}
     count = 1
 
@@ -145,7 +145,7 @@ def TweetsgetHapinessScoreTextWithOutEmoji():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()        
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(50)        
     tweetss = {}
     count = 1
 
