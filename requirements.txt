@@ -7,3 +7,4 @@ flask_cors
 sqlalchemy
 psycopg2
 gunicorn
+matplotlib
