@@ -4,7 +4,7 @@
 name: Build and deploy Python app to Azure Web App - happytweet
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
