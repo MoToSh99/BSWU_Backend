@@ -63,7 +63,7 @@ def TweetsgetHapinessScoreTextWithEmoji():
     return tweetss
     
 def putEmojiData1():
-    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     api = config.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithEmoji(), orient='index')
     df.set_index('id', inplace=True)
@@ -112,7 +112,7 @@ def TweetsgetHapinessScoreTextWithEmojiRemoved():
     return tweetss
     
 def putEmojiData2():
-    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     api = config.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithEmojiRemoved(), orient='index')
     df.set_index('id', inplace=True)
@@ -156,7 +156,7 @@ def TweetsgetHapinessScoreTextWithOutEmoji():
     return tweetss
     
 def putEmojiData3():
-    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     api = config.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithOutEmoji(), orient='index')
     df.set_index('id', inplace=True)
@@ -174,7 +174,7 @@ def putEmojiData():
 putEmojiData()
 
 def createHistogram():  
-    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
+    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
     read  = pd.read_sql("emoji_textwithemoji", con=engine) 
     data = list(read["score"])
 
@@ -185,7 +185,7 @@ def createHistogram():
     plt.show()
 
 def createDensityPlot():
-    engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
+    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
     read  = pd.read_sql("emoji_textwithemoji", con=engine)
     read2  = pd.read_sql("emoji_textwithemojiremoved", con=engine)
     read3  = pd.read_sql("emoji_textwithoutemoji", con=engine)
