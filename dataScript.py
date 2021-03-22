@@ -94,9 +94,9 @@ def putDataForUserUSA():
         dict = {username : {"score" : score}} 
         df = pd.DataFrame.from_dict(dict, orient='index')
         df.index.name = 'username'
-        df.to_sql('danishusers', con=engine, if_exists='append')
+        df.to_sql('usausers', con=engine, if_exists='append')
 
-        engine.execute("DELETE FROM danishusers T1 USING danishusers T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
+        engine.execute("DELETE FROM usausers T1 USING usausers T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
-        read  = pd.read_sql("danishusers", con=engine)
+        read  = pd.read_sql("usausers", con=engine)
 
