@@ -21,7 +21,7 @@ def getUserInfo():
     return jsonify(m.getProfileInfo(request.args.get('username')))
 
 # A welcome message to test our server
-@app.route('/')
+@app.route('/') 
 @cross_origin()
 def index():
     return "<h1>Welcome to HappyTweet !!</h1>"

@@ -23,7 +23,6 @@ def putDataDB():
 def celebrityScore(username):
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     api = config.setupTwitterAuth()
-    
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items()
     listAllTweets = list(allTweets)
     tweetsDict = m.getTweetsDict(listAllTweets)
