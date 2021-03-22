@@ -49,7 +49,7 @@ def TweetsgetHapinessScoreTextWithEmoji():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()        
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(100)        
     tweetss = {}
     count = 1
 
@@ -62,7 +62,6 @@ def TweetsgetHapinessScoreTextWithEmoji():
 
     return tweetss
     
-
 def putEmojiData1():
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     api = config.setupTwitterAuth()
@@ -99,7 +98,7 @@ def TweetsgetHapinessScoreTextWithEmojiRemoved():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()        
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(100)        
     tweetss = {}
     count = 1
 
@@ -112,7 +111,6 @@ def TweetsgetHapinessScoreTextWithEmojiRemoved():
 
     return tweetss
     
-
 def putEmojiData2():
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     api = config.setupTwitterAuth()
@@ -140,12 +138,11 @@ def getHapinessScoreTextWithOutEmoji(tweet_text):
     
     return  -1
 
-
 def TweetsgetHapinessScoreTextWithOutEmoji():
     api = config.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()        
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(100)        
     tweetss = {}
     count = 1
 
@@ -158,7 +155,6 @@ def TweetsgetHapinessScoreTextWithOutEmoji():
 
     return tweetss
     
-
 def putEmojiData3():
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     api = config.setupTwitterAuth()
@@ -170,18 +166,16 @@ def putEmojiData3():
   
     read  = pd.read_sql("emoji_textwithoutemoji", con=engine) 
 
-
-
 def putEmojiData():
     putEmojiData1()
     putEmojiData2()
     putEmojiData3()
 
-putEmojiData()
+#putEmojiData()
 
 def createHistogram():  
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
-    read  = pd.read_sql("emoji_textwithoutemoji", con=engine) 
+    read  = pd.read_sql("emoji_textwithemoji", con=engine) 
     data = list(read["score"])
 
     plt.hist(data, density=True, bins=5)  # density=False would make counts
@@ -192,16 +186,24 @@ def createHistogram():
 
 def createDensityPlot():
     engine = create_engine('postgres://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
-    #read  = pd.read_sql("emoji_textwithemoji", con=engine)
-    read2  = pd.read_sql("emoji_textwithoutemoji", con=engine) 
+    read  = pd.read_sql("emoji_textwithemoji", con=engine)
+    read2  = pd.read_sql("emoji_textwithemojiremoved", con=engine)
+    read3  = pd.read_sql("emoji_textwithoutemoji", con=engine)
 
-    #data = list(read["score"])
+    data = list(read["score"])
     data2 = list(read2["score"])
+    data3 = list(read3["score"])
 
-    #sns.kdeplot(data, color="green", shade=True)
-    sns.kdeplot(data2, color="blue", shade=True)
-    #plt.show()
+    sns.kdeplot(data, color="green", shade=True, label="With emojis\n(Count: " + str(len(data)) + ")")
+    sns.kdeplot(data2, color="blue", shade=True, label="Emojis removed\n(Count: " + str(len(data2)) + ")")
+    sns.kdeplot(data3, color="red", shade=True, label="No emojis\n(Count: " + str(len(data3)) + ")")
+
+    plt.title("Density plot of Tweets")
+    plt.legend(loc="best")
+    plt.xlabel("Score")
+    plt.ylabel("Density")
+    plt.show()
     plt.show()
 
 #createHistogram()
-#createDensityPlot()
+createDensityPlot()
