@@ -171,7 +171,7 @@ def putEmojiData():
     putEmojiData2()
     putEmojiData3()
 
-#putEmojiData()
+putEmojiData()
 
 def createHistogram():  
     engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
@@ -208,4 +208,4 @@ def createDensityPlot():
     plt.show()
 
 #createHistogram()
-createDensityPlot()
+#createDensityPlot()

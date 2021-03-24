@@ -321,7 +321,7 @@ def getDanishUsersScore(overallScore,engine ):
     over = len(df_sort[(df_sort['score']>overallScore)])
     under = len(df_sort[(df_sort['score']>overallScore)])
 
-    percent = float("{:.2f}".format(over/len(df_sort)*100))
+    percent = int(over/len(df_sort)*100)
 
     toc = time.perf_counter()
     debugPrint(f"getDanishUsersScore in {toc - tic:0.4f} seconds")
