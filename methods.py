@@ -71,6 +71,7 @@ def getData(username):
      "tweetstart" :  formattedDate,
      "tweetsamount" : len(tweetsDict),
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
+     "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine)
     }
 
@@ -267,6 +268,20 @@ def getClosestsCelebrities(username, overallScore, engine):
 
     return parsed
 
+# Get the closest three scores from a list of chosen celebrities on Twitter
+def getAllCelebrities(engine):
+    tic = time.perf_counter()
+    celebScores  = pd.read_sql("celebrity", con=engine)
+    
+    df_sort_on_score = celebScores.sort_values(by=['score'])
+    
+    result = df_sort_on_score.to_json(orient="records")
+    parsed = json.loads(result)
+
+    toc = time.perf_counter()
+    debugPrint(f"getAllCelebrities in {toc - tic:0.4f} seconds")
+
+    return parsed
 # Get date as string containing month and day with correct suffix
 def formatDate(date):
     date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
