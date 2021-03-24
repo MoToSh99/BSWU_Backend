@@ -273,7 +273,7 @@ def getAllCelebrities(engine):
     tic = time.perf_counter()
     celebScores  = pd.read_sql("celebrity", con=engine)
     
-    df_sort_on_score = celebScores.sort_values(by=['score'])
+    df_sort_on_score = celebScores.sort_values(by=['score'], ascending=False)
     
     result = df_sort_on_score.to_json(orient="records")
     parsed = json.loads(result)
