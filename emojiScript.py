@@ -12,6 +12,8 @@ from scipy.stats import kde
 import seaborn as sns
 
 file = pyhmeter.load_scores()
+engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    
 
 # Gets the Pyhmeter and removes unnecessary symbols from a given tweet
 def getPyhmeter(tweet_text):
@@ -63,7 +65,7 @@ def TweetsgetHapinessScoreTextWithEmoji():
     return tweetss
     
 def putEmojiData1():
-    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    global engine
     api = config.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithEmoji(), orient='index')
     df.set_index('id', inplace=True)
@@ -71,6 +73,8 @@ def putEmojiData1():
 
     engine.execute("DELETE FROM emoji_textwithemoji T1 USING emoji_textwithemoji T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
   
+    engine.dispose()
+
     read  = pd.read_sql("emoji_textwithemoji", con=engine) 
 
 def getHapinessScoreTextWithEmojiRemoved(tweet_text):
@@ -112,7 +116,7 @@ def TweetsgetHapinessScoreTextWithEmojiRemoved():
     return tweetss
     
 def putEmojiData2():
-    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    global engine
     api = config.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithEmojiRemoved(), orient='index')
     df.set_index('id', inplace=True)
@@ -120,6 +124,8 @@ def putEmojiData2():
 
     engine.execute("DELETE FROM emoji_textwithemojiremoved T1 USING emoji_textwithemojiremoved T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
   
+    engine.dispose()
+
     read  = pd.read_sql("emoji_textwithemojiremoved", con=engine) 
 
 def getHapinessScoreTextWithOutEmoji(tweet_text):
@@ -156,19 +162,23 @@ def TweetsgetHapinessScoreTextWithOutEmoji():
     return tweetss
     
 def putEmojiData3():
-    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    global engine
     api = config.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithOutEmoji(), orient='index')
     df.set_index('id', inplace=True)
     df.to_sql('emoji_textwithoutemoji', con=engine, if_exists='append')
 
     engine.execute("DELETE FROM emoji_textwithoutemoji T1 USING emoji_textwithoutemoji T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
-  
+    
+    engine.dispose()
     read  = pd.read_sql("emoji_textwithoutemoji", con=engine) 
 
 def putEmojiData():
+    print("Start 1")
     putEmojiData1()
+    print("Start 2")
     putEmojiData2()
+    print("Start 3")
     putEmojiData3()
 
 putEmojiData()
