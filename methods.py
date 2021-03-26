@@ -203,7 +203,10 @@ def getOverallScore(tweetsDict):
     toc = time.perf_counter()
     debugPrint(f"getOverallScore in {toc - tic:0.4f} seconds")
 
-    return float("{:.2f}".format(total/count))
+    if (count==0):
+        return -1
+    else:
+        return float("{:.2f}".format(total/count))
 
 # Get the average scores distributed over individual weekdays
 def getWeekScores(tweetsDict):
@@ -265,7 +268,7 @@ def getClosestsCelebrities(username, overallScore, engine):
 
     toc = time.perf_counter()
     debugPrint(f"getClosestsCelebrities in {toc - tic:0.4f} seconds")
-
+    engine.dispose()
     return parsed
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
@@ -280,7 +283,7 @@ def getAllCelebrities(engine):
 
     toc = time.perf_counter()
     debugPrint(f"getAllCelebrities in {toc - tic:0.4f} seconds")
-
+    engine.dispose()
     return parsed
 # Get date as string containing month and day with correct suffix
 def formatDate(date):
@@ -340,7 +343,7 @@ def getDanishUsersScore(overallScore,engine ):
 
     toc = time.perf_counter()
     debugPrint(f"getDanishUsersScore in {toc - tic:0.4f} seconds")
-
+    engine.dispose()
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
 # Get the users that the given user follows
