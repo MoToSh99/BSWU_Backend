@@ -75,7 +75,7 @@ def getData(username):
      "danishuserscore" : getDanishUsersScore(overallScore, engine)
     }
 
-    #tweetsByMonth(tweetsDict)
+    tweetsByMonth(tweetsDict)
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
@@ -285,6 +285,7 @@ def getAllCelebrities(engine):
     debugPrint(f"getAllCelebrities in {toc - tic:0.4f} seconds")
     engine.dispose()
     return parsed
+    
 # Get date as string containing month and day with correct suffix
 def formatDate(date):
     date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
@@ -300,33 +301,16 @@ def formatDate(date):
     return datestring
 
 def tweetsByMonth(tweetsDict):   
-    months = {
-        1:{"score": 0, "amount": 0, "avg":0},
-        2:{"score": 0, "amount": 0, "avg":0},
-        3:{"score": 0, "amount": 0, "avg":0},
-        4:{"score": 0, "amount": 0, "avg":0},
-        5:{"score": 0, "amount": 0, "avg":0},
-        6:{"score": 0, "amount": 0, "avg":0},
-        7:{"score": 0, "amount": 0, "avg":0},
-        8:{"score": 0, "amount": 0, "avg":0},
-        9:{"score": 0, "amount": 0, "avg":0},
-        10:{"score": 0, "amount": 0, "avg":0},
-        11:{"score": 0, "amount": 0, "avg":0},
-        12:{"score": 0, "amount": 0, "avg":0}
-        }
-    tweets : typing.Dict[int, months] = {}
+    earlistTweet = tweetsDict[len(tweetsDict)-1]["created"]
+    latestTweet = tweetsDict[0]["created"]
+    
+    #num_months = (latestTweet.year - earlistTweet.year) * 12 + (latestTweet.month - earlistTweet.month)
 
-    for tweet in tweetsDict:
-        dt = tweet["created"]
-        date = dt.split(' ')
-        part = date[0]
-        year, month, day = (int(x) for x in part.split('-')) 
-        ans = datetime.date(year, month, day)
-        dict = {ans.month :  {"score" : months[ans.month]['score'] + tweet["score"], "amount" : months[ans.month]['amount'] + 1, "avg" : (months[ans.month]['score'] + tweet["score"])/(months[ans.month]['amount'] + 1)}}
-        months.update(dict)
-        tweets.update({ans.year : months})
 
-    return tweets
+    print(earlistTweet)
+    print(latestTweet)
+    #print(num_months)
+    return ""
 
 def getDanishUsersScore(overallScore,engine ):
     tic = time.perf_counter()
@@ -359,4 +343,5 @@ def debugPrint(text):
     else:
         return
 
-#getData("robysinatra")
+getTwitterData("robysinatra", 75)
+getData("robysinatra")

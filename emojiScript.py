@@ -3,7 +3,7 @@ import pyhmeter
 import re
 from heapq import nlargest, nsmallest
 from operator import itemgetter
-import config
+import configscript
 import tweepy as tw
 import pandas as pd
 from sqlalchemy import create_engine
@@ -48,7 +48,7 @@ def getHapinessScoreTextWithEmoji(tweet_text):
     return  -1
 
 def TweetsgetHapinessScoreTextWithEmoji():
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(100)        
@@ -66,7 +66,7 @@ def TweetsgetHapinessScoreTextWithEmoji():
     
 def putEmojiData1():
     global engine
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithEmoji(), orient='index')
     df.set_index('id', inplace=True)
     df.to_sql('emoji_textwithemoji', con=engine, if_exists='append')
@@ -99,7 +99,7 @@ def getHapinessScoreTextWithEmojiRemoved(tweet_text):
     return  -1
 
 def TweetsgetHapinessScoreTextWithEmojiRemoved():
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(100)        
@@ -117,7 +117,7 @@ def TweetsgetHapinessScoreTextWithEmojiRemoved():
     
 def putEmojiData2():
     global engine
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithEmojiRemoved(), orient='index')
     df.set_index('id', inplace=True)
     df.to_sql('emoji_textwithemojiremoved', con=engine, if_exists='append')
@@ -145,7 +145,7 @@ def getHapinessScoreTextWithOutEmoji(tweet_text):
     return  -1
 
 def TweetsgetHapinessScoreTextWithOutEmoji():
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(100)        
@@ -163,7 +163,7 @@ def TweetsgetHapinessScoreTextWithOutEmoji():
     
 def putEmojiData3():
     global engine
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     df = pd.DataFrame.from_dict(TweetsgetHapinessScoreTextWithOutEmoji(), orient='index')
     df.set_index('id', inplace=True)
     df.to_sql('emoji_textwithoutemoji', con=engine, if_exists='append')
