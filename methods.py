@@ -14,7 +14,7 @@ import pandas as pd
 import json
 
 listAllTweets = {}
-debug = False
+debug = True
 
 def getTwitterData(username, count):
     global listAllTweets
@@ -70,10 +70,9 @@ def getData(username):
      "tweetsamount" : len(tweetsDict),
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
-     "danishuserscore" : getDanishUsersScore(overallScore, engine)
+     "danishuserscore" : getDanishUsersScore(overallScore, engine),
+     "monthlyaverages" : tweetsByMonth(tweetsDict)
     }
-
-    tweetsByMonth(tweetsDict)
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
@@ -298,7 +297,7 @@ def formatDate(date):
     return datestring
 
 def tweetsByMonth(tweetsDict):
-
+    tic = time.perf_counter()
     earliestTweet = tweetsDict[len(tweetsDict)-1]["created"]
     latestTweet = tweetsDict[0]["created"]
 
@@ -306,30 +305,42 @@ def tweetsByMonth(tweetsDict):
     latestTweet = datetime.datetime.strptime(latestTweet, '%Y-%m-%d %H:%M:%S')
 
     num_months = (latestTweet.year - earliestTweet.year) * 12 + (latestTweet.month - earliestTweet.month)
-    print(num_months)
-    monthArray = [None] * num_months
+
+    monthArray = [0.0] * num_months
     currentMonth = latestTweet.month
     count = 0
     scoreSum = 0
     tweetNumber = 0
+    diff = 1
     for tweet in tweetsDict:
         date = tweet["created"]
         dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
         if dateObject.month != currentMonth:
+            diff = currentMonth - dateObject.month
+            if diff < 1:
+                diff = diff + 12
             currentMonth = dateObject.month
             if tweetNumber != 0:
-                monthArray[count] = scoreSum / tweetNumber
+                monthArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
             else:
-                monthArray[count] = scoreSum
-            count = count + 1
+                monthArray[count] = float("{:.2f}".format(scoreSum))
+            count = count + diff
             scoreSum = 0
             tweetNumber = 0
         else: 
             scoreSum = scoreSum + tweet["score"]
             tweetNumber = tweetNumber + 1
 
-    print(monthArray)
-    return ""
+    count = 0
+    for score in monthArray:
+        if score == 0.0:
+            monthArray[count] = 5
+        count = count + 1
+
+    toc = time.perf_counter()
+    debugPrint(f"tweetsByMonth in {toc - tic:0.4f} seconds")
+
+    return monthArray
 
 def getDanishUsersScore(overallScore,engine ):
     tic = time.perf_counter()
@@ -351,9 +362,13 @@ def getDanishUsersScore(overallScore,engine ):
 
 # Get the users that the given user follows
 def userFollowers(username, api):
+    tic = time.perf_counter()
     friends = tw.Cursor(api.friends, screen_name=username).items(200)
     for friend in friends: 
         debugPrint(friend.screen_name)
+
+    toc = time.perf_counter()
+    debugPrint(f"userFollowers in {toc - tic:0.4f} seconds")
 
 # Print debug messages
 def debugPrint(text):
@@ -362,5 +377,5 @@ def debugPrint(text):
     else:
         return
 
-getTwitterData("sethrogen", 600)
-getData("sethrogen")
+#getTwitterData("robysinatra", 600)
+#getData("robysinatra")
