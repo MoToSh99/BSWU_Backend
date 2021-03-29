@@ -39,8 +39,6 @@ def getTwitterData(username, count):
 
     dict = {username : listAllTweetss}
     listAllTweets.update(dict)
-    
-
 
 # Returns all relevant data to the API
 def getData(username):
@@ -117,7 +115,6 @@ def getTopFiveWords(allTweets):
     debugPrint(f"getTopFiveWords in {toc - tic:0.4f} seconds")
     return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
-#TODO Evt. fix måden at få data på
 # Only get tweet id's and scores
 def tweetsOnlyScore(scores):
     tic = time.perf_counter()
@@ -300,16 +297,38 @@ def formatDate(date):
     datestring = date.strftime("%B " + str(day) + " %Y")
     return datestring
 
-def tweetsByMonth(tweetsDict):   
-    earlistTweet = tweetsDict[len(tweetsDict)-1]["created"]
+def tweetsByMonth(tweetsDict):
+
+    earliestTweet = tweetsDict[len(tweetsDict)-1]["created"]
     latestTweet = tweetsDict[0]["created"]
-    
-    #num_months = (latestTweet.year - earlistTweet.year) * 12 + (latestTweet.month - earlistTweet.month)
 
+    earliestTweet = datetime.datetime.strptime(earliestTweet, '%Y-%m-%d %H:%M:%S')
+    latestTweet = datetime.datetime.strptime(latestTweet, '%Y-%m-%d %H:%M:%S')
 
-    print(earlistTweet)
-    print(latestTweet)
-    #print(num_months)
+    num_months = (latestTweet.year - earliestTweet.year) * 12 + (latestTweet.month - earliestTweet.month)
+    print(num_months)
+    monthArray = [None] * num_months
+    currentMonth = latestTweet.month
+    count = 0
+    scoreSum = 0
+    tweetNumber = 0
+    for tweet in tweetsDict:
+        date = tweet["created"]
+        dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+        if dateObject.month != currentMonth:
+            currentMonth = dateObject.month
+            if tweetNumber != 0:
+                monthArray[count] = scoreSum / tweetNumber
+            else:
+                monthArray[count] = scoreSum
+            count = count + 1
+            scoreSum = 0
+            tweetNumber = 0
+        else: 
+            scoreSum = scoreSum + tweet["score"]
+            tweetNumber = tweetNumber + 1
+
+    print(monthArray)
     return ""
 
 def getDanishUsersScore(overallScore,engine ):
@@ -343,5 +362,5 @@ def debugPrint(text):
     else:
         return
 
-getTwitterData("robysinatra", 75)
-getData("robysinatra")
+getTwitterData("sethrogen", 600)
+getData("sethrogen")
