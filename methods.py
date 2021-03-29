@@ -14,7 +14,7 @@ import pandas as pd
 import json
 
 listAllTweets = {}
-debug = True
+debug = False
 
 def getTwitterData(username, count):
     global listAllTweets
@@ -334,7 +334,9 @@ def tweetsByMonth(tweetsDict):
     count = 0
     for score in monthArray:
         if score == 0.0:
-            monthArray[count] = 5
+            monthArray[count] = [5, count+1]
+        else:
+            monthArray[count] = [monthArray[count], count+1]
         count = count + 1
 
     toc = time.perf_counter()
