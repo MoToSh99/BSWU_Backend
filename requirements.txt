@@ -10,3 +10,4 @@ gunicorn
 matplotlib
 scipy
 seaborn
+configparser

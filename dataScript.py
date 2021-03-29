@@ -1,5 +1,5 @@
 import methods as m
-import config
+import configscript
 import tweepy as tw
 import pandas as pd
 from sqlalchemy import create_engine, engine
@@ -12,7 +12,7 @@ engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c30006208
 # Random tweets from Denmark
 def putDataDB():
     engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
@@ -28,7 +28,7 @@ def putDataDB():
 def celebrityScore(username):
     print(username)
     global engine
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items()
     listAllTweets = list(allTweets)
     tweetsDict = m.getTweetsDict(listAllTweets)
@@ -64,7 +64,7 @@ def runceleb():
 
 def putDataForUser():
     global engine
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(20)
@@ -89,7 +89,7 @@ def putDataForUser():
 
 def putDataForUserUSA():
     global engine
-    api = config.setupTwitterAuth()
+    api = configscript.setupTwitterAuth()
     places = api.geo_search(query="USA", granularity="country")
     place_id = places[0].id
     tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
@@ -111,4 +111,5 @@ def putDataForUserUSA():
         
         engine.dispose()
         #read  = pd.read_sql("usausers", con=engine)
+
 
