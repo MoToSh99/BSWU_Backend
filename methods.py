@@ -12,6 +12,7 @@ import numpy as np
 from sqlalchemy import create_engine
 import pandas as pd
 import json
+import math
 
 listAllTweets = {}
 debug = False
@@ -61,6 +62,9 @@ def getData(username):
     wordsAmount, topWords = getTopFiveWords(tweets)
     overallScore = getOverallScore(tweetsDict)
     highest, lowest, week = getWeekScores(tweetsDict)
+
+    scoreEvolutionData = scoreEvolution(tweetsDict)
+
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : overallScore,
@@ -77,7 +81,8 @@ def getData(username):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "monthlyaverages" : scoreEvolution(tweetsDict)
+     "monthlyaverages" : scoreEvolutionData,
+     "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
     }
 
     toc2 = time.perf_counter()
@@ -405,6 +410,27 @@ def scoreEvolution(tweetsDict):
     debugPrint(f"scoreEvolution in {toc - tic:0.4f} seconds")
 
     return dateArray
+
+def getLowestAndHighestAverages(scoreEvolution):
+    lowestScore = 9
+    highestScore = 1
+    for data in scoreEvolution:
+        if data[0] < lowestScore:
+            lowestScore = data[0]
+        elif data[0] > highestScore:
+            highestScore = data[0]
+    
+    diffLow = abs(1 - lowestScore)
+    diffHigh = abs(highestScore - 9)
+    if diffLow < diffHigh:
+        lowestScore = 1 + diffLow
+        highestScore = 9 - diffLow
+    else:
+        lowestScore = 1 + diffHigh
+        highestScore = 9 - diffHigh
+    
+    res = [math.floor(lowestScore), math.ceil(highestScore)]
+    return res
 
 def getDanishUsersScore(overallScore,engine ):
     tic = time.perf_counter()
