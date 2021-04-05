@@ -52,8 +52,10 @@ def getData(username):
     tweets = listAllTweets[username]
 
     tweetsDict = getTweetsDict(tweets)
-    dateobject = tweetsDict[len(tweetsDict)-1]["created"]
-    formattedDate = formatDate(dateobject)
+    dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
+    formattedEarliestDate = formatDate(dateobjectEaliest)
+    dateobjectLatest = tweetsDict[0]["created"]
+    formattedLatestDate = formatDate(dateobjectLatest)
 
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     wordsAmount, topWords = getTopFiveWords(tweets)
@@ -69,7 +71,8 @@ def getData(username):
      "highestweekscore": highest,
      "lowestweekscore": lowest,
      "weekscores" : week,
-     "tweetstart" :  formattedDate,
+     "tweetstart" :  formattedEarliestDate,
+     "tweetend" : formattedLatestDate,
      "tweetsamount" : len(tweetsDict),
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
@@ -310,13 +313,10 @@ def scoreEvolution(tweetsDict):
 
     earliestTweet = datetime.datetime.strptime(earliestTweet, '%Y-%m-%d %H:%M:%S')
     latestTweet = datetime.datetime.strptime(latestTweet, '%Y-%m-%d %H:%M:%S')
-    print(earliestTweet)
-    print(latestTweet)
 
     num_months = (latestTweet.year - earliestTweet.year) * 12 + (latestTweet.month - earliestTweet.month)
     num_weeks = (abs(earliestTweet - latestTweet).days) // 7
-    print(num_months)
-    print(num_weeks)
+    num_days = (latestTweet - earliestTweet).days
     dateArray = []
 
     if (num_months > 12): 
@@ -344,8 +344,8 @@ def scoreEvolution(tweetsDict):
             else: 
                 scoreSum = scoreSum + tweet["score"]
                 tweetNumber = tweetNumber + 1
-    else:
-        dateArray = [0.0] * (num_weeks + 1)
+    elif (num_weeks > 12):
+        dateArray = [0.0] * num_weeks
         currentWeek = latestTweet.isocalendar()[1]
         count = 0
         scoreSum = 0
@@ -357,8 +357,31 @@ def scoreEvolution(tweetsDict):
             if dateObject.isocalendar()[1] != currentWeek:
                 diff = currentWeek - dateObject.isocalendar()[1]
                 if diff < 1:
-                    diff = diff + 52
+                    diff = diff + 51
                 currentWeek = dateObject.isocalendar()[1]
+                if tweetNumber != 0:
+                    dateArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
+                else:
+                    dateArray[count] = float("{:.2f}".format(scoreSum))
+                count = count + diff
+                scoreSum = 0
+                tweetNumber = 0
+            else: 
+                scoreSum = scoreSum + tweet["score"]
+                tweetNumber = tweetNumber + 1
+    else:
+        dateArray = [0.0] * num_days
+        currentDay = latestTweet.day
+        count = 0
+        scoreSum = 0
+        tweetNumber = 0
+        diff = 1
+        for tweet in tweetsDict:
+            date = tweet["created"]
+            dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if dateObject.day != currentDay:
+                diff = currentDay - dateObject.day
+                currentDay = dateObject.day
                 if tweetNumber != 0:
                     dateArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
                 else:
@@ -380,8 +403,6 @@ def scoreEvolution(tweetsDict):
 
     toc = time.perf_counter()
     debugPrint(f"scoreEvolution in {toc - tic:0.4f} seconds")
-
-    print(dateArray)
 
     return dateArray
 
@@ -420,5 +441,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("Sethrogen", 1000)
+#getTwitterData("Sethrogen", 500)
 #getData("Sethrogen")
