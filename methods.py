@@ -420,15 +420,6 @@ def getLowestAndHighestAverages(scoreEvolution):
         elif data[0] > highestScore:
             highestScore = data[0]
     
-    diffLow = abs(1 - lowestScore)
-    diffHigh = abs(highestScore - 9)
-    if diffLow < diffHigh:
-        lowestScore = 1 + diffLow
-        highestScore = 9 - diffLow
-    else:
-        lowestScore = 1 + diffHigh
-        highestScore = 9 - diffHigh
-    
     res = [math.floor(lowestScore), math.ceil(highestScore)]
     return res
 
@@ -467,5 +458,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("Sethrogen", 500)
-#getData("Sethrogen")
+#getTwitterData("robysinatra", 500)
+#getData("robysinatra")
