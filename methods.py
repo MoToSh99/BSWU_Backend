@@ -60,7 +60,7 @@ def getData(username):
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     wordsAmount, topWords = getTopFiveWords(tweets)
     overallScore = getOverallScore(tweetsDict)
-    highest, week = getWeekScores(tweetsDict)
+    highest, lowest, week = getWeekScores(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : overallScore,
@@ -69,6 +69,7 @@ def getData(username):
      "topfivewords" : topWords,
      "wordsmatched" : wordsAmount,
      "highestweekscore": highest,
+     "lowestweekscore": lowest,
      "weekscores" : week,
      "tweetstart" :  formattedEarliestDate,
      "tweetend" : formattedLatestDate,
@@ -239,13 +240,17 @@ def getWeekScores(tweetsDict):
     highestScore = max(withoutNan)
     highestWeekday = weekdayNames[withoutNanList.index(highestScore)]
 
+    lowestScore = min(withoutNan)
+    lowestWeekday = weekdayNames[withoutNanList.index(lowestScore)]
+
     #np.delete(withoutNan, withoutNanList.index(highestScore))
     #weekdayNames.remove(highestWeekday)
 
     toc = time.perf_counter()
     debugPrint(f"getWeekScores in {toc - tic:0.4f} seconds")
 
-    return ({"Day" : highestWeekday, "Score" : highestScore}, {
+    return ({"Day" : highestWeekday, "Score" : highestScore},
+            {"Day" : lowestWeekday, "Score" : lowestScore}, {
             0 : {"Day" : weekdayNames[0], "Score" : withoutNan[0]}, 
             1 : {"Day" : weekdayNames[1], "Score" : withoutNan[1]},
             2 : {"Day" : weekdayNames[2], "Score" : withoutNan[2]},
