@@ -71,7 +71,7 @@ def getData(username):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "monthlyaverages" : tweetsByMonth(tweetsDict)
+     "monthlyaverages" : scoreEvolution(tweetsDict)
     }
 
     toc2 = time.perf_counter()
@@ -296,53 +296,87 @@ def formatDate(date):
     datestring = date.strftime("%B " + str(day) + " %Y")
     return datestring
 
-def tweetsByMonth(tweetsDict):
+def scoreEvolution(tweetsDict):
     tic = time.perf_counter()
     earliestTweet = tweetsDict[len(tweetsDict)-1]["created"]
     latestTweet = tweetsDict[0]["created"]
 
     earliestTweet = datetime.datetime.strptime(earliestTweet, '%Y-%m-%d %H:%M:%S')
     latestTweet = datetime.datetime.strptime(latestTweet, '%Y-%m-%d %H:%M:%S')
+    print(earliestTweet)
+    print(latestTweet)
 
     num_months = (latestTweet.year - earliestTweet.year) * 12 + (latestTweet.month - earliestTweet.month)
+    num_weeks = (abs(earliestTweet - latestTweet).days) // 7
+    print(num_months)
+    print(num_weeks)
+    dateArray = []
 
-    monthArray = [0.0] * num_months
-    currentMonth = latestTweet.month
-    count = 0
-    scoreSum = 0
-    tweetNumber = 0
-    diff = 1
-    for tweet in tweetsDict:
-        date = tweet["created"]
-        dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-        if dateObject.month != currentMonth:
-            diff = currentMonth - dateObject.month
-            if diff < 1:
-                diff = diff + 12
-            currentMonth = dateObject.month
-            if tweetNumber != 0:
-                monthArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
-            else:
-                monthArray[count] = float("{:.2f}".format(scoreSum))
-            count = count + diff
-            scoreSum = 0
-            tweetNumber = 0
-        else: 
-            scoreSum = scoreSum + tweet["score"]
-            tweetNumber = tweetNumber + 1
+    if (num_months > 12): 
+        dateArray = [0.0] * num_months
+        currentMonth = latestTweet.month
+        count = 0
+        scoreSum = 0
+        tweetNumber = 0
+        diff = 1
+        for tweet in tweetsDict:
+            date = tweet["created"]
+            dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if dateObject.month != currentMonth:
+                diff = currentMonth - dateObject.month
+                if diff < 1:
+                    diff = diff + 12
+                currentMonth = dateObject.month
+                if tweetNumber != 0:
+                    dateArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
+                else:
+                    dateArray[count] = float("{:.2f}".format(scoreSum))
+                count = count + diff
+                scoreSum = 0
+                tweetNumber = 0
+            else: 
+                scoreSum = scoreSum + tweet["score"]
+                tweetNumber = tweetNumber + 1
+    else:
+        dateArray = [0.0] * (num_weeks + 1)
+        currentWeek = latestTweet.isocalendar()[1]
+        count = 0
+        scoreSum = 0
+        tweetNumber = 0
+        diff = 1
+        for tweet in tweetsDict:
+            date = tweet["created"]
+            dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if dateObject.isocalendar()[1] != currentWeek:
+                diff = currentWeek - dateObject.isocalendar()[1]
+                if diff < 1:
+                    diff = diff + 52
+                currentWeek = dateObject.isocalendar()[1]
+                if tweetNumber != 0:
+                    dateArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
+                else:
+                    dateArray[count] = float("{:.2f}".format(scoreSum))
+                count = count + diff
+                scoreSum = 0
+                tweetNumber = 0
+            else: 
+                scoreSum = scoreSum + tweet["score"]
+                tweetNumber = tweetNumber + 1
 
     count = 0
-    for score in monthArray:
+    for score in dateArray:
         if score == 0.0:
-            monthArray[count] = [5, count+1]
+            dateArray[count] = [5, count+1]
         else:
-            monthArray[count] = [monthArray[count], count+1]
+            dateArray[count] = [dateArray[count], count+1]
         count = count + 1
 
     toc = time.perf_counter()
-    debugPrint(f"tweetsByMonth in {toc - tic:0.4f} seconds")
+    debugPrint(f"scoreEvolution in {toc - tic:0.4f} seconds")
 
-    return monthArray
+    print(dateArray)
+
+    return dateArray
 
 def getDanishUsersScore(overallScore,engine ):
     tic = time.perf_counter()
@@ -379,5 +413,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("robysinatra", 600)
-#getData("robysinatra")
+#getTwitterData("Sethrogen", 1000)
+#getData("Sethrogen")
