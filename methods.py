@@ -467,5 +467,5 @@ def debugPrint(text):
     else:
         return
 
-getTwitterData("Sethrogen", 500)
-getData("Sethrogen")
+#getTwitterData("Sethrogen", 500)
+#getData("Sethrogen")
