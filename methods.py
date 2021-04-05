@@ -58,6 +58,7 @@ def getData(username):
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     wordsAmount, topWords = getTopFiveWords(tweets)
     overallScore = getOverallScore(tweetsDict)
+    highest, week = getWeekScores(tweetsDict)
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : overallScore,
@@ -65,7 +66,8 @@ def getData(username):
      "alltweets" : tweetsDict,
      "topfivewords" : topWords,
      "wordsmatched" : wordsAmount,
-     "weekscores" : getWeekScores(tweetsDict),
+     "highestweekscore": highest,
+     "weekscores" : week,
      "tweetstart" :  formattedDate,
      "tweetsamount" : len(tweetsDict),
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
@@ -234,21 +236,21 @@ def getWeekScores(tweetsDict):
     highestScore = max(withoutNan)
     highestWeekday = weekdayNames[withoutNanList.index(highestScore)]
 
-    np.delete(withoutNan, withoutNanList.index(highestScore))
-    weekdayNames.remove(highestWeekday)
+    #np.delete(withoutNan, withoutNanList.index(highestScore))
+    #weekdayNames.remove(highestWeekday)
 
     toc = time.perf_counter()
     debugPrint(f"getWeekScores in {toc - tic:0.4f} seconds")
 
-    return {
-            0 : {"Day" : highestWeekday, "Score" : highestScore}, 
-            1 : {"Day" : weekdayNames[0], "Score" : withoutNan[0]},
-            2 : {"Day" : weekdayNames[1], "Score" : withoutNan[1]},
-            3 : {"Day" : weekdayNames[2], "Score" : withoutNan[2]},
-            4 : {"Day" : weekdayNames[3], "Score" : withoutNan[3]},
-            5 : {"Day" : weekdayNames[4], "Score" : withoutNan[4]},
-            6 : {"Day" : weekdayNames[5], "Score" : withoutNan[5]}
-            }
+    return ({"Day" : highestWeekday, "Score" : highestScore}, {
+            0 : {"Day" : weekdayNames[0], "Score" : withoutNan[0]}, 
+            1 : {"Day" : weekdayNames[1], "Score" : withoutNan[1]},
+            2 : {"Day" : weekdayNames[2], "Score" : withoutNan[2]},
+            3 : {"Day" : weekdayNames[3], "Score" : withoutNan[3]},
+            4 : {"Day" : weekdayNames[4], "Score" : withoutNan[4]},
+            5 : {"Day" : weekdayNames[5], "Score" : withoutNan[5]},
+            6 : {"Day" : weekdayNames[6], "Score" : withoutNan[6]}
+            })
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
 def getClosestsCelebrities(username, overallScore, engine):
