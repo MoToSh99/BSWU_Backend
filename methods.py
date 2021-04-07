@@ -400,16 +400,14 @@ def scoreEvolution(tweetsDict):
 
     count = 0
     for score in dateArray:
-        if score == 0.0:
-            dateArray[count] = [5, count+1]
-        else:
+        if score != 0.0:
             dateArray[count] = [dateArray[count], count+1]
         count = count + 1
 
     toc = time.perf_counter()
     debugPrint(f"scoreEvolution in {toc - tic:0.4f} seconds")
 
-    return dateArray
+    return dateArray[::-1]
 
 def getLowestAndHighestAverages(scoreEvolution):
     lowestScore = 9
