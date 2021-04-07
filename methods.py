@@ -81,6 +81,7 @@ def getData(username):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
+     "usauserscore" : getUSAUsersScore(overallScore, engine),
      "monthlyaverages" : scoreEvolutionData,
      "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
     }
@@ -174,6 +175,8 @@ def getProfileInfo(username):
 def getHappiestTweet(scores): 
     tic = time.perf_counter()
     
+    if (len(list(scores.items())) < 1):
+        return
 
     tweet = max(scores.items(), key=operator.itemgetter(1))[0]
     score = max(scores.items(), key=operator.itemgetter(1))[1]
@@ -187,6 +190,9 @@ def getHappiestTweet(scores):
 # Get the unhappiest tweet posted by the user. Returns the id of the tweet.
 def getSaddestTweet(scores):
     tic = time.perf_counter()
+
+    if (len(list(scores.items())) < 1):
+        return
     
     tweet = min(scores.items(), key=operator.itemgetter(1))[0]
     score = min(scores.items(), key=operator.itemgetter(1))[1]
@@ -423,7 +429,7 @@ def getLowestAndHighestAverages(scoreEvolution):
 
 def getDanishUsersScore(overallScore,engine ):
     tic = time.perf_counter()
-    df = pd.read_sql("danishusers", con=engine)
+    df = pd.read_sql("danish_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
     danishOverall = float("{:.2f}".format(df_sort["score"].mean()))
@@ -439,6 +445,23 @@ def getDanishUsersScore(overallScore,engine ):
     engine.dispose()
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
+def getUSAUsersScore(overallScore,engine ):
+    tic = time.perf_counter()
+    df = pd.read_sql("usa_users", con=engine)
+    df_sort = df.sort_values(by=['score'])
+    
+    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    amountOfUsers = len(df_sort.index)
+
+    over = len(df_sort[(df_sort['score']>overallScore)])
+    under = len(df_sort[(df_sort['score']>overallScore)])
+
+    percent = int(over/len(df_sort)*100)
+
+    toc = time.perf_counter()
+    debugPrint(f"getUSAUsersScore in {toc - tic:0.4f} seconds")
+    engine.dispose()
+    return {"usaoverall" : overall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 # Get the users that the given user follows
 def userFollowers(username, api):
     tic = time.perf_counter()

@@ -31,6 +31,10 @@ def celebrityScore(username):
     api = configscript.setupTwitterAuth()
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items()
     listAllTweets = list(allTweets)
+
+    if (len(listAllTweets) == 0):
+        return
+
     tweetsDict = m.getTweetsDict(listAllTweets)
 
     score = m.getOverallScore(tweetsDict)
@@ -67,25 +71,31 @@ def putDataForUser():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(20)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
 
     for tweet in tweets:
         username = tweet.user.screen_name
-        allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items()
+        allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(10)
         listAllTweets = list(allTweets)
+        if (len(listAllTweets) < 1):
+            continue
+
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+        tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
+        scoremax = m.getHappiestTweet(tweetsonlyscore)
+        scoremin = m.getSaddestTweet(tweetsonlyscore)
 
-        dict = {username : {"score" : score}} 
+        dict = {username : {"score" : score, "min" :  scoremin["score"], "max" : scoremax["score"]}} 
         df = pd.DataFrame.from_dict(dict, orient='index')
         df.index.name = 'username'
-        df.to_sql('danishusers', con=engine, if_exists='append')
+        df.to_sql('danish_users', con=engine, if_exists='append')
 
-        engine.execute("DELETE FROM danishusers T1 USING danishusers T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
+        engine.execute("DELETE FROM danish_users T1 USING danish_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
-        engine.dispose()
-        #read  = pd.read_sql("danishusers", con=engine)
+    engine.dispose()
+        #read  = pd.read_sql("danish_users", con=engine)
 
 def putDataForUserUSA():
     global engine
@@ -96,20 +106,27 @@ def putDataForUserUSA():
 
     for tweet in tweets:
         username = tweet.user.screen_name
-        allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items()
+        allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(150)
         listAllTweets = list(allTweets)
+        if (len(listAllTweets) < 1):
+            continue
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+        tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
+        scoremax = m.getHappiestTweet(tweetsonlyscore)
+        scoremin = m.getSaddestTweet(tweetsonlyscore)
 
-        dict = {username : {"score" : score}} 
+        dict = {username : {"score" : score, "min" :  scoremin["score"], "max" : scoremax["score"]}} 
+
         df = pd.DataFrame.from_dict(dict, orient='index')
         df.index.name = 'username'
-        df.to_sql('usausers', con=engine, if_exists='append')
+        df.to_sql('usa_users', con=engine, if_exists='append')
 
-        engine.execute("DELETE FROM usausers T1 USING usausers T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
+        engine.execute("DELETE FROM usa_users T1 USING usa_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
         
-        engine.dispose()
-        #read  = pd.read_sql("usausers", con=engine)
+    engine.dispose()
+        #read  = pd.read_sql("usa_users", con=engine)
 
 
+putDataForUserUSA()
