@@ -128,5 +128,3 @@ def putDataForUserUSA():
     engine.dispose()
         #read  = pd.read_sql("usa_users", con=engine)
 
-
-putDataForUserUSA()
