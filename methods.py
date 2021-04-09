@@ -444,35 +444,40 @@ def scoreEvolution(tweetsDict):
                 tweetNumber = tweetNumber + 1
 
     dateArray = list(filter((0.0).__ne__, reversed(dateArray)))
+    newDateArray = [0.0] * len(dateArray)
 
     count = 0
     for score in dateArray:
-        if score != 0.0:
-            if count >= 4:
-                Xnorm = (score - Xmin) / (Xmax - Xmin)
-                movAvg = (Xnorm + dateArray[count-1][0] + dateArray[count-2][0] + dateArray[count-3][0] + dateArray[count-4][0]) / 5
-                dateArray[count] = [movAvg, count+1]
-            elif count >= 3:
-                Xnorm = (score - Xmin) / (Xmax - Xmin)
-                movAvg = (Xnorm + dateArray[count-1][0] + dateArray[count-2][0] + dateArray[count-3][0]) / 4
-                dateArray[count] = [movAvg, count+1]
-            elif count == 2:
-                Xnorm = (score - Xmin) / (Xmax - Xmin)
-                movAvg = (Xnorm + dateArray[count-1][0] + dateArray[count-2][0]) / 3
-                dateArray[count] = [movAvg, count+1]
-            elif count == 1:
-                Xnorm = (score - Xmin) / (Xmax - Xmin)
-                movAvg = (Xnorm + dateArray[count-1][0]) / 2
-                dateArray[count] = [movAvg, count+1]
-            else:
-                Xnorm = (score - Xmin) / (Xmax - Xmin)
-                dateArray[count] = [Xnorm, count+1]
+        if count >= 4:
+            Xnorm = (score - Xmin) / (Xmax - Xmin)
+            dateArray[count] = Xnorm
+            movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2] + dateArray[count-3] + dateArray[count-4]) / 5
+            newDateArray[count] = [movAvg, count+1]
+        elif count == 3:
+            Xnorm = (score - Xmin) / (Xmax - Xmin)
+            dateArray[count] = Xnorm
+            movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2] + dateArray[count-3]) / 4
+            newDateArray[count] = [movAvg, count+1]
+        elif count == 2:
+            Xnorm = (score - Xmin) / (Xmax - Xmin)
+            dateArray[count] = Xnorm
+            movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2]) / 3
+            newDateArray[count] = [movAvg, count+1]
+        elif count == 1:
+            Xnorm = (score - Xmin) / (Xmax - Xmin)
+            dateArray[count] = Xnorm
+            movAvg = (Xnorm + dateArray[count-1]) / 2
+            newDateArray[count] = [movAvg, count+1]
+        else:
+            Xnorm = (score - Xmin) / (Xmax - Xmin)
+            dateArray[count] = Xnorm
+            newDateArray[count] = [Xnorm, count+1]
         count = count + 1
 
     toc = time.perf_counter()
     debugPrint(f"scoreEvolution in {toc - tic:0.4f} seconds")
 
-    return dateArray
+    return newDateArray
 
 def getLowestAndHighestAverages(scoreEvolution):
     lowestScore = 1.0
