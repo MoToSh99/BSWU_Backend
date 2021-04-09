@@ -556,5 +556,5 @@ def debugPrint(text):
     else:
         return
 
-getTwitterData("stann_co", 500)
-getData("stann_co")
+#getTwitterData("stann_co", 500)
+#getData("stann_co")
