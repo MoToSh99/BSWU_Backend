@@ -475,15 +475,15 @@ def scoreEvolution(tweetsDict):
     return dateArray
 
 def getLowestAndHighestAverages(scoreEvolution):
-    lowestScore = 9.0
-    highestScore = 1.0
+    lowestScore = 1.0
+    highestScore = 0.0
     for data in scoreEvolution:
         if data[0] < lowestScore:
             lowestScore = data[0]
         elif data[0] > highestScore:
             highestScore = data[0]
     
-    res = [math.floor(lowestScore), math.ceil(highestScore)]
+    res = [lowestScore, highestScore]
     return res
 
 def getDanishUsersScore(overallScore,engine ):
@@ -539,5 +539,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("robysinatra", 500)
-#getData("robysinatra")
+#getTwitterData("sethrogen", 500)
+#getData("sethrogen")
