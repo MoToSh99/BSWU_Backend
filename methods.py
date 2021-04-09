@@ -444,11 +444,25 @@ def scoreEvolution(tweetsDict):
                 tweetNumber = tweetNumber + 1
 
     dateArray = list(filter((0.0).__ne__, reversed(dateArray)))
+
     count = 0
     for score in dateArray:
         if score != 0.0:
-            Xnorm = (score - Xmin) / (Xmax - Xmin)
-            dateArray[count] = [Xnorm, count+1]
+            if count >= 3:
+                Xnorm = (score - Xmin) / (Xmax - Xmin)
+                movAvg = (Xnorm + dateArray[count-1][0] + dateArray[count-2][0] + dateArray[count-3][0]) / 4
+                dateArray[count] = [movAvg, count+1]
+            elif count == 2:
+                Xnorm = (score - Xmin) / (Xmax - Xmin)
+                movAvg = (Xnorm + dateArray[count-1][0] + dateArray[count-2][0]) / 3
+                dateArray[count] = [movAvg, count+1]
+            elif count == 1:
+                Xnorm = (score - Xmin) / (Xmax - Xmin)
+                movAvg = (Xnorm + dateArray[count-1][0]) / 2
+                dateArray[count] = [movAvg, count+1]
+            else:
+                Xnorm = (score - Xmin) / (Xmax - Xmin)
+                dateArray[count] = [Xnorm, count+1]
         count = count + 1
 
     toc = time.perf_counter()
@@ -521,5 +535,5 @@ def debugPrint(text):
     else:
         return
 
-getTwitterData("stann_co", 10)
-getData("stann_co")
+#getTwitterData("robysinatra", 500)
+#getData("robysinatra")
