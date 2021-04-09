@@ -332,9 +332,11 @@ def scoreEvolution(tweetsDict):
 
     Xmin = 100.0
     Xmax = 0.0
+    tooltip = []
 
     if (num_months > 12): 
         dateArray = [0.0] * num_months
+        tooltip = [""] * num_months
         currentMonth = latestTweet.month
         count = 0
         scoreSum = 0
@@ -352,6 +354,7 @@ def scoreEvolution(tweetsDict):
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
                     dateArray[count] = value
                     if value != 0:
+                        tooltip[count] = str(dateObject.month) + "/" + str(dateObject.year)
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -360,6 +363,7 @@ def scoreEvolution(tweetsDict):
                     value = float("{:.2f}".format(scoreSum))
                     dateArray[count] = value
                     if value != 0:
+                        tooltip[count] = str(dateObject.month) + "/" + str(dateObject.year)
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -372,6 +376,7 @@ def scoreEvolution(tweetsDict):
                 tweetNumber = tweetNumber + 1
     elif (num_weeks > 12):
         dateArray = [0.0] * num_weeks
+        tooltip = [""] * num_weeks
         currentWeek = latestTweet.isocalendar()[1]
         count = 0
         scoreSum = 0
@@ -389,6 +394,7 @@ def scoreEvolution(tweetsDict):
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
                     dateArray[count] = value
                     if value != 0:
+                        tooltip[count] = "Week " + str(dateObject.isocalendar()[1]) + " " + str(dateObject.year)
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -397,6 +403,7 @@ def scoreEvolution(tweetsDict):
                     value = float("{:.2f}".format(scoreSum))
                     dateArray[count] = value
                     if value != 0:
+                        tooltip[count] = "Week " + str(dateObject.isocalendar()[1]) + " " + str(dateObject.year)
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -409,6 +416,7 @@ def scoreEvolution(tweetsDict):
                 tweetNumber = tweetNumber + 1
     else:
         dateArray = [0.0] * (num_days + 1)
+        tooltip = [""] * (num_days + 1)
         currentDay = latestTweet.day
         count = 0
         scoreSum = 0
@@ -424,6 +432,7 @@ def scoreEvolution(tweetsDict):
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
                     dateArray[count] = value
                     if value != 0:
+                        tooltip[count] = str(dateObject.day) + "/" + str(dateObject.month) + "/" + str(dateObject.year)
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -432,6 +441,7 @@ def scoreEvolution(tweetsDict):
                     value = float("{:.2f}".format(scoreSum))
                     dateArray[count] = value
                     if value != 0:
+                        tooltip[count] = str(dateObject.day) + "/" + str(dateObject.month) + "/" + str(dateObject.year)
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -446,32 +456,34 @@ def scoreEvolution(tweetsDict):
     dateArray = list(filter((0.0).__ne__, reversed(dateArray)))
     newDateArray = [0.0] * len(dateArray)
 
+    tooltip = list(filter(("").__ne__, reversed(tooltip)))
+
     count = 0
     for score in dateArray:
         if count >= 4:
             Xnorm = (score - Xmin) / (Xmax - Xmin)
             dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2] + dateArray[count-3] + dateArray[count-4]) / 5
-            newDateArray[count] = [movAvg, count+1]
+            newDateArray[count] = [movAvg, count+1, tooltip[count]]
         elif count == 3:
             Xnorm = (score - Xmin) / (Xmax - Xmin)
             dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2] + dateArray[count-3]) / 4
-            newDateArray[count] = [movAvg, count+1]
+            newDateArray[count] = [movAvg, count+1, tooltip[count]]
         elif count == 2:
             Xnorm = (score - Xmin) / (Xmax - Xmin)
             dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2]) / 3
-            newDateArray[count] = [movAvg, count+1]
+            newDateArray[count] = [movAvg, count+1, tooltip[count]]
         elif count == 1:
             Xnorm = (score - Xmin) / (Xmax - Xmin)
             dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1]) / 2
-            newDateArray[count] = [movAvg, count+1]
+            newDateArray[count] = [movAvg, count+1, tooltip[count]]
         else:
             Xnorm = (score - Xmin) / (Xmax - Xmin)
             dateArray[count] = Xnorm
-            newDateArray[count] = [Xnorm, count+1]
+            newDateArray[count] = [Xnorm, count+1, tooltip[count]]
         count = count + 1
 
     toc = time.perf_counter()
@@ -544,5 +556,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("sethrogen", 500)
-#getData("sethrogen")
+getTwitterData("stann_co", 500)
+getData("stann_co")
