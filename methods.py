@@ -330,6 +330,9 @@ def scoreEvolution(tweetsDict):
     num_days = (latestTweet - earliestTweet).days
     dateArray = []
 
+    Xmin = 100.0
+    Xmax = 0.0
+
     if (num_months > 12): 
         dateArray = [0.0] * num_months
         currentMonth = latestTweet.month
@@ -346,9 +349,21 @@ def scoreEvolution(tweetsDict):
                     diff = diff + 12
                 currentMonth = dateObject.month
                 if tweetNumber != 0:
-                    dateArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
+                    value = float("{:.2f}".format(scoreSum / tweetNumber))
+                    dateArray[count] = value
+                    if value != 0:
+                        if value < Xmin:
+                            Xmin = value
+                        elif value > Xmax:
+                            Xmax = value
                 else:
-                    dateArray[count] = float("{:.2f}".format(scoreSum))
+                    value = float("{:.2f}".format(scoreSum))
+                    dateArray[count] = value
+                    if value != 0:
+                        if value < Xmin:
+                            Xmin = value
+                        elif value > Xmax:
+                            Xmax = value
                 count = count + diff
                 scoreSum = 0
                 tweetNumber = 0
@@ -371,9 +386,21 @@ def scoreEvolution(tweetsDict):
                     diff = diff + 51
                 currentWeek = dateObject.isocalendar()[1]
                 if tweetNumber != 0:
-                    dateArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
+                    value = float("{:.2f}".format(scoreSum / tweetNumber))
+                    dateArray[count] = value
+                    if value != 0:
+                        if value < Xmin:
+                            Xmin = value
+                        elif value > Xmax:
+                            Xmax = value
                 else:
-                    dateArray[count] = float("{:.2f}".format(scoreSum))
+                    value = float("{:.2f}".format(scoreSum))
+                    dateArray[count] = value
+                    if value != 0:
+                        if value < Xmin:
+                            Xmin = value
+                        elif value > Xmax:
+                            Xmax = value
                 count = count + diff
                 scoreSum = 0
                 tweetNumber = 0
@@ -381,7 +408,7 @@ def scoreEvolution(tweetsDict):
                 scoreSum = scoreSum + tweet["score"]
                 tweetNumber = tweetNumber + 1
     else:
-        dateArray = [0.0] * num_days
+        dateArray = [0.0] * (num_days + 1)
         currentDay = latestTweet.day
         count = 0
         scoreSum = 0
@@ -394,9 +421,21 @@ def scoreEvolution(tweetsDict):
                 diff = currentDay - dateObject.day
                 currentDay = dateObject.day
                 if tweetNumber != 0:
-                    dateArray[count] = float("{:.2f}".format(scoreSum / tweetNumber))
+                    value = float("{:.2f}".format(scoreSum / tweetNumber))
+                    dateArray[count] = value
+                    if value != 0:
+                        if value < Xmin:
+                            Xmin = value
+                        elif value > Xmax:
+                            Xmax = value
                 else:
-                    dateArray[count] = float("{:.2f}".format(scoreSum))
+                    value = float("{:.2f}".format(scoreSum))
+                    dateArray[count] = value
+                    if value != 0:
+                        if value < Xmin:
+                            Xmin = value
+                        elif value > Xmax:
+                            Xmax = value
                 count = count + diff
                 scoreSum = 0
                 tweetNumber = 0
@@ -404,20 +443,22 @@ def scoreEvolution(tweetsDict):
                 scoreSum = scoreSum + tweet["score"]
                 tweetNumber = tweetNumber + 1
 
+    dateArray = list(filter((0.0).__ne__, reversed(dateArray)))
     count = 0
     for score in dateArray:
         if score != 0.0:
-            dateArray[count] = [dateArray[count], count+1]
+            Xnorm = (score - Xmin) / (Xmax - Xmin)
+            dateArray[count] = [Xnorm, count+1]
         count = count + 1
 
     toc = time.perf_counter()
     debugPrint(f"scoreEvolution in {toc - tic:0.4f} seconds")
 
-    return dateArray[::-1]
+    return dateArray
 
 def getLowestAndHighestAverages(scoreEvolution):
-    lowestScore = 9
-    highestScore = 1
+    lowestScore = 9.0
+    highestScore = 1.0
     for data in scoreEvolution:
         if data[0] < lowestScore:
             lowestScore = data[0]
@@ -462,6 +503,7 @@ def getUSAUsersScore(overallScore,engine ):
     debugPrint(f"getUSAUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
     return {"usaoverall" : overall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
+
 # Get the users that the given user follows
 def userFollowers(username, api):
     tic = time.perf_counter()
@@ -479,5 +521,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("robysinatra", 500)
-#getData("robysinatra")
+getTwitterData("stann_co", 10)
+getData("stann_co")
