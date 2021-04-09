@@ -484,7 +484,6 @@ def getLowestAndHighestAverages(scoreEvolution):
             highestScore = data[0]
     
     res = [lowestScore, highestScore]
-    print(res)
     return res
 
 def getDanishUsersScore(overallScore,engine ):
@@ -540,5 +539,5 @@ def debugPrint(text):
     else:
         return
 
-getTwitterData("sethrogen", 500)
-getData("sethrogen")
+#getTwitterData("sethrogen", 500)
+#getData("sethrogen")
