@@ -128,3 +128,35 @@ def putDataForUserUSA():
     engine.dispose()
         #read  = pd.read_sql("usa_users", con=engine)
 
+
+def putDataForUserDE():
+    global engine
+    api = configscript.setupTwitterAuth()
+    places = api.geo_search(query="DE", granularity="country")
+    place_id = places[0].id
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
+
+    for tweet in tweets:
+        username = tweet.user.screen_name
+        allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(150)
+        listAllTweets = list(allTweets)
+        if (len(listAllTweets) < 1):
+            continue
+        tweetsDict = m.getTweetsDict(listAllTweets)
+
+        score = m.getOverallScore(tweetsDict)
+        tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
+        scoremax = m.getHappiestTweet(tweetsonlyscore)
+        scoremin = m.getSaddestTweet(tweetsonlyscore)
+
+        dict = {username : {"score" : score, "min" :  scoremin["score"], "max" : scoremax["score"]}} 
+
+        df = pd.DataFrame.from_dict(dict, orient='index')
+        df.index.name = 'username'
+        df.to_sql('usa_users', con=engine, if_exists='append')
+
+        engine.execute("DELETE FROM usa_users T1 USING usa_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
+        
+    engine.dispose()
+        #read  = pd.read_sql("usa_users", con=engine)
+
