@@ -16,6 +16,7 @@ import math
 
 listAllTweets = {}
 debug = False
+lastDate = datetime.datetime.now()
 
 def getTwitterData(username, count):
     global listAllTweets
@@ -44,6 +45,7 @@ def getTwitterData(username, count):
 # Returns all relevant data to the API
 def getData(username):
     global listAllTweets
+    global lastDate
     if (username not in listAllTweets):
         return {"Error" : True}
     tic = time.perf_counter()
@@ -55,8 +57,6 @@ def getData(username):
     tweetsDict = getTweetsDict(tweets)
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
     formattedEarliestDate = formatDate(dateobjectEaliest)
-    dateobjectLatest = tweetsDict[0]["created"]
-    formattedLatestDate = formatDate(dateobjectLatest)
 
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     wordsAmount, topWords = getTopFiveWords(tweets)
@@ -64,6 +64,7 @@ def getData(username):
     highest, lowest, week = getWeekScores(tweetsDict)
 
     scoreEvolutionData = scoreEvolution(tweetsDict)
+    formattedLatestDate = formatDate(str(lastDate))
 
     data = {
      "userinfo" : getProfileInfo(username),
@@ -333,6 +334,8 @@ def scoreEvolution(tweetsDict):
     Xmin = 100.0
     Xmax = 0.0
     tooltip = []
+    lastDateCount = 0
+    global lastDate
 
     if (num_months > 12): 
         dateArray = [0.0] * num_months
@@ -345,6 +348,8 @@ def scoreEvolution(tweetsDict):
         for tweet in tweetsDict:
             date = tweet["created"]
             dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if count == 0:
+                lastDate = dateObject
             if dateObject.month != currentMonth:
                 diff = currentMonth - dateObject.month
                 if diff < 1:
@@ -355,6 +360,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -364,6 +372,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -385,6 +396,8 @@ def scoreEvolution(tweetsDict):
         for tweet in tweetsDict:
             date = tweet["created"]
             dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if count == 0:
+                lastDate = dateObject
             if dateObject.isocalendar()[1] != currentWeek:
                 diff = currentWeek - dateObject.isocalendar()[1]
                 if diff < 1:
@@ -395,6 +408,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = "Week " + str(dateObject.isocalendar()[1]) + " " + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -404,6 +420,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = "Week " + str(dateObject.isocalendar()[1]) + " " + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -435,6 +454,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.day) + "/" + str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -444,6 +466,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.day) + "/" + str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -558,5 +583,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("stann_co", 500)
+#getTwitterData("stann_co", 100)
 #getData("stann_co")
