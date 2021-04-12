@@ -427,6 +427,8 @@ def scoreEvolution(tweetsDict):
             dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
             if dateObject.day != currentDay:
                 diff = currentDay - dateObject.day
+                if diff < 1:
+                    diff = diff + 31
                 currentDay = dateObject.day
                 if tweetNumber != 0:
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
