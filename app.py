@@ -4,11 +4,11 @@ import methods as m
 from flask_cors import CORS, cross_origin
 from concurrent.futures import ThreadPoolExecutor
 
-
 executor = ThreadPoolExecutor(2)
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 @app.route('/getdata')
 @cross_origin()
@@ -47,4 +47,4 @@ def checkData():
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(threaded=True, port=5000, ssl_context='adhoc')
