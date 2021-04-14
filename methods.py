@@ -16,6 +16,7 @@ import math
 
 listAllTweets = {}
 debug = False
+lastDate = datetime.datetime.now()
 
 def getTwitterData(username, count):
     global listAllTweets
@@ -44,6 +45,7 @@ def getTwitterData(username, count):
 # Returns all relevant data to the API
 def getData(username):
     global listAllTweets
+    global lastDate
     if (username not in listAllTweets):
         return {"Error" : True}
     tic = time.perf_counter()
@@ -55,8 +57,6 @@ def getData(username):
     tweetsDict = getTweetsDict(tweets)
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
     formattedEarliestDate = formatDate(dateobjectEaliest)
-    dateobjectLatest = tweetsDict[0]["created"]
-    formattedLatestDate = formatDate(dateobjectLatest)
 
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     wordsAmount, topWords = getTopFiveWords(tweets)
@@ -64,6 +64,9 @@ def getData(username):
     highest, lowest, week = getWeekScores(tweetsDict)
 
     scoreEvolutionData = scoreEvolution(tweetsDict)
+    formattedLatestDate = formatDate(str(lastDate))
+
+    print(getNationalScores(engine))
 
     data = {
      "userinfo" : getProfileInfo(username),
@@ -81,7 +84,7 @@ def getData(username):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "usauserscore" : getUSAUsersScore(overallScore, engine),
+     "natioalscores" : getNationalScores(engine),
      "monthlyaverages" : scoreEvolutionData,
      "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
     }
@@ -333,6 +336,8 @@ def scoreEvolution(tweetsDict):
     Xmin = 100.0
     Xmax = 0.0
     tooltip = []
+    lastDateCount = 0
+    global lastDate
 
     if (num_months > 12): 
         dateArray = [0.0] * num_months
@@ -345,6 +350,8 @@ def scoreEvolution(tweetsDict):
         for tweet in tweetsDict:
             date = tweet["created"]
             dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if count == 0:
+                lastDate = dateObject
             if dateObject.month != currentMonth:
                 diff = currentMonth - dateObject.month
                 if diff < 1:
@@ -355,6 +362,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -364,6 +374,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -385,6 +398,8 @@ def scoreEvolution(tweetsDict):
         for tweet in tweetsDict:
             date = tweet["created"]
             dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if count == 0:
+                lastDate = dateObject
             if dateObject.isocalendar()[1] != currentWeek:
                 diff = currentWeek - dateObject.isocalendar()[1]
                 if diff < 1:
@@ -395,6 +410,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = "Week " + str(dateObject.isocalendar()[1]) + " " + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -404,6 +422,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = "Week " + str(dateObject.isocalendar()[1]) + " " + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -427,12 +448,17 @@ def scoreEvolution(tweetsDict):
             dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
             if dateObject.day != currentDay:
                 diff = currentDay - dateObject.day
+                if diff < 1:
+                    diff = diff + 31
                 currentDay = dateObject.day
                 if tweetNumber != 0:
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.day) + "/" + str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -442,6 +468,9 @@ def scoreEvolution(tweetsDict):
                     dateArray[count] = value
                     if value != 0:
                         tooltip[count] = str(dateObject.day) + "/" + str(dateObject.month) + "/" + str(dateObject.year)
+                        if lastDateCount == 0:
+                            lastDate = dateObject
+                            lastDateCount = 1
                         if value < Xmin:
                             Xmin = value
                         elif value > Xmax:
@@ -503,7 +532,7 @@ def getLowestAndHighestAverages(scoreEvolution):
     res = [lowestScore, highestScore]
     return res
 
-def getDanishUsersScore(overallScore,engine ):
+def getDanishUsersScore(overallScore, engine):
     tic = time.perf_counter()
     df = pd.read_sql("danish_users", con=engine)
     df_sort = df.sort_values(by=['score'])
@@ -521,23 +550,75 @@ def getDanishUsersScore(overallScore,engine ):
     engine.dispose()
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
-def getUSAUsersScore(overallScore,engine ):
+def getUSAUsersScore(engine):
     tic = time.perf_counter()
     df = pd.read_sql("usa_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
     overall = float("{:.2f}".format(df_sort["score"].mean()))
-    amountOfUsers = len(df_sort.index)
-
-    over = len(df_sort[(df_sort['score']>overallScore)])
-    under = len(df_sort[(df_sort['score']>overallScore)])
-
-    percent = int(over/len(df_sort)*100)
 
     toc = time.perf_counter()
     debugPrint(f"getUSAUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"usaoverall" : overall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
+    return {"overall" : overall, "countryCode" : "usa", "countryName" : "United States"}
+
+def getUKUsersScore(engine):
+    tic = time.perf_counter()
+    df = pd.read_sql("uk_users", con=engine)
+    df_sort = df.sort_values(by=['score'])
+    
+    overall = float("{:.2f}".format(df_sort["score"].mean()))
+
+    toc = time.perf_counter()
+    debugPrint(f"getUKUsersScore in {toc - tic:0.4f} seconds")
+    engine.dispose()
+    return {"overall" : overall, "countryCode" : "gb", "countryName" : "Great Britain"}
+
+def getSwedenUsersScore(engine):
+    tic = time.perf_counter()
+    df = pd.read_sql("sweden_users", con=engine)
+    df_sort = df.sort_values(by=['score'])
+    
+    overall = float("{:.2f}".format(df_sort["score"].mean()))
+
+    toc = time.perf_counter()
+    debugPrint(f"getSwedenUsersScore in {toc - tic:0.4f} seconds")
+    engine.dispose()
+    return {"overall" : overall, "countryCode" : "swe", "countryName" : "Sweden"}
+
+def getNorwayUsersScore(engine):
+    tic = time.perf_counter()
+    df = pd.read_sql("norway_users", con=engine)
+    df_sort = df.sort_values(by=['score'])
+    
+    overall = float("{:.2f}".format(df_sort["score"].mean()))
+
+    toc = time.perf_counter()
+    debugPrint(f"getNorwayUsersScore in {toc - tic:0.4f} seconds")
+    engine.dispose()
+    return {"overall" : overall, "countryCode" : "nor", "countryName" : "Norway"}
+
+def getGermanyUsersScore(engine):
+    tic = time.perf_counter()
+    df = pd.read_sql("germany_users", con=engine)
+    df_sort = df.sort_values(by=['score'])
+    
+    overall = float("{:.2f}".format(df_sort["score"].mean()))
+
+    toc = time.perf_counter()
+    debugPrint(f"getGermanyUsersScore in {toc - tic:0.4f} seconds")
+    engine.dispose()
+    return {"overall" : overall, "countryCode" : "de", "countryName" : "Germany"}
+
+def getNationalScores(engine):
+    tic = time.perf_counter()
+    scores = [getUSAUsersScore(engine), getUKUsersScore(engine), getSwedenUsersScore(engine), getNorwayUsersScore(engine), getGermanyUsersScore(engine)]
+
+    sort = sorted(scores, key = lambda i: i['overall'])
+    toc = time.perf_counter()
+    debugPrint(f"getNationalScores in {toc - tic:0.4f} seconds")
+    
+    return sort
 
 # Get the users that the given user follows
 def userFollowers(username, api):
@@ -556,5 +637,5 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("stann_co", 500)
+#getTwitterData("stann_co", 100)
 #getData("stann_co")
