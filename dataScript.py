@@ -131,7 +131,7 @@ def putDataForUserUK():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="UK", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
 
     for tweet in tweets:
         username = tweet.user.screen_name
@@ -147,7 +147,6 @@ def putDataForUserUK():
         scoremin = m.getSaddestTweet(tweetsonlyscore)
 
         dict = {username : {"score" : score, "min" :  scoremin["score"], "max" : scoremax["score"]}} 
-        print(dict)
 
         df = pd.DataFrame.from_dict(dict, orient='index')
         df.index.name = 'username'
@@ -163,7 +162,7 @@ def putDataForUserSweden():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Sweden", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
 
     for tweet in tweets:
         username = tweet.user.screen_name
@@ -179,7 +178,6 @@ def putDataForUserSweden():
         scoremin = m.getSaddestTweet(tweetsonlyscore)
 
         dict = {username : {"score" : score, "min" :  scoremin["score"], "max" : scoremax["score"]}} 
-        print(dict)
 
         df = pd.DataFrame.from_dict(dict, orient='index')
         df.index.name = 'username'
@@ -195,7 +193,7 @@ def putDataForUserNorway():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Norway", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
 
     for tweet in tweets:
         username = tweet.user.screen_name

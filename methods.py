@@ -66,6 +66,8 @@ def getData(username):
     scoreEvolutionData = scoreEvolution(tweetsDict)
     formattedLatestDate = formatDate(str(lastDate))
 
+    print(getNationalScores(engine))
+
     data = {
      "userinfo" : getProfileInfo(username),
      "overallscore" : overallScore,
@@ -82,7 +84,7 @@ def getData(username):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "usauserscore" : getUSAUsersScore(overallScore, engine),
+     "natioalscores" : getNationalScores(engine),
      "monthlyaverages" : scoreEvolutionData,
      "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
     }
@@ -530,7 +532,7 @@ def getLowestAndHighestAverages(scoreEvolution):
     res = [lowestScore, highestScore]
     return res
 
-def getDanishUsersScore(overallScore,engine ):
+def getDanishUsersScore(overallScore, engine):
     tic = time.perf_counter()
     df = pd.read_sql("danish_users", con=engine)
     df_sort = df.sort_values(by=['score'])
@@ -548,95 +550,75 @@ def getDanishUsersScore(overallScore,engine ):
     engine.dispose()
     return {"danishoverall" : danishOverall, "usersamount" : amountOfUsers, "usersless" : under, "percent" : percent}
 
-def getUSAUsersScore(overallScore,engine ):
+def getUSAUsersScore(engine):
     tic = time.perf_counter()
     df = pd.read_sql("usa_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
     overall = float("{:.2f}".format(df_sort["score"].mean()))
-    amountOfUsers = len(df_sort.index)
-
-    over = len(df_sort[(df_sort['score']>overallScore)])
-    under = len(df_sort[(df_sort['score']>overallScore)])
-
-    percent = int(over/len(df_sort)*100)
 
     toc = time.perf_counter()
     debugPrint(f"getUSAUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"usaoverall" : overall, "countryCode" : "usa", "countryName" : "United States"}
+    return {"overall" : overall, "countryCode" : "usa", "countryName" : "United States"}
 
-def getUKUsersScore(overallScore,engine ):
+def getUKUsersScore(engine):
     tic = time.perf_counter()
     df = pd.read_sql("uk_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
     overall = float("{:.2f}".format(df_sort["score"].mean()))
-    amountOfUsers = len(df_sort.index)
-
-    over = len(df_sort[(df_sort['score']>overallScore)])
-    under = len(df_sort[(df_sort['score']>overallScore)])
-
-    percent = int(over/len(df_sort)*100)
 
     toc = time.perf_counter()
     debugPrint(f"getUKUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"ukoverall" : overall, "countryCode" : "gb", "countryName" : "Great Britain"}
+    return {"overall" : overall, "countryCode" : "gb", "countryName" : "Great Britain"}
 
-def getSwedenUsersScore(overallScore,engine ):
+def getSwedenUsersScore(engine):
     tic = time.perf_counter()
     df = pd.read_sql("sweden_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
     overall = float("{:.2f}".format(df_sort["score"].mean()))
-    amountOfUsers = len(df_sort.index)
-
-    over = len(df_sort[(df_sort['score']>overallScore)])
-    under = len(df_sort[(df_sort['score']>overallScore)])
-
-    percent = int(over/len(df_sort)*100)
 
     toc = time.perf_counter()
     debugPrint(f"getSwedenUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"swedenoverall" : overall, "countryCode" : "swe", "countryName" : "Sweden"}
+    return {"overall" : overall, "countryCode" : "swe", "countryName" : "Sweden"}
 
-def getNorwayUsersScore(overallScore,engine ):
+def getNorwayUsersScore(engine):
     tic = time.perf_counter()
     df = pd.read_sql("norway_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
     overall = float("{:.2f}".format(df_sort["score"].mean()))
-    amountOfUsers = len(df_sort.index)
-
-    over = len(df_sort[(df_sort['score']>overallScore)])
-    under = len(df_sort[(df_sort['score']>overallScore)])
-
-    percent = int(over/len(df_sort)*100)
 
     toc = time.perf_counter()
     debugPrint(f"getNorwayUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"norwayoverall" : overall, "countryCode" : "nor", "countryName" : "Norway"}
+    return {"overall" : overall, "countryCode" : "nor", "countryName" : "Norway"}
 
-def getGermanyUsersScore(overallScore,engine ):
+def getGermanyUsersScore(engine):
     tic = time.perf_counter()
     df = pd.read_sql("germany_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
     overall = float("{:.2f}".format(df_sort["score"].mean()))
-    amountOfUsers = len(df_sort.index)
-
-    over = len(df_sort[(df_sort['score']>overallScore)])
-    under = len(df_sort[(df_sort['score']>overallScore)])
-
-    percent = int(over/len(df_sort)*100)
 
     toc = time.perf_counter()
     debugPrint(f"getGermanyUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"germanyoverall" : overall, "countryCode" : "de", "countryName" : "Germany"}
+    return {"overall" : overall, "countryCode" : "de", "countryName" : "Germany"}
+
+def getNationalScores(engine):
+    tic = time.perf_counter()
+    scores = [getUSAUsersScore(engine), getUKUsersScore(engine), getSwedenUsersScore(engine), getNorwayUsersScore(engine), getGermanyUsersScore(engine)]
+
+    sort = sorted(scores, key = lambda i: i['overall'])
+    toc = time.perf_counter()
+    debugPrint(f"getNationalScores in {toc - tic:0.4f} seconds")
+    
+    return sort
 
 # Get the users that the given user follows
 def userFollowers(username, api):
