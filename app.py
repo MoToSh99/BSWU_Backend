@@ -18,7 +18,6 @@ def getData():
     return response
 
 @app.route('/userinfo')
-@cross_origin()
 def getUserInfo():
     response = jsonify(m.getProfileInfo(request.args.get('username')))
     response.headers.add('Access-Control-Allow-Origin', 'https://happytweet.toheed.dk')
