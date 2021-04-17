@@ -13,13 +13,11 @@ cors = CORS(app)
 def getData():
     count = int(request.args.get('count'))
     response = jsonify(m.getData(request.args.get('username'), count))
-    response.headers.add('Access-Control-Allow-Origin', 'https://happytweet.toheed.dk')
     return response
 
 @app.route('/userinfo')
 def getUserInfo():
     response = jsonify(m.getProfileInfo(request.args.get('username')))
-    response.headers.add('Access-Control-Allow-Origin', 'https://happytweet.toheed.dk')
     return response
 
 # A welcome message to test our server
