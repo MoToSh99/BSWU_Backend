@@ -14,19 +14,22 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def getData():
     count = int(request.args.get('count'))
-    return jsonify(m.getData(request.args.get('username'), count))
+    response = jsonify(m.getData(request.args.get('username'), count))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app.route('/userinfo')
 @cross_origin()
 def getUserInfo():
-    return jsonify(m.getProfileInfo(request.args.get('username')))
+    response = jsonify(m.getProfileInfo(request.args.get('username')))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 # A welcome message to test our server
 @app.route('/') 
 @cross_origin()
 def index():
     return "<h1>Welcome to HappyTweet !!</h1>"
-
 
 
 if __name__ == '__main__':
