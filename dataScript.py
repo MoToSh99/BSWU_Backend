@@ -73,7 +73,7 @@ def putDataForUser():
 
     for tweet in tweets:
         username = tweet.user.screen_name
-        allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(10)
+        allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(150)
         listAllTweets = list(allTweets)
         if (len(listAllTweets) < 1):
             continue

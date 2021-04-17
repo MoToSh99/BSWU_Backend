@@ -14,12 +14,13 @@ import pandas as pd
 import json
 import math
 
-listAllTweets = {}
 debug = False
 lastDate = datetime.datetime.now()
 
-def getTwitterData(username, count):
-    global listAllTweets
+
+# Returns all relevant data to the API
+def getData(username, count):
+    listAllTweets = {}
 
     # Set up Twitter API
     api = config.setupTwitterAuth()
@@ -34,17 +35,17 @@ def getTwitterData(username, count):
         
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
     listAllTweetss = list(allTweets)
+
+    
     if (len(listAllTweetss) == 0):
         return {"Error" : "No tweets"}
+
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
 
     dict = {username : listAllTweetss}
     listAllTweets.update(dict)
 
-# Returns all relevant data to the API
-def getData(username):
-    global listAllTweets
     global lastDate
     if (username not in listAllTweets):
         return {"Error" : True}
@@ -55,6 +56,8 @@ def getData(username):
     tweets = listAllTweets[username]
 
     tweetsDict = getTweetsDict(tweets)
+    
+    
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
     formattedEarliestDate = formatDate(dateobjectEaliest)
 
@@ -83,7 +86,7 @@ def getData(username):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "natioalscores" : getNationalScores(engine),
+     "nationalAverages" : getNationalScores(engine),
      "monthlyaverages" : scoreEvolutionData,
      "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
     }
@@ -308,10 +311,8 @@ def getAllCelebrities(engine):
 # Get date as string containing month and day with correct suffix
 def formatDate(date):
 
-
     date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
 
-    
     day = date.day
 
     if (3 < day < 21) or (23 < day < 31):
@@ -640,5 +641,3 @@ def debugPrint(text):
     else:
         return
 
-#getTwitterData("stann_co", 100)
-#getData("stann_co")

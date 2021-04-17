@@ -13,7 +13,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/getdata')
 @cross_origin()
 def getData():
-    return jsonify(m.getData(request.args.get('username')))
+    count = int(request.args.get('count'))
+    return jsonify(m.getData(request.args.get('username'), count))
 
 @app.route('/userinfo')
 @cross_origin()
@@ -26,23 +27,6 @@ def getUserInfo():
 def index():
     return "<h1>Welcome to HappyTweet !!</h1>"
 
-
-@app.route('/gettwitterdata')
-def getTwitterData():
-    count = int(request.args.get('count'))
-    username = request.args.get('username')
-    if (username in m.listAllTweets):
-        m.listAllTweets.pop(username)
-    executor.submit(m.getTwitterData, username, count)
-    return {"msg" : "Calling Twitter API in the background!"}
-
-@app.route('/checkusername')
-def checkData():
-    username = request.args.get('username')
-    if (username in m.listAllTweets):
-        return {"Userdata" : True}
-    else:
-        return {"Userdata" : False}
 
 
 if __name__ == '__main__':
