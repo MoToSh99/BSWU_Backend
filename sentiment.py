@@ -14,7 +14,7 @@ def getPyhmeter(tweet_text):
     tk = TweetTokenizer()
     tokens = tk.tokenize(removedAt)
     
-    return pyhmeter.HMeter(tokens, file, 1)
+    return pyhmeter.HMeter(tokens, file, 0)
 
 # Gets the happiness score from a single tweet
 def getHapinessScore(tweet_text):

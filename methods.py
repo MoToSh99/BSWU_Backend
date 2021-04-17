@@ -33,10 +33,11 @@ def getData(username, count):
 
     print("Count: " + str(count))
         
-    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
+    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items()
     listAllTweetss = list(allTweets)
 
-    
+    #REMOVE
+    print(len(listAllTweetss))
     if (len(listAllTweetss) == 0):
         return {"Error" : "No tweets"}
 
@@ -56,8 +57,8 @@ def getData(username, count):
     tweets = listAllTweets[username]
 
     tweetsDict = getTweetsDict(tweets)
-    
-    
+    #REMOVE
+    print(len(tweetsDict))
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
     formattedEarliestDate = formatDate(dateobjectEaliest)
 
