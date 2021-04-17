@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 executor = ThreadPoolExecutor(2)
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"//getdata": {"origins": "https://happytweet.toheed.dk/"}})
+cors = CORS(app, resources={r"/getdata": {"origins": "https://happytweet.toheed.dk/"},r"/userinfo": {"origins": "https://happytweet.toheed.dk/"} })
 
 
 
@@ -19,6 +19,7 @@ def getData():
     return response
 
 @app.route('/userinfo')
+@cross_origin(origin='https://happytweet.toheed.dk/',headers=['Content- Type','Authorization'])
 def getUserInfo():
     response = jsonify(m.getProfileInfo(request.args.get('username')))
     return response
