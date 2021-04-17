@@ -10,7 +10,6 @@ cors = CORS(app)
 
 
 @app.route('/getdata')
-@cross_origin()
 def getData():
     count = int(request.args.get('count'))
     response = jsonify(m.getData(request.args.get('username'), count))
