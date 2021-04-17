@@ -211,7 +211,7 @@ def createDensityPlot():
     sns.kdeplot(data3, color="red", shade=True, label="No emojis\n(Count: " + str(len(data3)) + ")")
 
     plt.title("Density plot of Tweets")
-    plt.legend(loc="best")
+    plt.legend(loc="upper left")
     plt.xlabel("Score")
     plt.ylabel("Density")
     plt.show()

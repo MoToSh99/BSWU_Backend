@@ -2,4 +2,4 @@ services:
   web:
     build: .
     ports:
-      - '5123:5123'
+      - '5000:5000'

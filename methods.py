@@ -64,9 +64,8 @@ def getData(username):
     highest, lowest, week = getWeekScores(tweetsDict)
 
     scoreEvolutionData = scoreEvolution(tweetsDict)
-    formattedLatestDate = formatDate(str(lastDate))
-
-    print(getNationalScores(engine))
+    
+    formattedLatestDate = formatDate(str(lastDate.strftime('%Y-%m-%d %H:%M:%S')))
 
     data = {
      "userinfo" : getProfileInfo(username),
@@ -308,7 +307,11 @@ def getAllCelebrities(engine):
     
 # Get date as string containing month and day with correct suffix
 def formatDate(date):
+
+
     date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+
+    
     day = date.day
 
     if (3 < day < 21) or (23 < day < 31):

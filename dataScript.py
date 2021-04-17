@@ -81,6 +81,10 @@ def putDataForUser():
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+
+        if (score==-1):
+            continue
+        
         tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
         scoremax = m.getHappiestTweet(tweetsonlyscore)
         scoremin = m.getSaddestTweet(tweetsonlyscore)
@@ -111,6 +115,10 @@ def putDataForUserUSA():
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+
+        if (score==-1):
+            continue
+
         tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
         scoremax = m.getHappiestTweet(tweetsonlyscore)
         scoremin = m.getSaddestTweet(tweetsonlyscore)
@@ -131,7 +139,7 @@ def putDataForUserUK():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="UK", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
 
     for tweet in tweets:
         username = tweet.user.screen_name
@@ -142,6 +150,10 @@ def putDataForUserUK():
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+
+        if (score==-1):
+            continue
+
         tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
         scoremax = m.getHappiestTweet(tweetsonlyscore)
         scoremin = m.getSaddestTweet(tweetsonlyscore)
@@ -162,7 +174,7 @@ def putDataForUserSweden():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Sweden", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
 
     for tweet in tweets:
         username = tweet.user.screen_name
@@ -173,6 +185,10 @@ def putDataForUserSweden():
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+
+        if (score==-1):
+            continue
+
         tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
         scoremax = m.getHappiestTweet(tweetsonlyscore)
         scoremin = m.getSaddestTweet(tweetsonlyscore)
@@ -193,7 +209,7 @@ def putDataForUserNorway():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Norway", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
 
     for tweet in tweets:
         username = tweet.user.screen_name
@@ -204,9 +220,14 @@ def putDataForUserNorway():
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+
+        if (score==-1):
+            continue
+
         tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
         scoremax = m.getHappiestTweet(tweetsonlyscore)
         scoremin = m.getSaddestTweet(tweetsonlyscore)
+
 
         dict = {username : {"score" : score, "min" :  scoremin["score"], "max" : scoremax["score"]}} 
 
@@ -225,7 +246,7 @@ def putDataForUserGermany():
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Germany", granularity="country")
     place_id = places[0].id
-    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items(10)
+    tweets = tw.Cursor(api.search, q="place:%s" % place_id, tweet_mode='extended', lang='en').items()
 
     for tweet in tweets:
         username = tweet.user.screen_name
@@ -236,6 +257,10 @@ def putDataForUserGermany():
         tweetsDict = m.getTweetsDict(listAllTweets)
 
         score = m.getOverallScore(tweetsDict)
+
+        if (score==-1):
+            continue
+
         tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
         scoremax = m.getHappiestTweet(tweetsonlyscore)
         scoremin = m.getSaddestTweet(tweetsonlyscore)
