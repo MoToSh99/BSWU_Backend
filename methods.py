@@ -14,13 +14,12 @@ import pandas as pd
 import json
 import math
 
+listAllTweets = {}
 debug = False
 lastDate = datetime.datetime.now()
 
-
-# Returns all relevant data to the API
-def getData(username, count):
-    listAllTweets = {}
+def getTwitterData(username, count):
+    global listAllTweets
 
     # Set up Twitter API
     api = config.setupTwitterAuth()
@@ -35,17 +34,17 @@ def getData(username, count):
         
     allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
     listAllTweetss = list(allTweets)
-
-    
     if (len(listAllTweetss) == 0):
         return {"Error" : "No tweets"}
-
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
 
     dict = {username : listAllTweetss}
     listAllTweets.update(dict)
 
+# Returns all relevant data to the API
+def getData(username):
+    global listAllTweets
     global lastDate
     if (username not in listAllTweets):
         return {"Error" : True}
@@ -56,8 +55,6 @@ def getData(username, count):
     tweets = listAllTweets[username]
 
     tweetsDict = getTweetsDict(tweets)
-    
-    
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
     formattedEarliestDate = formatDate(dateobjectEaliest)
 
@@ -86,7 +83,7 @@ def getData(username, count):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "nationalAverages" : getNationalScores(engine),
+     "natioalscores" : getNationalScores(engine),
      "monthlyaverages" : scoreEvolutionData,
      "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
     }
