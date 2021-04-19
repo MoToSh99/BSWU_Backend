@@ -83,7 +83,7 @@ def getData(username):
      "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
      "allcelebrities" : getAllCelebrities(engine),
      "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "natioalscores" : getNationalScores(engine),
+     "nationalAverages" : getNationalScores(engine),
      "monthlyaverages" : scoreEvolutionData,
      "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
     }
