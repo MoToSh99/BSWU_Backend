@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from time import sleep
 import methods as m
+import dataScript as d
 from flask_cors import CORS, cross_origin
 from concurrent.futures import ThreadPoolExecutor
 
@@ -11,20 +12,17 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 @app.route('/getdata')
-@cross_origin()
 def getData():
     return jsonify(m.getData(request.args.get('username')))
 
 @app.route('/userinfo')
-@cross_origin()
 def getUserInfo():
     return jsonify(m.getProfileInfo(request.args.get('username')))
 
 # A welcome message to test our server
-@app.route('/') 
-@cross_origin()
+@app.route('/')
 def index():
-    return "<h1>Welcome to HappyTweet !!</h1>"
+    return "<h1>Welcome to HappyTweet !</h1>"
 
 
 @app.route('/gettwitterdata')
@@ -44,6 +42,11 @@ def checkData():
     else:
         return {"Userdata" : False}
 
+@app.route('/rating')
+def rating():
+    rating = int(request.args.get('rating'))
+    username = str(request.args.get('username'))
+    return d.sendRating(rating, username)
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support

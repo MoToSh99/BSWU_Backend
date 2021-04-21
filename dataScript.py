@@ -5,6 +5,7 @@ import pandas as pd
 from sqlalchemy import create_engine, engine
 import re
 import numpy as np
+import datetime
 
 engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
    
@@ -275,3 +276,19 @@ def putDataForUserGermany():
         
     engine.dispose()
     #read  = pd.read_sql("germany_users", con=engine)
+
+
+
+
+def sendRating(rating, username):
+    global engine
+    dict = {'rating': [rating], 'username' : [username], 'date' : [datetime.datetime.now()]}
+        
+    df = pd.DataFrame.from_dict(dict)
+    df.to_sql('ratings', con=engine, if_exists='append', index=False)      
+    engine.dispose()
+
+    return {"status" : "rating sent"}
+    #read  = pd.read_sql("ratings", con=engine)
+
+sendRating(3, "username")
