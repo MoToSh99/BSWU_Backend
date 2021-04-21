@@ -290,5 +290,3 @@ def sendRating(rating, username):
 
     return {"status" : "rating sent"}
     #read  = pd.read_sql("ratings", con=engine)
-
-sendRating(3, "username")
