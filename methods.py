@@ -1,3 +1,4 @@
+from sqlalchemy.sql.expression import over
 import tweepy as tw
 from tweepy.models import User
 from tweepy.error import TweepError
@@ -538,7 +539,7 @@ def getDanishUsersScore(overallScore, engine):
     df = pd.read_sql("danish_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    danishOverall = float("{:.2f}".format(df_sort["score"].mean()))
+    danishOverall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
     amountOfUsers = len(df_sort.index)
 
     over = len(df_sort[(df_sort['score']>overallScore)])
@@ -556,7 +557,7 @@ def getUSAUsersScore(engine):
     df = pd.read_sql("usa_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getUSAUsersScore in {toc - tic:0.4f} seconds")
@@ -568,7 +569,7 @@ def getUKUsersScore(engine):
     df = pd.read_sql("uk_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getUKUsersScore in {toc - tic:0.4f} seconds")
@@ -580,7 +581,7 @@ def getSwedenUsersScore(engine):
     df = pd.read_sql("sweden_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getSwedenUsersScore in {toc - tic:0.4f} seconds")
@@ -592,7 +593,7 @@ def getNorwayUsersScore(engine):
     df = pd.read_sql("norway_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getNorwayUsersScore in {toc - tic:0.4f} seconds")
@@ -604,11 +605,13 @@ def getGermanyUsersScore(engine):
     df = pd.read_sql("germany_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
+    
 
     toc = time.perf_counter()
     debugPrint(f"getGermanyUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
+    print(overall)
     return {"overall" : overall, "countryCode" : "de", "countryName" : "Germany"}
 
 def getNationalScores(engine):
