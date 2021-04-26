@@ -17,7 +17,12 @@ import math
 
 debug = True
 lastDate = datetime.datetime.now()
+status = 0
+percent = 0;
 
+def getStatus(username):
+    print("sent status")
+    return {"status" : status, "percent" : percent}
 
 # Returns all relevant data to the API
 def getData(username, count):
@@ -26,6 +31,11 @@ def getData(username, count):
 
     tic = time.perf_counter()
 
+    global status
+    global percent
+    status = "active"
+    percent = 0;
+
 
     print("Count: " + str(count))
 
@@ -33,6 +43,9 @@ def getData(username, count):
     alltweets = []
     alltweets.extend(tweets)
     oldest = tweets[-1].id
+
+    percent = 10
+
     while len(alltweets) < count:
         tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200, max_id = oldest - 1)
         if len(tweets) == 0:
@@ -40,6 +53,8 @@ def getData(username, count):
         oldest = tweets[-1].id
         alltweets.extend(tweets)
         
+
+    percent = 25
 
 
     debugPrint(f"{len(alltweets)} Tweets downloaded in seconds")
@@ -67,24 +82,42 @@ def getData(username, count):
     engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     
     tweets = listAllTweets[username]
-
     tweetsDict, wordDict = getTweetsDict(tweets)
-    dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
-    formattedEarliestDate = formatDate(dateobjectEaliest)
-
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
+    
+
+    userinfo = getProfileInfo(username)
+    overallScore = getOverallScore(tweetsDict)
+
+    percent = 30
+
+    topWords = {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
+
+    percent = 40
 
     wordsAmount = len(wordDict)
-    topWords = {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
-    overallScore = getOverallScore(tweetsDict)
     highest, lowest, week = getWeekScores(tweetsDict)
+    dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
 
-    scoreEvolutionData = scoreEvolution(tweetsDict)
-    
+    percent = 50
+
+    formattedEarliestDate = formatDate(dateobjectEaliest)
     formattedLatestDate = formatDate(str(lastDate.strftime('%Y-%m-%d %H:%M:%S')))
+    percent = 60
+    celebrityscore = getClosestsCelebrities(username, overallScore, engine)
+    percent = 70
+    allcelebrities = getAllCelebrities(engine)
+    percent = 80
+    danishuserscore = getDanishUsersScore(overallScore, engine),
+    percent = 95
+    status = "success"
+    nationalAverages = getNationalScores(engine)
+    scoreEvolutionData = scoreEvolution(tweetsDict)
+    averagesRange = getLowestAndHighestAverages(scoreEvolutionData)
+
 
     data = {
-     "userinfo" : getProfileInfo(username),
+     "userinfo" : userinfo,
      "overallscore" : overallScore,
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
      "alltweets" : tweetsDict,
@@ -96,12 +129,12 @@ def getData(username, count):
      "tweetstart" :  formattedEarliestDate,
      "tweetend" : formattedLatestDate,
      "tweetsamount" : len(tweetsDict),
-     "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
-     "allcelebrities" : getAllCelebrities(engine),
-     "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "nationalAverages" : getNationalScores(engine),
+     "celebrityscore" : celebrityscore,
+     "allcelebrities" : allcelebrities,
+     "danishuserscore" : danishuserscore,
+     "nationalAverages" : nationalAverages,
      "monthlyaverages" : scoreEvolutionData,
-     "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
+     "averagesRange" : averagesRange
     }
 
     toc2 = time.perf_counter()
