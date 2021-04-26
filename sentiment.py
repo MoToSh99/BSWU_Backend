@@ -5,6 +5,7 @@ from heapq import nlargest, nsmallest
 from operator import itemgetter
 
 file = pyhmeter.load_scores()
+onlyWord = pyhmeter.load_scores_word()
 
 # Gets the Pyhmeter and removes unnecessary symbols from a given tweet
 def getPyhmeter(tweet_text):
@@ -14,7 +15,7 @@ def getPyhmeter(tweet_text):
     tk = TweetTokenizer()
     tokens = tk.tokenize(removedAt)
     
-    return pyhmeter.HMeter(tokens, file, 1)
+    return pyhmeter.HMeter(tokens, file, onlyWord,  1)
 
 # Gets the happiness score from a single tweet
 def getHapinessScore(tweet_text):

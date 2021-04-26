@@ -26,6 +26,9 @@ def getData(username, count):
 
     tic = time.perf_counter()
 
+
+    print("Count: " + str(count))
+
     tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200,)
     alltweets = []
     alltweets.extend(tweets)
@@ -39,7 +42,7 @@ def getData(username, count):
         
 
 
-    debugPrint(f" {len(alltweets)} Tweets downloaded in seconds")
+    debugPrint(f"{len(alltweets)} Tweets downloaded in seconds")
 
     try:
         user = api.get_user(username)
@@ -47,8 +50,6 @@ def getData(username, count):
         print(e)
         return {"Error" : e.args[0][0]['message'] }
 
-    print("Count: " + str(count))
-        
  
     if (len(alltweets) == 0):
         return {"Error" : "No tweets"}

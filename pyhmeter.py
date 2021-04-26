@@ -59,9 +59,10 @@ class HMeter(object):
     floating point wordscores as v for wordscores. deltah allows us to 
     filter out the most neutral words as stop words."""
 
-    def __init__(self, wordlist, wordscores, deltah=0.0):
+    def __init__(self, wordlist, wordscores, onlyword,  deltah=0.0):
         self.wordlist = wordlist
         self.wordscores = wordscores
+        self.onlyword = onlyword
         self.deltah = deltah
 
     _deltah = None
@@ -80,8 +81,8 @@ class HMeter(object):
         labmtmatches = (word for word in self.wordlist
                         if word in self.wordscores)
 
-        onlyWord = load_scores_word()
         
+
         # then we strip out stop words as described by Dodd paper
         self.matchlist = []
         self.matchValueList= {}
@@ -89,7 +90,7 @@ class HMeter(object):
             score = self.wordscores[word]
             if score >= 5.0 + self.deltah or score <= 5.0 - self.deltah:
                 self.matchlist.append(word)
-                if word in self.onlyWord:
+                if word in self.onlyword:
                     self.matchValueList.update({word : score})
 
     def happiness_score(self):
