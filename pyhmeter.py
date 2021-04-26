@@ -80,6 +80,8 @@ class HMeter(object):
         labmtmatches = (word for word in self.wordlist
                         if word in self.wordscores)
 
+        onlyWord = load_scores_word()
+        
         # then we strip out stop words as described by Dodd paper
         self.matchlist = []
         self.matchValueList= {}
@@ -87,7 +89,8 @@ class HMeter(object):
             score = self.wordscores[word]
             if score >= 5.0 + self.deltah or score <= 5.0 - self.deltah:
                 self.matchlist.append(word)
-                self.matchValueList.update({word : score})
+                if word in self.onlyWord:
+                    self.matchValueList.update({word : score})
 
     def happiness_score(self):
         """Takes a list made up of individual words and returns the happiness
