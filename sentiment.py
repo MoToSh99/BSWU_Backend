@@ -21,9 +21,9 @@ def getHapinessScore(tweet_text):
     pyhmeter = getPyhmeter(tweet_text)
     score = pyhmeter.happiness_score()
     if score == None :
-        return -1
+        return -1, -1
     else:
-        return score 
+        return score, pyhmeter.matchValueList
 
 # Get all matches from a single tweet along with their individual scores
 def getWordsWithScore(tweet_text):

@@ -67,12 +67,14 @@ def getData(username, count):
     
     tweets = listAllTweets[username]
 
-    tweetsDict = getTweetsDict(tweets)
+    tweetsDict, wordDict = getTweetsDict(tweets)
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
     formattedEarliestDate = formatDate(dateobjectEaliest)
 
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
-    wordsAmount, topWords = getTopFiveWords(tweets)
+
+    wordsAmount = len(wordDict)
+    topWords = {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
     overallScore = getOverallScore(tweetsDict)
     highest, lowest, week = getWeekScores(tweetsDict)
 
@@ -110,38 +112,26 @@ def getData(username, count):
 def getTweetsDictRaw(allTweets):
     tic = time.perf_counter()
     tweets = {}
+    wordDict = {}
     count = 1
     for tweet in allTweets:
-        score = sentiment.getHapinessScore(tweet.full_text)
+        score, word  = sentiment.getHapinessScore(tweet.full_text)
         if score != -1:
             dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at) }}
             tweets.update(dict)
+            wordDict.update(word)
             count += 1
     toc = time.perf_counter()
     debugPrint(f"getTweetsDict in {toc - tic:0.4f} seconds")       
-    return tweets
+    return tweets, wordDict
 
 def getTweetsDict(allTweets):
-    df = pd.DataFrame.from_dict(getTweetsDictRaw(allTweets), orient='index')    
+    dict, words = getTweetsDictRaw(allTweets)
+    df = pd.DataFrame.from_dict(dict, orient='index')    
     result = df.to_json(orient="records")
     parsed = json.loads(result)
-    return parsed
+    return parsed, words 
 
-
-# Get the top five happiest and unhappiest words used by the user
-def getTopFiveWords(allTweets):
-    tic = time.perf_counter()
-    
-    #wordDict = {}
-    #for tweet in allTweets:
-    #    wordDict.update(sentiment.getWordsWithScore(tweet.full_text))
-    
-    toc = time.perf_counter()
-
-    debugPrint(f"getTopFiveWords in {toc - tic:0.4f} seconds")
-    #return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
-
-    return 1000, {"top" : ["Hej1", "Hej2", "Hej3", "Hej4", "Hej5"], "bottom" : ["No1", "No2", "No3", "No4", "No5"]}
 
 # Only get tweet id's and scores
 def tweetsOnlyScore(scores):
