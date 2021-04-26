@@ -132,14 +132,16 @@ def getTweetsDict(allTweets):
 def getTopFiveWords(allTweets):
     tic = time.perf_counter()
     
-    wordDict = {}
-    for tweet in allTweets:
-        wordDict.update(sentiment.getWordsWithScore(tweet.full_text))
+    #wordDict = {}
+    #for tweet in allTweets:
+    #    wordDict.update(sentiment.getWordsWithScore(tweet.full_text))
     
     toc = time.perf_counter()
 
     debugPrint(f"getTopFiveWords in {toc - tic:0.4f} seconds")
-    return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
+    #return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
+
+    return len(wordDict), {"top" : ["Hej1", "Hej2", "Hej3", "Hej4", "Hej5"], "bottom" : ["No1", "No2", "No3", "No4", "No5"]}
 
 # Only get tweet id's and scores
 def tweetsOnlyScore(scores):
