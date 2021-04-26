@@ -141,7 +141,7 @@ def getTopFiveWords(allTweets):
     debugPrint(f"getTopFiveWords in {toc - tic:0.4f} seconds")
     #return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
-    return len(wordDict), {"top" : ["Hej1", "Hej2", "Hej3", "Hej4", "Hej5"], "bottom" : ["No1", "No2", "No3", "No4", "No5"]}
+    return 1000, {"top" : ["Hej1", "Hej2", "Hej3", "Hej4", "Hej5"], "bottom" : ["No1", "No2", "No3", "No4", "No5"]}
 
 # Only get tweet id's and scores
 def tweetsOnlyScore(scores):
