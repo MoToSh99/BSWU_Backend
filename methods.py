@@ -574,7 +574,7 @@ def getUKUsersScore(engine):
     toc = time.perf_counter()
     debugPrint(f"getUKUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"overall" : overall, "countryCode" : "gb", "countryName" : "Great Britain"}
+    return {"overall" : overall, "countryCode" : "gb", "countryName" : "United Kingdom"}
 
 def getSwedenUsersScore(engine):
     tic = time.perf_counter()
