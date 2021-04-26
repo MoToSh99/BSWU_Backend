@@ -12,4 +12,4 @@ def setupTwitterAuth():
     auth.set_access_token(access_token, access_token_secret)
 
     # Use tweepy api
-    return tw.API(auth, wait_on_rate_limit=False)
+    return tw.API(auth, wait_on_rate_limit=True)

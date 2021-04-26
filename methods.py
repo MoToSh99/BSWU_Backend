@@ -15,16 +15,32 @@ import pandas as pd
 import json
 import math
 
-listAllTweets = {}
-debug = False
+debug = True
 lastDate = datetime.datetime.now()
 
-def getTwitterData(username, count):
-    global listAllTweets
 
+# Returns all relevant data to the API
+def getData(username, count):
     # Set up Twitter API
     api = config.setupTwitterAuth()
+
     tic = time.perf_counter()
+
+    tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200,)
+    alltweets = []
+    alltweets.extend(tweets)
+    oldest = tweets[-1].id
+    while len(alltweets) < count:
+        tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200, max_id = oldest - 1)
+        if len(tweets) == 0:
+            break
+        oldest = tweets[-1].id
+        alltweets.extend(tweets)
+        
+
+
+    debugPrint(f" {len(alltweets)} Tweets downloaded in seconds")
+
     try:
         user = api.get_user(username)
     except TweepError as e:
@@ -33,19 +49,15 @@ def getTwitterData(username, count):
 
     print("Count: " + str(count))
         
-    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
-    listAllTweetss = list(allTweets)
-    if (len(listAllTweetss) == 0):
+ 
+    if (len(alltweets) == 0):
         return {"Error" : "No tweets"}
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
 
-    dict = {username : listAllTweetss}
-    listAllTweets.update(dict)
+    listAllTweets = {username : alltweets}
 
-# Returns all relevant data to the API
-def getData(username):
-    global listAllTweets
+
     global lastDate
     if (username not in listAllTweets):
         return {"Error" : True}
@@ -611,7 +623,6 @@ def getGermanyUsersScore(engine):
     toc = time.perf_counter()
     debugPrint(f"getGermanyUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    print(overall)
     return {"overall" : overall, "countryCode" : "de", "countryName" : "Germany"}
 
 def getNationalScores(engine):
