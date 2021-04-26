@@ -411,6 +411,8 @@ def scoreEvolution(tweetsDict):
                 diff = currentWeek - dateObject.isocalendar()[1]
                 if diff < 1:
                     diff = diff + 51
+                if count >= len(dateArray):
+                    count = count - 1
                 currentWeek = dateObject.isocalendar()[1]
                 if tweetNumber != 0:
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
@@ -456,7 +458,7 @@ def scoreEvolution(tweetsDict):
             if dateObject.day != currentDay:
                 diff = currentDay - dateObject.day
                 if diff < 1:
-                    diff = diff + 31
+                    diff = diff + 30
                 currentDay = dateObject.day
                 if tweetNumber != 0:
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
