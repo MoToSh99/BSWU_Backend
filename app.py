@@ -18,7 +18,7 @@ def getUserInfo():
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Welcome to HappyTweet !</h1>"
+    return "<h1>Welcome to HappyTweet 2.0 !</h1>"
 
 @app.route('/gettwitterdata')
 def getTwitterData():
