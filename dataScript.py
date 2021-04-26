@@ -278,8 +278,6 @@ def putDataForUserGermany():
     #read  = pd.read_sql("germany_users", con=engine)
 
 
-
-
 def sendRating(rating, username):
     global engine
     dict = {'rating': [rating], 'username' : [username], 'date' : [datetime.datetime.now()]}
