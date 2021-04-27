@@ -1,3 +1,4 @@
+from sqlalchemy.sql.expression import over
 import tweepy as tw
 from tweepy.models import User
 from tweepy.error import TweepError
@@ -14,37 +15,67 @@ import pandas as pd
 import json
 import math
 
-listAllTweets = {}
-debug = False
+debug = True
 lastDate = datetime.datetime.now()
+status = 0
+percent = 0;
 
-def getTwitterData(username, count):
-    global listAllTweets
+def getStatus(username):
+    print("sent status")
+    return {"status" : status, "percent" : percent}
 
+# Returns all relevant data to the API
+def getData(username, count):
     # Set up Twitter API
     api = config.setupTwitterAuth()
+
     tic = time.perf_counter()
+
+    global status
+    global percent
+    status = "active"
+    percent = 0;
+
+
+    print("Count: " + str(count))
+
+    tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200,)
+    alltweets = []
+    alltweets.extend(tweets)
+    oldest = tweets[-1].id
+
+    percent = 10
+
+    percentValue = round(70/(count/200))
+    while len(alltweets) < count:
+        tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200, max_id = oldest - 1)
+        if len(tweets) == 0:
+            break
+        oldest = tweets[-1].id
+        alltweets.extend(tweets)
+        percent += percentValue
+        
+
+    
+
+
+    debugPrint(f"{len(alltweets)} Tweets downloaded in seconds")
+
     try:
         user = api.get_user(username)
     except TweepError as e:
         print(e)
         return {"Error" : e.args[0][0]['message'] }
 
-    print("Count: " + str(count))
-        
-    allTweets = tw.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended", exclude_replies=False, include_rts=False, lang='en').items(count)
-    listAllTweetss = list(allTweets)
-    if (len(listAllTweetss) == 0):
+ 
+    if (len(alltweets) == 0):
         return {"Error" : "No tweets"}
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
 
-    dict = {username : listAllTweetss}
-    listAllTweets.update(dict)
+    listAllTweets = {username : alltweets}
 
-# Returns all relevant data to the API
-def getData(username):
-    global listAllTweets
+
     global lastDate
     if (username not in listAllTweets):
         return {"Error" : True}
@@ -53,22 +84,42 @@ def getData(username):
     engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
     
     tweets = listAllTweets[username]
-
-    tweetsDict = getTweetsDict(tweets)
-    dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
-    formattedEarliestDate = formatDate(dateobjectEaliest)
-
+    tweetsDict, wordDict = getTweetsDict(tweets)
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
-    wordsAmount, topWords = getTopFiveWords(tweets)
-    overallScore = getOverallScore(tweetsDict)
-    highest, lowest, week = getWeekScores(tweetsDict)
-
-    scoreEvolutionData = scoreEvolution(tweetsDict)
     
+
+    userinfo = getProfileInfo(username)
+    overallScore = getOverallScore(tweetsDict)
+
+    percent = 75
+
+    topWords = {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
+
+    percent = 80
+
+    wordsAmount = len(wordDict)
+    highest, lowest, week = getWeekScores(tweetsDict)
+    dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
+
+    percent = 85
+
+    formattedEarliestDate = formatDate(dateobjectEaliest)
     formattedLatestDate = formatDate(str(lastDate.strftime('%Y-%m-%d %H:%M:%S')))
+    percent = 90
+    celebrityscore = getClosestsCelebrities(username, overallScore, engine)
+    percent = 95
+    allcelebrities = getAllCelebrities(engine)
+    percent = 99
+    danishuserscore = getDanishUsersScore(overallScore, engine),
+    percent = 100
+    status = "success"
+    nationalAverages = getNationalScores(engine)
+    scoreEvolutionData = scoreEvolution(tweetsDict)
+    averagesRange = getLowestAndHighestAverages(scoreEvolutionData)
+
 
     data = {
-     "userinfo" : getProfileInfo(username),
+     "userinfo" : userinfo,
      "overallscore" : overallScore,
      "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
      "alltweets" : tweetsDict,
@@ -80,12 +131,12 @@ def getData(username):
      "tweetstart" :  formattedEarliestDate,
      "tweetend" : formattedLatestDate,
      "tweetsamount" : len(tweetsDict),
-     "celebrityscore" : getClosestsCelebrities(username, overallScore, engine),
-     "allcelebrities" : getAllCelebrities(engine),
-     "danishuserscore" : getDanishUsersScore(overallScore, engine),
-     "nationalAverages" : getNationalScores(engine),
+     "celebrityscore" : celebrityscore,
+     "allcelebrities" : allcelebrities,
+     "danishuserscore" : danishuserscore,
+     "nationalAverages" : nationalAverages,
      "monthlyaverages" : scoreEvolutionData,
-     "averagesRange" : getLowestAndHighestAverages(scoreEvolutionData)
+     "averagesRange" : averagesRange
     }
 
     toc2 = time.perf_counter()
@@ -97,36 +148,26 @@ def getData(username):
 def getTweetsDictRaw(allTweets):
     tic = time.perf_counter()
     tweets = {}
+    wordDict = {}
     count = 1
     for tweet in allTweets:
-        score = sentiment.getHapinessScore(tweet.full_text)
+        score, word  = sentiment.getHapinessScore(tweet.full_text)
         if score != -1:
             dict = { count : {"id" : tweet.id, "score" : score, "created" : str(tweet.created_at) }}
             tweets.update(dict)
+            wordDict.update(word)
             count += 1
     toc = time.perf_counter()
     debugPrint(f"getTweetsDict in {toc - tic:0.4f} seconds")       
-    return tweets
+    return tweets, wordDict
 
 def getTweetsDict(allTweets):
-    df = pd.DataFrame.from_dict(getTweetsDictRaw(allTweets), orient='index')    
+    dict, words = getTweetsDictRaw(allTweets)
+    df = pd.DataFrame.from_dict(dict, orient='index')    
     result = df.to_json(orient="records")
     parsed = json.loads(result)
-    return parsed
+    return parsed, words 
 
-
-# Get the top five happiest and unhappiest words used by the user
-def getTopFiveWords(allTweets):
-    tic = time.perf_counter()
-    
-    wordDict = {}
-    for tweet in allTweets:
-        wordDict.update(sentiment.getWordsWithScore(tweet.full_text))
-    
-    toc = time.perf_counter()
-
-    debugPrint(f"getTopFiveWords in {toc - tic:0.4f} seconds")
-    return len(wordDict), {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
 # Only get tweet id's and scores
 def tweetsOnlyScore(scores):
@@ -405,6 +446,8 @@ def scoreEvolution(tweetsDict):
                 diff = currentWeek - dateObject.isocalendar()[1]
                 if diff < 1:
                     diff = diff + 51
+                if count >= len(dateArray):
+                    count = count - 1
                 currentWeek = dateObject.isocalendar()[1]
                 if tweetNumber != 0:
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
@@ -450,7 +493,7 @@ def scoreEvolution(tweetsDict):
             if dateObject.day != currentDay:
                 diff = currentDay - dateObject.day
                 if diff < 1:
-                    diff = diff + 31
+                    diff = diff + 30
                 currentDay = dateObject.day
                 if tweetNumber != 0:
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
@@ -538,7 +581,7 @@ def getDanishUsersScore(overallScore, engine):
     df = pd.read_sql("danish_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    danishOverall = float("{:.2f}".format(df_sort["score"].mean()))
+    danishOverall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
     amountOfUsers = len(df_sort.index)
 
     over = len(df_sort[(df_sort['score']>overallScore)])
@@ -556,7 +599,7 @@ def getUSAUsersScore(engine):
     df = pd.read_sql("usa_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getUSAUsersScore in {toc - tic:0.4f} seconds")
@@ -568,19 +611,19 @@ def getUKUsersScore(engine):
     df = pd.read_sql("uk_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getUKUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
-    return {"overall" : overall, "countryCode" : "gb", "countryName" : "Great Britain"}
+    return {"overall" : overall, "countryCode" : "gb", "countryName" : "United Kingdom"}
 
 def getSwedenUsersScore(engine):
     tic = time.perf_counter()
     df = pd.read_sql("sweden_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getSwedenUsersScore in {toc - tic:0.4f} seconds")
@@ -592,7 +635,7 @@ def getNorwayUsersScore(engine):
     df = pd.read_sql("norway_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
 
     toc = time.perf_counter()
     debugPrint(f"getNorwayUsersScore in {toc - tic:0.4f} seconds")
@@ -604,7 +647,8 @@ def getGermanyUsersScore(engine):
     df = pd.read_sql("germany_users", con=engine)
     df_sort = df.sort_values(by=['score'])
     
-    overall = float("{:.2f}".format(df_sort["score"].mean()))
+    overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
+    
 
     toc = time.perf_counter()
     debugPrint(f"getGermanyUsersScore in {toc - tic:0.4f} seconds")
