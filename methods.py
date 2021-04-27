@@ -46,15 +46,17 @@ def getData(username, count):
 
     percent = 10
 
+    percentValue = round(70/(count/200))
     while len(alltweets) < count:
         tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200, max_id = oldest - 1)
         if len(tweets) == 0:
             break
         oldest = tweets[-1].id
         alltweets.extend(tweets)
+        percent += percentValue
         
 
-    percent = 25
+    
 
 
     debugPrint(f"{len(alltweets)} Tweets downloaded in seconds")
@@ -89,27 +91,27 @@ def getData(username, count):
     userinfo = getProfileInfo(username)
     overallScore = getOverallScore(tweetsDict)
 
-    percent = 30
+    percent = 75
 
     topWords = {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
-    percent = 40
+    percent = 80
 
     wordsAmount = len(wordDict)
     highest, lowest, week = getWeekScores(tweetsDict)
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
 
-    percent = 50
+    percent = 85
 
     formattedEarliestDate = formatDate(dateobjectEaliest)
     formattedLatestDate = formatDate(str(lastDate.strftime('%Y-%m-%d %H:%M:%S')))
-    percent = 60
+    percent = 90
     celebrityscore = getClosestsCelebrities(username, overallScore, engine)
-    percent = 70
-    allcelebrities = getAllCelebrities(engine)
-    percent = 80
-    danishuserscore = getDanishUsersScore(overallScore, engine),
     percent = 95
+    allcelebrities = getAllCelebrities(engine)
+    percent = 99
+    danishuserscore = getDanishUsersScore(overallScore, engine),
+    percent = 100
     status = "success"
     nationalAverages = getNationalScores(engine)
     scoreEvolutionData = scoreEvolution(tweetsDict)
