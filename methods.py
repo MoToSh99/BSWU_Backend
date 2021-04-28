@@ -20,7 +20,6 @@ lastDate = datetime.datetime.now()
 status = 0
 percent = 0;
 userStatus = {}
-users = {}
 
 def getStatus(username):
     userstatus = userStatus.get(username)
@@ -36,6 +35,7 @@ def updateStatus(username, percent, staus="active"):
     global userStatus
     dict = {username : {"status" : status, "percent" : percent}}
     userStatus.update(dict)
+
 # Returns all relevant data to the API
 def getData(username, count):
     # Set up Twitter API
@@ -69,9 +69,6 @@ def getData(username, count):
         updateStatus(username, percent)
         
 
-    
-
-
     debugPrint(f"{len(alltweets)} Tweets downloaded in seconds")
 
     try:
@@ -79,7 +76,6 @@ def getData(username, count):
     except TweepError as e:
         print(e)
         return {"Error" : e.args[0][0]['message'] }
-
  
     if (len(alltweets) == 0):
         return {"Error" : "No tweets"}
@@ -124,10 +120,7 @@ def getData(username, count):
     allcelebrities = getAllCelebrities(engine)
     updateStatus(username, 99)
     danishuserscore = getDanishUsersScore(overallScore, engine),
-    
-
     updateStatus(username, 100, "success")
-
     nationalAverages = getNationalScores(engine)
     scoreEvolutionData = scoreEvolution(tweetsDict)
     averagesRange = getLowestAndHighestAverages(scoreEvolutionData)
@@ -157,10 +150,9 @@ def getData(username, count):
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
     
-    dict = {username : data}
-    print(data)
-    users.update(dict)
     updateStatus(username, 110, "Done")
+
+    return data
 
 # Get all tweets and collect them in a dictionary
 def getTweetsDictRaw(allTweets):
