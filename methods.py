@@ -19,11 +19,18 @@ debug = True
 lastDate = datetime.datetime.now()
 status = 0
 percent = 0;
+userStatus = {}
 
 def getStatus(username):
+    userstatus = userStatus.get(username)
     print("sent status")
-    return {"status" : status, "percent" : percent}
+    return userstatus
 
+
+def updateStatus(username, percent, staus="active"):
+    global userStatus
+    dict = {username : {"status" : status, "percent" : percent}}
+    userStatus.update(dict)
 # Returns all relevant data to the API
 def getData(username, count):
     # Set up Twitter API
@@ -33,8 +40,8 @@ def getData(username, count):
 
     global status
     global percent
-    status = "active"
-    percent = 0;
+
+    updateStatus(username, 0)
 
 
     print("Count: " + str(count))
@@ -43,8 +50,8 @@ def getData(username, count):
     alltweets = []
     alltweets.extend(tweets)
     oldest = tweets[-1].id
-
-    percent = 10
+    
+    updateStatus(username, 10)
 
     percentValue = round(70/(count/200))
     while len(alltweets) < count:
@@ -53,7 +60,8 @@ def getData(username, count):
             break
         oldest = tweets[-1].id
         alltweets.extend(tweets)
-        percent += percentValue
+        percent  = userStatus.get(username)["percent"] + percentValue
+        updateStatus(username, percent)
         
 
     
@@ -91,28 +99,27 @@ def getData(username, count):
     userinfo = getProfileInfo(username)
     overallScore = getOverallScore(tweetsDict)
 
-    percent = 75
+    updateStatus(username, 75)
 
     topWords = {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
 
-    percent = 80
+    updateStatus(username, 80)
 
     wordsAmount = len(wordDict)
     highest, lowest, week = getWeekScores(tweetsDict)
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
 
-    percent = 85
+    updateStatus(username, 85)
 
     formattedEarliestDate = formatDate(dateobjectEaliest)
     formattedLatestDate = formatDate(str(lastDate.strftime('%Y-%m-%d %H:%M:%S')))
-    percent = 90
+    updateStatus(username, 90)
     celebrityscore = getClosestsCelebrities(username, overallScore, engine)
-    percent = 95
+    updateStatus(username, 95)
     allcelebrities = getAllCelebrities(engine)
-    percent = 99
+    updateStatus(username, 99)
     danishuserscore = getDanishUsersScore(overallScore, engine),
-    percent = 100
-    status = "success"
+    updateStatus(username, 100, "success")
     nationalAverages = getNationalScores(engine)
     scoreEvolutionData = scoreEvolution(tweetsDict)
     averagesRange = getLowestAndHighestAverages(scoreEvolutionData)
