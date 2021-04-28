@@ -26,7 +26,15 @@ def getTwitterData():
     username = request.args.get('username')
     if (username in m.userStatus):
         m.userStatus.pop(username)
-    return jsonify(m.getData(username, count))
+    if (username in m.users):
+        m.users.pop(username)
+    executor.submit(m.getData(username, count))
+    return {"msg" : "Calling Twitter API in the background!"}
+
+@app.route('/getdata')
+def getData():
+    username = request.args.get('username')
+    return jsonify(m.getUser(username))
 
 @app.route('/getstatus')
 def process():

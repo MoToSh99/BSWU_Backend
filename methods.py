@@ -20,11 +20,16 @@ lastDate = datetime.datetime.now()
 status = 0
 percent = 0;
 userStatus = {}
+users = {}
 
 def getStatus(username):
     userstatus = userStatus.get(username)
     print("sent status")
     return userstatus
+
+def getUser(username):
+    user = users.get(username)
+    return user
 
 
 def updateStatus(username, percent, staus="active"):
@@ -119,7 +124,10 @@ def getData(username, count):
     allcelebrities = getAllCelebrities(engine)
     updateStatus(username, 99)
     danishuserscore = getDanishUsersScore(overallScore, engine),
+    
+
     updateStatus(username, 100, "success")
+
     nationalAverages = getNationalScores(engine)
     scoreEvolutionData = scoreEvolution(tweetsDict)
     averagesRange = getLowestAndHighestAverages(scoreEvolutionData)
@@ -149,7 +157,10 @@ def getData(username, count):
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
     
-    return data
+    dict = {username : data}
+    print(data)
+    users.update(dict)
+    updateStatus(username, 110, "Done")
 
 # Get all tweets and collect them in a dictionary
 def getTweetsDictRaw(allTweets):
