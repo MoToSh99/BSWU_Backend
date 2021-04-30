@@ -2,7 +2,7 @@ from sqlalchemy.sql.expression import over
 import tweepy as tw
 from tweepy.models import User
 from tweepy.error import TweepError
-import config
+import config as c
 import re
 import sentiment
 import operator
@@ -14,6 +14,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 import json
 import math
+from decouple import config
 
 debug = False
 lastDate = datetime.datetime.now()
@@ -39,7 +40,7 @@ def updateStatus(username, percent, staus="active"):
 # Returns all relevant data to the API
 def getData(username, count):
     # Set up Twitter API
-    api = config.setupTwitterAuth()
+    api = c.setupTwitterAuth()
 
     tic = time.perf_counter()
 
@@ -90,7 +91,8 @@ def getData(username, count):
         return {"Error" : True}
     tic = time.perf_counter()
     
-    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+
+    engine = create_engine(config('POSTGRESS'))
     
     tweets = listAllTweets[username]
     tweetsDict, wordDict = getTweetsDict(tweets)
@@ -197,7 +199,7 @@ def tweetsOnlyScore(scores):
 def getProfileInfo(username):
     tic = time.perf_counter()
 
-    api = config.setupTwitterAuth()
+    api = c.setupTwitterAuth()
 
     try:
         user = api.get_user(username)
