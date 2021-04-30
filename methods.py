@@ -16,7 +16,7 @@ import json
 import math
 from decouple import config
 
-debug = False
+debug = True
 lastDate = datetime.datetime.now()
 status = 0
 percent = 0;
