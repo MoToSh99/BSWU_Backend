@@ -10,10 +10,11 @@ from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
 from scipy.stats import kde
 import seaborn as sns
+from decouple import config
 
+engine = create_engine(config('POSTGRESS'))
 file = pyhmeter.load_scores()
-engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
-    
+   
 
 # Gets the Pyhmeter and removes unnecessary symbols from a given tweet
 def getPyhmeter(tweet_text):
@@ -183,8 +184,8 @@ def putEmojiData():
 
 putEmojiData()
 
-def createHistogram():  
-    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
+def createHistogram(): 
+    global engine 
     read  = pd.read_sql("emoji_textwithemoji", con=engine) 
     data = list(read["score"])
 
@@ -195,7 +196,7 @@ def createHistogram():
     plt.show()
 
 def createDensityPlot():
-    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')  
+    global engine
     read  = pd.read_sql("emoji_textwithemoji", con=engine)
     read2  = pd.read_sql("emoji_textwithemojiremoved", con=engine)
     read3  = pd.read_sql("emoji_textwithoutemoji", con=engine)

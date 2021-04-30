@@ -24,12 +24,7 @@ def index():
 def getTwitterData():
     count = int(request.args.get('count'))
     username = request.args.get('username')
-    return jsonify(m.getData(username, count))
-
-@app.route('/getstatus')
-def process():
-    username = str(request.args.get('username'))
-    return m.getStatus(username)
+    return m.getData(username, count)
 
 
 @app.route('/rating')

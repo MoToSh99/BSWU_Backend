@@ -6,13 +6,14 @@ from sqlalchemy import create_engine, engine
 import re
 import numpy as np
 import datetime
+from decouple import config
 
-engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+engine = create_engine(config('POSTGRESS'))
    
 
 # Random tweets from Denmark
 def putDataDB():
-    engine = create_engine('postgresql://efkgjaxasehspw:7ebb68899129ff95e09c3000620892ac7804d150083b80a3a8fc632d1ab250cb@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/dfnb8s6k7aikmo')
+    global engine
     api = configscript.setupTwitterAuth()
     places = api.geo_search(query="Denmark", granularity="country")
     place_id = places[0].id
