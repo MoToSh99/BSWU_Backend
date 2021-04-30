@@ -23,6 +23,5 @@ To Visit App:
 |        /        |                                |                                                            A welcome page for the API                                                           |
 |    /userinfo    |        Twitter username        | Returns information about the Twitter user: Name, username, location, followers count, Tweets count, friends count, and their profile image URL |
 | /gettwitterdata |        Twitter username        |                                                 Calls the Twitter API to fetch the user's Tweets                                                |
-|  /checkusername |        Twitter username        |                                               Check if the Tweets for the user have been received                                               |
-|     /getdata    |        Twitter username        |                                                   Fetch the analyzed data for the Twitter user                                                  |
+|  /checkusername |        Twitter username        |                                               Check if the Tweets for the user have been received and analyzes the data for the Twitter user                                                  |                                               |                                                |
 |     /rating     | Twitter username, and a number |                                                      Used to send a rating to the database                                                      |
