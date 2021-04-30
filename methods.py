@@ -328,7 +328,7 @@ def getWeekScores(tweetsDict):
 def getClosestsCelebrities(username, overallScore, engine):
     tic = time.perf_counter()
     celebScores  = pd.read_sql("celebrity", con=engine)
-    celebScores = celebScores.drop(celebScores[(celebScores['username']==username)].index)
+    celebScores = celebScores.drop(celebScores[(celebScores['username'].lower() == username.lower())].index)
 
     df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
     df_sort_on_score = df_sort.sort_values(by=['score'])
