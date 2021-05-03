@@ -1,5 +1,5 @@
 import methods as m
-import configscript
+import config as configscript
 import tweepy as tw
 import pandas as pd
 from sqlalchemy import create_engine, engine
@@ -9,7 +9,6 @@ import datetime
 from decouple import config
 
 engine = create_engine(config('POSTGRESS'))
-   
 
 # Random tweets from Denmark
 def putDataDB():
@@ -25,7 +24,6 @@ def putDataDB():
     engine.execute("DELETE FROM tweets T1 USING tweets T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
     
     engine.dispose()
-    #read  = pd.read_sql("tweets", con=engine) 
 
 def celebrityScore(username):
     print(username)
@@ -38,7 +36,6 @@ def celebrityScore(username):
         return
 
     tweetsDict = m.getTweetsDict(listAllTweets)
-
     score = m.getOverallScore(tweetsDict)
     
     if (score==-1):
@@ -58,13 +55,11 @@ def celebrityScore(username):
     engine.execute("DELETE FROM celebrity T1 USING celebrity T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
     engine.dispose()
-    #read  = pd.read_sql("celebrity", con=engine)
 
 def runceleb():
     celeb = ["elonmusk", "DonaldJTrumpJr", "BillGates", "JuddApatow", "Sethrogen", "BarackObama", "HamillHimself", "GretaThunberg", "tedcruz", "VancityReynolds", "RobertDowneyJr", "MarkRuffalo", "taylorswift13", "ladygaga", "rihanna", "azizansari", "ConanOBrien", "SteveMartinToGo", "rickygervais", "amyschumer", "Cristiano", "vElizabethOlsen", "shakira", "ddlovato", "chrisbrown", "EmmaWatson", "britneyspears", "selenagomez", "jtimberlake", "KimKardashian", "MariahCarey", "SHAQ", "lancearmstrong", "rainnwilson", "cher", "KimKardashian", "AlYankovic", "StephenAtHome", "ArianaGrande", "justinbieber", "NASA", "jimmyfallon", "KingJames", "MileyCyrus", "JLo", "Oprah", "BrunoMars", "NiallOfficial", "Drake", "KylieJenner", "KevinHart4real", "Harry_Styles", "wizkhalifa", "Louis_Tomlinson", "LilTunechi", "POTUS45", "Pink", "HillaryClinton", "aliciakeys", "JoeBiden", "ShawnMendes", "ActuallyNPH", "pitbull", "Eminem", "NICKIMINAJ", "StephenKing", "SachaBaronCohen", "rustyrockets", "stephenfry"]
     for c in celeb:
         celebrityScore(c)
-
 
 def putDataForUser():
     global engine
@@ -81,9 +76,7 @@ def putDataForUser():
             continue
 
         tweetsDict = m.getTweetsDict(listAllTweets)
-
         score = m.getOverallScore(tweetsDict)
-
         if (score==-1):
             continue
         
@@ -99,7 +92,6 @@ def putDataForUser():
         engine.execute("DELETE FROM danish_users T1 USING danish_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
 
     engine.dispose()
-    #read  = pd.read_sql("danish_users", con=engine)
 
 def putDataForUserUSA():
     global engine
@@ -114,10 +106,9 @@ def putDataForUserUSA():
         listAllTweets = list(allTweets)
         if (len(listAllTweets) < 1):
             continue
+        
         tweetsDict = m.getTweetsDict(listAllTweets)
-
         score = m.getOverallScore(tweetsDict)
-
         if (score==-1):
             continue
 
@@ -134,7 +125,6 @@ def putDataForUserUSA():
         engine.execute("DELETE FROM usa_users T1 USING usa_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
         
     engine.dispose()
-    #read  = pd.read_sql("usa_users", con=engine)
 
 def putDataForUserUK():
     global engine
@@ -149,10 +139,9 @@ def putDataForUserUK():
         listAllTweets = list(allTweets)
         if (len(listAllTweets) < 1):
             continue
+        
         tweetsDict = m.getTweetsDict(listAllTweets)
-
         score = m.getOverallScore(tweetsDict)
-
         if (score==-1):
             continue
 
@@ -169,7 +158,6 @@ def putDataForUserUK():
         engine.execute("DELETE FROM uk_users T1 USING uk_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
         
     engine.dispose()
-    #read  = pd.read_sql("uk_users", con=engine)
 
 def putDataForUserSweden():
     global engine
@@ -184,10 +172,9 @@ def putDataForUserSweden():
         listAllTweets = list(allTweets)
         if (len(listAllTweets) < 1):
             continue
+
         tweetsDict = m.getTweetsDict(listAllTweets)
-
         score = m.getOverallScore(tweetsDict)
-
         if (score==-1):
             continue
 
@@ -204,7 +191,6 @@ def putDataForUserSweden():
         engine.execute("DELETE FROM sweden_users T1 USING sweden_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
         
     engine.dispose()
-    #read  = pd.read_sql("sweden_users", con=engine)
 
 def putDataForUserNorway():
     global engine
@@ -219,17 +205,15 @@ def putDataForUserNorway():
         listAllTweets = list(allTweets)
         if (len(listAllTweets) < 1):
             continue
+        
         tweetsDict = m.getTweetsDict(listAllTweets)
-
         score = m.getOverallScore(tweetsDict)
-
         if (score==-1):
             continue
 
         tweetsonlyscore = m.tweetsOnlyScore(tweetsDict)
         scoremax = m.getHappiestTweet(tweetsonlyscore)
         scoremin = m.getSaddestTweet(tweetsonlyscore)
-
 
         dict = {username : {"score" : score, "min" :  scoremin["score"], "max" : scoremax["score"]}} 
 
@@ -240,8 +224,6 @@ def putDataForUserNorway():
         engine.execute("DELETE FROM norway_users T1 USING norway_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
         
     engine.dispose()
-    #read  = pd.read_sql("norway_users", con=engine)
-
 
 def putDataForUserGermany():
     global engine
@@ -256,10 +238,9 @@ def putDataForUserGermany():
         listAllTweets = list(allTweets)
         if (len(listAllTweets) < 1):
             continue
+
         tweetsDict = m.getTweetsDict(listAllTweets)
-
         score = m.getOverallScore(tweetsDict)
-
         if (score==-1):
             continue
 
@@ -276,8 +257,6 @@ def putDataForUserGermany():
         engine.execute("DELETE FROM germany_users T1 USING germany_users T2 WHERE  T1.ctid  < T2.ctid AND  T1.username = T2.username;")
         
     engine.dispose()
-    #read  = pd.read_sql("germany_users", con=engine)
-
 
 def sendRating(rating, username):
     global engine
@@ -288,4 +267,3 @@ def sendRating(rating, username):
     engine.dispose()
 
     return {"status" : "rating sent"}
-    #read  = pd.read_sql("ratings", con=engine)

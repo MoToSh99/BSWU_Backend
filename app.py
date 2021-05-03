@@ -10,7 +10,6 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-
 @app.route('/userinfo')
 def getUserInfo():
     return jsonify(m.getProfileInfo(request.args.get('username')))
@@ -25,7 +24,6 @@ def getTwitterData():
     count = int(request.args.get('count'))
     username = request.args.get('username')
     return m.getData(username, count)
-
 
 @app.route('/rating')
 def rating():
