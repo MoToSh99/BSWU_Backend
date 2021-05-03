@@ -28,29 +28,16 @@ def load_scores_word():
     for x in range(4):  # strip header info
         next(file1)
 
-    file = csv.reader(open("Emoji_Sentiment_Data_v1.0.csv", "r"), delimiter=',')
-    for x in range(4):  # strip header info
-        next(file)
-
     words = {row[1]: float(row[3]) for row in file1}
-    emojis = {row[0]: float("{:.2f}".format(rescale(get_emoji_sentiment_rank(row[0])["sentiment_score"], -1, 1, 1, 9))) for row in file}
-    
     return words
 
 def load_scores_emoji():
-    file1 = csv.reader(open("Hedonometer.csv", "r"), delimiter=',')
-    for x in range(4):  # strip header info
-        next(file1)
-
     file = csv.reader(open("Emoji_Sentiment_Data_v1.0.csv", "r"), delimiter=',')
     for x in range(4):  # strip header info
         next(file)
 
-    words = {row[1]: float(row[3]) for row in file1}
     emojis = {row[0]: float("{:.2f}".format(rescale(get_emoji_sentiment_rank(row[0])["sentiment_score"], -1, 1, 1, 9))) for row in file}
-    
     return emojis   
-
 
 class HMeter(object):
     """HMeter is the main class to prepare a text sample for scores. It
@@ -76,14 +63,8 @@ class HMeter(object):
     def deltah(self, deltah):
         """Each time deltah is set we need to regenerate the matchlist."""
         self._deltah = deltah
-        # TODO Should probably raise a range error if deltah is nonsensical
-        # first we take every word that matches labMT 1.0
         labmtmatches = (word for word in self.wordlist
                         if word in self.wordscores)
-
-        
-
-        # then we strip out stop words as described by Dodd paper
         self.matchlist = []
         self.matchValueList= {}
         for word in labmtmatches:
@@ -96,7 +77,6 @@ class HMeter(object):
     def happiness_score(self):
         """Takes a list made up of individual words and returns the happiness
         score."""
-
         happysum = 0
         count = len(self.matchlist)
 

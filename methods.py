@@ -16,61 +16,33 @@ import json
 import math
 from decouple import config
 
-debug = True
+debug = False
 lastDate = datetime.datetime.now()
-status = 0
-percent = 0;
-userStatus = {}
-
-def getStatus(username):
-    userstatus = userStatus.get(username)
-    print("sent status")
-    return userstatus
-
-def getUser(username):
-    user = users.get(username)
-    return user
-
-
-def updateStatus(username, percent, staus="active"):
-    global userStatus
-    dict = {username : {"status" : status, "percent" : percent}}
-    userStatus.update(dict)
 
 # Returns all relevant data to the API
 def getData(username, count):
+    global lastDate
+
     # Set up Twitter API
     api = c.setupTwitterAuth()
 
     tic = time.perf_counter()
 
-    global status
-    global percent
-
-    updateStatus(username, 0)
-
-
     print("Count: " + str(count))
 
-    tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200,)
+    tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200)
     alltweets = []
     alltweets.extend(tweets)
     oldest = tweets[-1].id
-    
-    updateStatus(username, 10)
 
-    percentValue = round(70/(count/200))
     while len(alltweets) < count:
         tweets = api.user_timeline(screen_name=username, exclude_replies=False, include_rts = False, lang="en", tweet_mode = 'extended', count=200, max_id = oldest - 1)
         if len(tweets) == 0:
             break
         oldest = tweets[-1].id
         alltweets.extend(tweets)
-        percent  = userStatus.get(username)["percent"] + percentValue
-        updateStatus(username, percent)
-        
 
-    debugPrint(f"{len(alltweets)} Tweets downloaded in seconds")
+    debugPrint(f"{len(alltweets)} Tweets downloaded")
 
     try:
         user = api.get_user(username)
@@ -80,17 +52,15 @@ def getData(username, count):
  
     if (len(alltweets) == 0):
         return {"Error" : "No tweets"}
+
     toc = time.perf_counter()
     print(f"Downloaded data in {toc - tic:0.4f} seconds")
 
     listAllTweets = {username : alltweets}
 
-
-    global lastDate
     if (username not in listAllTweets):
         return {"Error" : True}
     tic = time.perf_counter()
-    
 
     engine = create_engine(config('POSTGRESS'))
     
@@ -98,61 +68,44 @@ def getData(username, count):
     tweetsDict, wordDict = getTweetsDict(tweets)
     tweetsOnlyScores = tweetsOnlyScore(tweetsDict)
     
-
     userinfo = getProfileInfo(username)
     overallScore = getOverallScore(tweetsDict)
-
-    updateStatus(username, 75)
-
     topWords = {"top" : nlargest(5, wordDict, key=wordDict.get), "bottom" : nsmallest(5, wordDict, key=wordDict.get)}
-
-    updateStatus(username, 80)
-
     wordsAmount = len(wordDict)
     highest, lowest, week = getWeekScores(tweetsDict)
     dateobjectEaliest = tweetsDict[len(tweetsDict)-1]["created"]
-
-    updateStatus(username, 85)
-
     formattedEarliestDate = formatDate(dateobjectEaliest)
     formattedLatestDate = formatDate(str(lastDate.strftime('%Y-%m-%d %H:%M:%S')))
-    updateStatus(username, 90)
     celebrityscore = getClosestsCelebrities(username, overallScore, engine)
-    updateStatus(username, 95)
     allcelebrities = getAllCelebrities(engine)
-    updateStatus(username, 99)
     danishuserscore = getDanishUsersScore(overallScore, engine),
-    updateStatus(username, 100, "success")
     nationalAverages = getNationalScores(engine)
     scoreEvolutionData = scoreEvolution(tweetsDict)
     averagesRange = getLowestAndHighestAverages(scoreEvolutionData)
 
-
     data = {
-     "userinfo" : userinfo,
-     "overallscore" : overallScore,
-     "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
-     "alltweets" : tweetsDict,
-     "topfivewords" : topWords,
-     "wordsmatched" : wordsAmount,
-     "highestweekscore": highest,
-     "lowestweekscore": lowest,
-     "weekscores" : week,
-     "tweetstart" :  formattedEarliestDate,
-     "tweetend" : formattedLatestDate,
-     "tweetsamount" : len(tweetsDict),
-     "celebrityscore" : celebrityscore,
-     "allcelebrities" : allcelebrities,
-     "danishuserscore" : danishuserscore,
-     "nationalAverages" : nationalAverages,
-     "monthlyaverages" : scoreEvolutionData,
-     "averagesRange" : averagesRange
+        "userinfo" : userinfo,
+        "overallscore" : overallScore,
+        "tweets" : { "happiest" : getHappiestTweet(tweetsOnlyScores), "saddest" : getSaddestTweet(tweetsOnlyScores) },
+        "alltweets" : tweetsDict,
+        "topfivewords" : topWords,
+        "wordsmatched" : wordsAmount,
+        "highestweekscore": highest,
+        "lowestweekscore": lowest,
+        "weekscores" : week,
+        "tweetstart" :  formattedEarliestDate,
+        "tweetend" : formattedLatestDate,
+        "tweetsamount" : len(tweetsDict),
+        "celebrityscore" : celebrityscore,
+        "allcelebrities" : allcelebrities,
+        "danishuserscore" : danishuserscore,
+        "nationalAverages" : nationalAverages,
+        "monthlyaverages" : scoreEvolutionData,
+        "averagesRange" : averagesRange
     }
 
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
-    
-    updateStatus(username, 110, "Done")
 
     return data
 
@@ -180,7 +133,6 @@ def getTweetsDict(allTweets):
     parsed = json.loads(result)
     return parsed, words 
 
-
 # Only get tweet id's and scores
 def tweetsOnlyScore(scores):
     tic = time.perf_counter()
@@ -204,11 +156,12 @@ def getProfileInfo(username):
     try:
         user = api.get_user(username)
     except TweepError as e:
-        return e
+        return {"Error" : e}
         
     # Remove _normal from profile image URL
     profile_image_url = user.profile_image_url_https
     url = re.sub('_normal', '', profile_image_url)
+
     userInfo = {
         "name" : user.name,
         "username" : user.screen_name,
@@ -226,7 +179,7 @@ def getProfileInfo(username):
     debugPrint(f"getProfileInfo in {toc - tic:0.4f} seconds")
     return userInfo
 
-# Get the happiest tweet posted by the user. Returns the id of the tweet.
+# Get the happiest tweet posted by the user. Returns the id and score of the tweet.
 def getHappiestTweet(scores): 
     tic = time.perf_counter()
     
@@ -242,7 +195,7 @@ def getHappiestTweet(scores):
      
     return {"id" : id, "score" : float("{:.2f}".format(score))}
 
-# Get the unhappiest tweet posted by the user. Returns the id of the tweet.
+# Get the unhappiest tweet posted by the user. Returns the id and score of the tweet.
 def getSaddestTweet(scores):
     tic = time.perf_counter()
 
@@ -309,9 +262,6 @@ def getWeekScores(tweetsDict):
     lowestScore = min(withoutNan)
     lowestWeekday = weekdayNames[withoutNanList.index(lowestScore)]
 
-    #np.delete(withoutNan, withoutNanList.index(highestScore))
-    #weekdayNames.remove(highestWeekday)
-
     toc = time.perf_counter()
     debugPrint(f"getWeekScores in {toc - tic:0.4f} seconds")
 
@@ -329,9 +279,8 @@ def getWeekScores(tweetsDict):
 # Get the closest three scores from a list of chosen celebrities on Twitter
 def getClosestsCelebrities(username, overallScore, engine):
     tic = time.perf_counter()
+
     celebScores  = pd.read_sql("celebrity", con=engine)
-
-
     celebScores = celebScores.drop(celebScores[(celebScores['username'].str.lower() == username.lower())].index)
 
     df_sort = celebScores.iloc[(celebScores['score']-overallScore).abs().argsort()[:3]]
@@ -343,6 +292,7 @@ def getClosestsCelebrities(username, overallScore, engine):
     toc = time.perf_counter()
     debugPrint(f"getClosestsCelebrities in {toc - tic:0.4f} seconds")
     engine.dispose()
+
     return parsed
 
 # Get the closest three scores from a list of chosen celebrities on Twitter
@@ -358,13 +308,12 @@ def getAllCelebrities(engine):
     toc = time.perf_counter()
     debugPrint(f"getAllCelebrities in {toc - tic:0.4f} seconds")
     engine.dispose()
+
     return parsed
     
 # Get date as string containing month and day with correct suffix
 def formatDate(date):
-
     date = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
-
     day = date.day
 
     if (3 < day < 21) or (23 < day < 31):
@@ -547,29 +496,21 @@ def scoreEvolution(tweetsDict):
 
     count = 0
     for score in dateArray:
+        Xnorm = (score - Xmin) / (Xmax - Xmin)
+        dateArray[count] = Xnorm
         if count >= 4:
-            Xnorm = (score - Xmin) / (Xmax - Xmin)
-            dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2] + dateArray[count-3] + dateArray[count-4]) / 5
             newDateArray[count] = [movAvg, count+1, tooltip[count]]
         elif count == 3:
-            Xnorm = (score - Xmin) / (Xmax - Xmin)
-            dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2] + dateArray[count-3]) / 4
             newDateArray[count] = [movAvg, count+1, tooltip[count]]
         elif count == 2:
-            Xnorm = (score - Xmin) / (Xmax - Xmin)
-            dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1] + dateArray[count-2]) / 3
             newDateArray[count] = [movAvg, count+1, tooltip[count]]
         elif count == 1:
-            Xnorm = (score - Xmin) / (Xmax - Xmin)
-            dateArray[count] = Xnorm
             movAvg = (Xnorm + dateArray[count-1]) / 2
             newDateArray[count] = [movAvg, count+1, tooltip[count]]
         else:
-            Xnorm = (score - Xmin) / (Xmax - Xmin)
-            dateArray[count] = Xnorm
             newDateArray[count] = [Xnorm, count+1, tooltip[count]]
         count = count + 1
 
@@ -663,7 +604,6 @@ def getGermanyUsersScore(engine):
     
     overall = float("{:.2f}".format((int(df_sort["score"].mean()*100)/100.0)))
     
-
     toc = time.perf_counter()
     debugPrint(f"getGermanyUsersScore in {toc - tic:0.4f} seconds")
     engine.dispose()
@@ -679,16 +619,6 @@ def getNationalScores(engine):
     
     return sort
 
-# Get the users that the given user follows
-def userFollowers(username, api):
-    tic = time.perf_counter()
-    friends = tw.Cursor(api.friends, screen_name=username).items(200)
-    for friend in friends: 
-        debugPrint(friend.screen_name)
-
-    toc = time.perf_counter()
-    debugPrint(f"userFollowers in {toc - tic:0.4f} seconds")
-
 # Print debug messages
 def debugPrint(text):
     if (debug):
@@ -696,3 +626,4 @@ def debugPrint(text):
     else:
         return
 
+getData("robysinatra", 3200)

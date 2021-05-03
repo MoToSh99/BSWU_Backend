@@ -15,7 +15,6 @@ from decouple import config
 engine = create_engine(config('POSTGRESS'))
 file = pyhmeter.load_scores()
    
-
 # Gets the Pyhmeter and removes unnecessary symbols from a given tweet
 def getPyhmeter(tweet_text):
     #TODO: remove URL and other stuff to clean text
@@ -73,13 +72,11 @@ def putEmojiData1():
     df.to_sql('emoji_textwithemoji', con=engine, if_exists='append')
 
     engine.execute("DELETE FROM emoji_textwithemoji T1 USING emoji_textwithemoji T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
-  
     engine.dispose()
 
     read  = pd.read_sql("emoji_textwithemoji", con=engine) 
 
 def getHapinessScoreTextWithEmojiRemoved(tweet_text):
-
     global file
     file = pyhmeter.load_scores()
     py = getPyhmeter(tweet_text)
@@ -124,7 +121,6 @@ def putEmojiData2():
     df.to_sql('emoji_textwithemojiremoved', con=engine, if_exists='append')
 
     engine.execute("DELETE FROM emoji_textwithemojiremoved T1 USING emoji_textwithemojiremoved T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
-  
     engine.dispose()
 
     read  = pd.read_sql("emoji_textwithemojiremoved", con=engine) 
@@ -170,8 +166,8 @@ def putEmojiData3():
     df.to_sql('emoji_textwithoutemoji', con=engine, if_exists='append')
 
     engine.execute("DELETE FROM emoji_textwithoutemoji T1 USING emoji_textwithoutemoji T2 WHERE  T1.ctid  < T2.ctid AND  T1.id    = T2.id AND  T1.score = T2.score AND  T1.created = T2.created;")
-    
     engine.dispose()
+
     read  = pd.read_sql("emoji_textwithoutemoji", con=engine) 
 
 def putEmojiData():
@@ -181,8 +177,6 @@ def putEmojiData():
     putEmojiData2()
     print("Start 3")
     putEmojiData3()
-
-putEmojiData()
 
 def createHistogram(): 
     global engine 
