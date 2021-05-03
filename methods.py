@@ -625,5 +625,3 @@ def debugPrint(text):
         print(text)
     else:
         return
-
-getData("robysinatra", 3200)
