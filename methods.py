@@ -104,14 +104,23 @@ def getData(username, count):
         "averagesRange" : averagesRange
     }
 
+    pattern = "['\[\]]"
+    pattern = re.compile(pattern)
+    top5happiest = pattern.sub('', str(topWords["top"]))
+    top5saddest = pattern.sub('', str(topWords["bottom"]))
+
+
     print("Overall: " + str(overallScore))
-    print("Happiest: " + str(getHappiestTweet(tweetsOnlyScores)))
-    print("Saddest: " + str(getSaddestTweet(tweetsOnlyScores)))
-    print("Top 5: " + str(topWords))
+    print("Happiest: " + str(getHappiestTweet(tweetsOnlyScores)["score"]))
+    print("Saddest: " + str(getSaddestTweet(tweetsOnlyScores)["score"]))
+    print("Top 5 happiest: " + str(top5happiest))
+    print("Top 5 saddest: " + str(top5saddest))
     print("Tweets amount: " + str(len(tweetsDict)))
     print("Words matched: " + str(wordsAmount))
-    print("Highest weekday and score: " + str(highest))
-    print("Lowest weekday and score: " + str(lowest))
+    print("Highest weekday day: " + str(highest["Day"]))
+    print("Highest weekday score: " + str(highest["Score"]))
+    print("Lowest weekday day: " + str(lowest["Day"]))
+    print("Lowest weekday score: " + str(lowest["Score"]))
 
 
     toc2 = time.perf_counter()
@@ -636,4 +645,4 @@ def debugPrint(text):
     else:
         return
 
-getData("MisterBens0n", 3200)
+getData("MisterBens0n", 500)
