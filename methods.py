@@ -104,6 +104,16 @@ def getData(username, count):
         "averagesRange" : averagesRange
     }
 
+    print("Overall: " + str(overallScore))
+    print("Happiest: " + str(getHappiestTweet(tweetsOnlyScores)))
+    print("Saddest: " + str(getSaddestTweet(tweetsOnlyScores)))
+    print("Top 5: " + str(topWords))
+    print("Tweets amount: " + str(len(tweetsDict)))
+    print("Words matched: " + str(wordsAmount))
+    print("Highest weekday and score: " + str(highest))
+    print("Lowest weekday and score: " + str(lowest))
+
+
     toc2 = time.perf_counter()
     print(f"Done in {toc2 - tic:0.4f} seconds")
 
@@ -625,3 +635,5 @@ def debugPrint(text):
         print(text)
     else:
         return
+
+getData("MisterBens0n", 3200)
