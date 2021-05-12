@@ -3,6 +3,7 @@ import pyhmeter
 import re
 from heapq import nlargest, nsmallest
 from operator import itemgetter
+import csv
 
 file = pyhmeter.load_scores()
 onlyWord = pyhmeter.load_scores_word()
@@ -25,3 +26,20 @@ def getHapinessScore(tweet_text):
         return -1, -1
     else:
         return score, pyhmeter.matchValueList
+
+
+def getHapinessScore2():
+    
+    global file
+    file = pyhmeter.load_scores_word()
+    count = 0
+    for x in file:
+        pyhmeterr = getPyhmeter(x)
+        score = pyhmeterr.happiness_score()
+        if score == None :
+            print("")
+        else:
+            count += 1
+
+    print(count)
+    

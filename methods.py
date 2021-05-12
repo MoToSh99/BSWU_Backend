@@ -15,6 +15,8 @@ import pandas as pd
 import json
 import math
 from decouple import config
+import csv
+import os.path
 
 debug = False
 lastDate = datetime.datetime.now()
@@ -54,7 +56,9 @@ def getData(username, count):
         return {"Error" : "No tweets"}
 
     toc = time.perf_counter()
-    print(f"Downloaded data in {toc - tic:0.4f} seconds")
+    load_time = f"{toc - tic:0.4f}"
+    print(f"Downloaded data in " + load_time + " seconds")
+    
 
     listAllTweets = {username : alltweets}
 
@@ -105,9 +109,10 @@ def getData(username, count):
     }
 
     toc2 = time.perf_counter()
-    print(f"Done in {toc2 - tic:0.4f} seconds")
+    process_time = f"{toc2 - tic:0.4f}"
+    print(f"Done in " + process_time + " seconds")
 
-    return data
+    return data, load_time, process_time
 
 # Get all tweets and collect them in a dictionary
 def getTweetsDictRaw(allTweets):
@@ -453,11 +458,15 @@ def scoreEvolution(tweetsDict):
         for tweet in tweetsDict:
             date = tweet["created"]
             dateObject = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+            if count == 0:
+                lastDate = dateObject
             if dateObject.day != currentDay:
                 diff = currentDay - dateObject.day
                 if diff < 1:
                     diff = diff + 30
                 currentDay = dateObject.day
+                if count >= len(dateArray):
+                    count = count - 1
                 if tweetNumber != 0:
                     value = float("{:.2f}".format(scoreSum / tweetNumber))
                     dateArray[count] = value
@@ -625,3 +634,38 @@ def debugPrint(text):
         print(text)
     else:
         return
+
+def getUsersProcessTime(amount, start=1):
+    file = csv.reader(open("Users.csv", "r"), delimiter=' ')
+    for x in range(0):
+        next(file)
+
+    file = (list(file))
+    file_exists = os.path.isfile('data' + str(amount) + '.csv')
+    
+    with open('data' + str(amount) + '.csv', 'a', newline='') as csvfile:
+        fieldnames = ['username', 'data_load_time', 'data_processing_time']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        count = start
+        if not file_exists:
+            writer.writeheader()
+
+        if (start > 1) : file = file[start-1:len(file)]
+
+        for x in file:
+            print(count)
+            username = x[0]
+            print(username)
+            try:
+                 _, load_time, processing_time = getData(username, amount)
+                 writer.writerow({'username': username, 'data_load_time': load_time,'data_processing_time': processing_time })
+                 count +=1
+                 print("\n")
+            except TweepError as e:
+                print("Trying again")
+                getUsersProcessTime(200,count)
+                break
+        
+
+getUsersProcessTime(200,88)
