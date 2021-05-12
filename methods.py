@@ -664,8 +664,8 @@ def getUsersProcessTime(amount, start=1):
                  print("\n")
             except TweepError as e:
                 print("Trying again")
-                getUsersProcessTime(200,count)
+                getUsersProcessTime(amount,count)
                 break
         
 
-getUsersProcessTime(200)
+getUsersProcessTime(3200)
