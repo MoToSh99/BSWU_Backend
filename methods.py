@@ -644,7 +644,7 @@ def getUsersProcessTime(amount, start=1):
     file_exists = os.path.isfile('data' + str(amount) + '.csv')
     
     with open('data' + str(amount) + '.csv', 'a', newline='') as csvfile:
-        fieldnames = ['username', 'data_load_time', 'data_processing_time']
+        fieldnames = ['id','username', 'data_load_time', 'data_processing_time']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         count = start
@@ -659,7 +659,7 @@ def getUsersProcessTime(amount, start=1):
             print(username)
             try:
                  _, load_time, processing_time = getData(username, amount)
-                 writer.writerow({'username': username, 'data_load_time': load_time,'data_processing_time': processing_time })
+                 writer.writerow({'id' : count, 'username': username, 'data_load_time': load_time,'data_processing_time': processing_time })
                  count +=1
                  print("\n")
             except TweepError as e:
@@ -668,4 +668,4 @@ def getUsersProcessTime(amount, start=1):
                 break
         
 
-getUsersProcessTime(200,88)
+getUsersProcessTime(200)
